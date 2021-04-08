@@ -49,7 +49,7 @@ def search():
         gdown.download(url, output, quiet=False)
 
         with zipfile.ZipFile(output, 'r') as zip_ref:
-            zip_ref.extractall('sidd/')
+            zip_ref.extractall('geo/sidd/')
 
         return render_template("result.html", offensive_text_compared={}, filename="static/ugh.jpg")
 

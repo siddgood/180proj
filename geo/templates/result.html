@@ -5,22 +5,9 @@
 {% endblock %}
 
 {% block main %}
-    <table class="table table-striped" style="width:100%">
-        <tr>
-            <th>Symbol</th>
-            <th>Compared To</th>
-            <th>Edit Distance</th>
-            <th>From List:</th>
-        </tr>
-        {% for symbol in offensive_text_compared %}
-            <tr>
-                <td>{{ symbol.orig }}</td>
-                <td>{{ symbol.compared }}</td>
-                <td>{{ symbol.edit_dist }}</td>
-                <td>{{ symbol.from_list }}</td>
-            </tr>
-        {% endfor %}
-    </table>
-
-    <img src="{{ filename }}" />
+  {% for table in tables %}
+              {{titles[loop.index]}}
+              {{ table|safe }}
+  {% endfor %}
+  <img src="{{ filename }}" />
 {% endblock %}

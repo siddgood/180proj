@@ -6,6 +6,7 @@ from tempfile import mkdtemp
 
 import gdown
 import zipfile
+import geopandas as gpd
 
 # configure application
 app = Flask(__name__)
@@ -45,13 +46,17 @@ def search():
 
         url = "https://drive.google.com/uc?id=" + file_id
         output = 'geo/tmpData/test.zip'
-        #output = 'geo/static/ouch.jpg'
         gdown.download(url, output, quiet=False)
 
         with zipfile.ZipFile(output, 'r') as zip_ref:
             zip_ref.extractall('geo/tmpData/')
 
-        return render_template("result.html", offensive_text_compared={}, filename="static/ouch.jpg")
+        fl_counties = gpd.read_file("geo/tmpData/cntbnd_sep15/cntbnd_sep15.shp") # LINESTRING geometry
+        fl_counties = fl_counties.to_crs("EPSG:4326")
+
+        # return render_template("result.html", filename="static/ouch.jpg")
+
+        return render_template("result.html", tables=[fl_counties.to_html(classes='data')], titles=fl_counties.columns.values)
 
 def getApp():
     return app

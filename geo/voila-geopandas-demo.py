@@ -17,7 +17,7 @@ import geopy
 
 def join_reducer(left, right):
     """
-    Take two geodataframes, do a spatial join, and return 
+    Take two geodataframes, do a spatial join, and return
     without the index_left and index_right columns
     """
     sjoin = gpd.sjoin(left, right, how='inner')
@@ -27,7 +27,7 @@ def join_reducer(left, right):
         except Exception as e:
             # ignore if there are no index columns
             pass
-    
+
     return sjoin
 
 
@@ -45,7 +45,7 @@ def sample_roads(geodf, n=100, isLine=False):
   m = len(geodf)
   lengths = geodf['LENGTH'].tolist()
   total_length = geodf.sum()['LENGTH']
-  lengths_normalized = [l/total_length for l in lengths] 
+  lengths_normalized = [l/total_length for l in lengths]
 
   indices = np.random.choice(range(m), size=n, p=lengths_normalized)
   # indices = np.random.choice(range(m), size=n)
@@ -55,17 +55,17 @@ def sample_roads(geodf, n=100, isLine=False):
     for index in indices:
       line = geodf.iloc[index]['geometry']
       lines.append(line)
-  
+
     # return MultiPoint(lines)
     return gpd.GeoSeries(lines)
-  
+
   points = []
   for index in indices:
       line = geodf.iloc[index]['geometry']
       offset = np.random.rand() * line.length
       point = line.interpolate(offset)
       points.append(point)
-      
+
   # return MultiPoint(points)
   return gpd.GeoSeries(points)
 
@@ -75,7 +75,7 @@ def sample_roads(geodf, n=100, isLine=False):
 
 def sample_location(geodf, n, buffer=None):
   '''
-  Samples from a shapefile that has 
+  Samples from a shapefile that has
   ALL entries as point geometries
   '''
   m = len(geodf)
@@ -138,7 +138,7 @@ fl_counties = fl_counties.to_crs("EPSG:4326")
 # In[9]:
 
 
-fl_hil = fl_counties[fl_counties['TIGERNAME'] == 'Hillsborough'] 
+fl_hil = fl_counties[fl_counties['TIGERNAME'] == 'Hillsborough']
 
 
 # In[10]:
@@ -345,4 +345,3 @@ output_2['LENGTH'] = length_arr
 output_lines_2 = sample_roads(output_2, n=3, isLine=True)
 ax = output_2.plot(figsize=(14, 12))
 output_lines_2.plot(marker='*', color='red', markersize=60, ax=ax)
-

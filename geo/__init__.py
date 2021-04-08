@@ -32,7 +32,6 @@ def index():
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
-    """Get stock quote."""
 
     if request.method == "GET":
 
@@ -45,12 +44,12 @@ def search():
         file_id = name[32:].split('/')[0]
 
         url = "https://drive.google.com/uc?id=" + file_id
-        output = 'geo/sidd/test.zip'
+        output = 'geo/tmpData/test.zip'
         #output = 'geo/static/ouch.jpg'
         gdown.download(url, output, quiet=False)
 
         with zipfile.ZipFile(output, 'r') as zip_ref:
-            zip_ref.extractall('geo/sidd/')
+            zip_ref.extractall('geo/tmpData/')
 
         return render_template("result.html", offensive_text_compared={}, filename="static/ouch.jpg")
 

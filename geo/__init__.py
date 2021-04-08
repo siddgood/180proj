@@ -29,34 +29,37 @@ Session(app)
 @app.route("/")
 def index():
     #returns index page
-    return redirect(url_for('search'))
+    return redirect(url_for('upload'))
 
-@app.route("/search", methods=["GET", "POST"])
-def search():
+@app.route("/upload", methods=["GET", "POST"])
+def upload():
 
     if request.method == "GET":
 
-        return render_template("search.html")
+        return render_template("upload.html")
 
     if request.method == "POST":
 
-        name = request.form.get("link")
+        link_string = request.form.get("link")
+        link_string = link_string.replace(' ', '')
+        links = link_string.split(",")
 
-        file_id = name[32:].split('/')[0]
+        for l in links:
+            file_id = l[32:].split('/')[0]
 
-        url = "https://drive.google.com/uc?id=" + file_id
-        output = 'geo/tmpData/test.zip'
-        gdown.download(url, output, quiet=False)
+            url = "https://drive.google.com/uc?id=" + file_id
+            output = 'geo/tmpData/tmp.zip'
+            gdown.download(url, output, quiet=False)
 
-        with zipfile.ZipFile(output, 'r') as zip_ref:
-            zip_ref.extractall('geo/tmpData/')
+            with zipfile.ZipFile(output, 'r') as zip_ref:
+                zip_ref.extractall('geo/tmpData/')
 
         fl_counties = gpd.read_file("geo/tmpData/cntbnd_sep15/cntbnd_sep15.shp") # LINESTRING geometry
         fl_counties = fl_counties.to_crs("EPSG:4326")
 
         # return render_template("result.html", filename="static/ouch.jpg")
 
-        return render_template("result.html", tables=[fl_counties.to_html(classes='data')], titles=fl_counties.columns.values)
+        return render_template("result.html", tables=[fl_counties.to_html(classes='data', max_rows=5, max_cols=5)], titles=fl_counties.columns.values)
 
 def getApp():
     return app

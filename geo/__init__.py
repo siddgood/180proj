@@ -45,13 +45,14 @@ def search():
         file_id = name[32:].split('/')[0]
 
         url = "https://drive.google.com/uc?id=" + file_id
-        output = 'geo/sidd/test.zip'
+        #output = 'geo/sidd/test.zip'
+        output = 'geo/static/ouch.jpg'
         gdown.download(url, output, quiet=False)
 
-        with zipfile.ZipFile(output, 'r') as zip_ref:
-            zip_ref.extractall('geo/sidd/')
+        # with zipfile.ZipFile(output, 'r') as zip_ref:
+        #     zip_ref.extractall('geo/sidd/')
 
-        return render_template("result.html", offensive_text_compared={}, filename="static/ugh.jpg")
+        return render_template("result.html", offensive_text_compared={}, filename="static/ouch.jpg")
 
 def getApp():
     return app

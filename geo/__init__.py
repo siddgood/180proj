@@ -1,4 +1,4 @@
-from flask import Flask, flash, redirect, render_template, request, session, url_for
+from flask import Flask, flash, redirect, render_template, request, session, url_for, send_file
 from flask_session import Session
 from passlib.apps import custom_app_context as pwd_context
 from passlib.hash import pbkdf2_sha256
@@ -13,12 +13,15 @@ import os
 from custom_geopandas_methods import *
 
 import base64
-from io import BytesIO
+from io import BytesIO, StringIO
 import matplotlib.pyplot as plt
 import pandas as pd
 
 # configure application
 app = Flask(__name__)
+
+# to use sessions
+app.secret_key = b"_o'yyUq1.45{s{a"
 
 # ensure responses aren't cached
 if app.config["DEBUG"]:
@@ -153,10 +156,35 @@ def filter():
         fl_roads_hil.plot(ax=ax)
         sample_road_lines.plot(color='red', ax=ax)
 
+        # resp = make_response(df.to_csv())
+        # resp.headers["Content-Disposition"] = "attachment; filename=export.csv"
+        # resp.headers["Content-Type"] = "text/csv"
+        # return resp
+
+        session["df"] = sample_road_lines.to_csv(
+            index=False, header=True, sep=";")
         return render_template("filter.html", plot1=plot1, plot2=plot2,
                                road_points_table=reverse_geocode(
                                    sample_road_points).to_html(),
                                plot3=plot3)
+
+
+@app.route("/download", methods=["POST"])
+def download():
+    # Get the CSV data as a string from the session
+    csv = session["df"] if "df" in session else ""
+
+    # Create a string buffer
+    buf_str = StringIO(csv)
+
+    # Create a bytes buffer from the string buffer
+    buf_byt = BytesIO(buf_str.read().encode("utf-8"))
+
+    # Return the CSV data as an attachment
+    return send_file(buf_byt,
+                     mimetype="text/csv",
+                     as_attachment=True,
+                     attachment_filename="data.csv")
 
 
 def figToHTML(figure):

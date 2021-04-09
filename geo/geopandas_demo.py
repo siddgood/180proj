@@ -39,82 +39,82 @@ def join_reducer(left, right):
 # Source: https://github.com/gboeing/osmnx/issues/639
 
 def sample_roads(geodf, n=100, isLine=False):
-  '''
-  Sample points and lines(street segments) from a road network
-  '''
-  m = len(geodf)
-  lengths = geodf['LENGTH'].tolist()
-  total_length = geodf.sum()['LENGTH']
-  lengths_normalized = [l/total_length for l in lengths]
+    '''
+    Sample points and lines(street segments) from a road network
+    '''
+    m = len(geodf)
+    lengths = geodf['LENGTH'].tolist()
+    total_length = geodf.sum()['LENGTH']
+    lengths_normalized = [l/total_length for l in lengths]
 
-  indices = np.random.choice(range(m), size=n, p=lengths_normalized)
-  # indices = np.random.choice(range(m), size=n)
+    indices = np.random.choice(range(m), size=n, p=lengths_normalized)
+    # indices = np.random.choice(range(m), size=n)
 
-  if isLine:
-    lines = []
+    if isLine:
+        lines = []
+        for index in indices:
+            line = geodf.iloc[index]['geometry']
+            lines.append(line)
+
+        # return MultiPoint(lines)
+        return gpd.GeoSeries(lines)
+
+    points = []
     for index in indices:
-      line = geodf.iloc[index]['geometry']
-      lines.append(line)
+        line = geodf.iloc[index]['geometry']
+        offset = np.random.rand() * line.length
+        point = line.interpolate(offset)
+        points.append(point)
 
-    # return MultiPoint(lines)
-    return gpd.GeoSeries(lines)
-
-  points = []
-  for index in indices:
-      line = geodf.iloc[index]['geometry']
-      offset = np.random.rand() * line.length
-      point = line.interpolate(offset)
-      points.append(point)
-
-  # return MultiPoint(points)
-  return gpd.GeoSeries(points)
+    # return MultiPoint(points)
+    return gpd.GeoSeries(points)
 
 
 # In[4]:
 
 
 def sample_location(geodf, n, buffer=None):
-  '''
-  Samples from a shapefile that has
-  ALL entries as point geometries
-  '''
-  m = len(geodf)
-  indices = np.random.choice(range(m), size=n)
-  sample = []
+    '''
+    Samples from a shapefile that has
+    ALL entries as point geometries
+    '''
+    m = len(geodf)
+    indices = np.random.choice(range(m), size=n)
+    sample = []
 
-  for index in indices:
-    point = geodf.iloc[index]['geometry']
-    sample.append(point)
+    for index in indices:
+        point = geodf.iloc[index]['geometry']
+        sample.append(point)
 
-  output = gpd.GeoSeries(sample)
-  if buffer:
-    output.set_crs('EPSG:4326', inplace=True)
-    output = output.to_crs(epsg=3763)
-    output = output.buffer(buffer)
-    output = output.to_crs(epsg=4326)
-  return output
+    output = gpd.GeoSeries(sample)
+    if buffer:
+        output.set_crs('EPSG:4326', inplace=True)
+        output = output.to_crs(epsg=3763)
+        output = output.buffer(buffer)
+        output = output.to_crs(epsg=4326)
+    return output
 
 
 # In[5]:
 
 
 def reverse_geocode(geoseries, provider='arcgis'):
-  '''
-  Function to reverse geocode GeoSeries points
-  '''
-  return gpd.tools.reverse_geocode(list(geoseries), provider=provider)
+    '''
+    Function to reverse geocode GeoSeries points
+    '''
+    return gpd.tools.reverse_geocode(list(geoseries), provider=provider)
 
 
 # In[6]:
 
 
 def geoseries_to_geodf(geoseries):
-  '''
-  Converts a simple GeoSeries to a GeoPandas dataframe with a geometry column
-  '''
-  output_gdf = gpd.GeoDataFrame(geoseries)
-  output_gdf.rename(columns={0:'geometry'}).set_geometry('geometry')
-  return output_gdf
+    '''
+    Converts a simple GeoSeries to a GeoPandas dataframe with a geometry column
+    '''
+    output_gdf = gpd.GeoDataFrame(geoseries)
+    output_gdf.rename(columns={0: 'geometry'}).set_geometry('geometry')
+    return output_gdf
 
 
 # # Sample Points and Lines
@@ -124,14 +124,16 @@ def geoseries_to_geodf(geoseries):
 # In[7]:
 
 
-fl_roads = gpd.read_file("./data/majrds_oct19/majrds_oct19.shp") # LINESTRING geometry
+fl_roads = gpd.read_file(
+    "./data/majrds_oct19/majrds_oct19.shp")  # LINESTRING geometry
 fl_roads = fl_roads.to_crs("EPSG:4326")
 
 
 # In[8]:
 
 
-fl_counties = gpd.read_file("./data/cntbnd_sep15/cntbnd_sep15.shp") # POLYGON geometry
+fl_counties = gpd.read_file(
+    "./data/cntbnd_sep15/cntbnd_sep15.shp")  # POLYGON geometry
 fl_counties = fl_counties.to_crs("EPSG:4326")
 
 
@@ -144,20 +146,21 @@ fl_hil = fl_counties[fl_counties['TIGERNAME'] == 'Hillsborough']
 # In[10]:
 
 
-fl_roads_hil = join_reducer(fl_roads, fl_hil) # road network MUST be left parameter when joining
+# road network MUST be left parameter when joining
+fl_roads_hil = join_reducer(fl_roads, fl_hil)
 
 
 # In[11]:
 
 
-ax = fl_hil.plot(figsize=(14,12), facecolor="none", edgecolor="black")
+ax = fl_hil.plot(figsize=(14, 12), facecolor="none", edgecolor="black")
 fl_roads_hil.plot(ax=ax)
 
 
 # In[12]:
 
 
-sample_road_points = sample_roads(fl_roads_hil, n=5)
+sample_road_points = sample_roads(fl_roads_hil, n=5, isLine=False)
 
 
 # In[13]:
@@ -169,7 +172,7 @@ reverse_geocode(sample_road_points)
 # In[14]:
 
 
-ax = fl_hil.plot(figsize=(14,12), facecolor="none", edgecolor="black")
+ax = fl_hil.plot(figsize=(14, 12), facecolor="none", edgecolor="black")
 fl_roads_hil.plot(ax=ax)
 sample_road_points.plot(marker='*', color='red', markersize=50, ax=ax)
 
@@ -184,7 +187,7 @@ sample_road_lines
 # In[16]:
 
 
-ax = fl_hil.plot(figsize=(14,12), facecolor="none", edgecolor="black")
+ax = fl_hil.plot(figsize=(14, 12), facecolor="none", edgecolor="black")
 fl_roads_hil.plot(ax=ax)
 sample_road_lines.plot(color='red', ax=ax)
 
@@ -194,7 +197,8 @@ sample_road_lines.plot(color='red', ax=ax)
 # In[17]:
 
 
-fl_civic = gpd.read_file("./data/gc_civiccenter_jan19/gc_civiccenter_jan19.shp")
+fl_civic = gpd.read_file(
+    "./data/gc_civiccenter_jan19/gc_civiccenter_jan19.shp")
 fl_civic = fl_civic.to_crs("EPSG:4326")
 
 
@@ -236,20 +240,21 @@ fl_civic_hil.plot(ax=ax, color='blue')
 # In[23]:
 
 
-ax = fl_hil.plot(figsize=(14,12), facecolor="none", edgecolor="black")
+ax = fl_hil.plot(figsize=(14, 12), facecolor="none", edgecolor="black")
 fl_civic_hil.plot(marker='*', color='red', markersize=50, ax=ax)
 
 
 # In[24]:
 
 
-sample_civic_region = sample_location(fl_civic_hil, n=2, buffer=8046.72) # buffer in meters (1 mi = 1609.34 m)
+# buffer in meters (1 mi = 1609.34 m)
+sample_civic_region = sample_location(fl_civic_hil, n=2, buffer=8046.72)
 
 
 # In[25]:
 
 
-ax = fl_hil.plot(figsize=(20,18), facecolor="none", edgecolor="black")
+ax = fl_hil.plot(figsize=(20, 18), facecolor="none", edgecolor="black")
 fl_roads_hil.plot(ax=ax)
 sample_civic_region.plot(marker='*', color='red', ax=ax)
 
@@ -258,7 +263,8 @@ sample_civic_region.plot(marker='*', color='red', ax=ax)
 
 
 sample_civic_df = gpd.GeoDataFrame(sample_civic_region)
-sample_civic_df = sample_civic_df.rename(columns={0:'geometry'}).set_geometry('geometry')
+sample_civic_df = sample_civic_df.rename(
+    columns={0: 'geometry'}).set_geometry('geometry')
 
 
 # In[27]:
@@ -270,7 +276,7 @@ fl_roads_hil_sample_civic = join_reducer(fl_roads_hil, sample_civic_df)
 # In[28]:
 
 
-ax = fl_hil.plot(figsize=(20,18), facecolor="none", edgecolor="black")
+ax = fl_hil.plot(figsize=(20, 18), facecolor="none", edgecolor="black")
 fl_roads_hil_sample_civic.plot(ax=ax)
 sample_civic_region.plot(marker='*', color='red', ax=ax)
 
@@ -278,7 +284,7 @@ sample_civic_region.plot(marker='*', color='red', ax=ax)
 # In[29]:
 
 
-fl_roads_hil_sample_civic.plot(figsize=(14,12))
+fl_roads_hil_sample_civic.plot(figsize=(14, 12))
 
 
 # In[30]:
@@ -299,7 +305,7 @@ fl_roads_hil_sample_civic.plot(figsize=(14,12))
 
 lines = fl_roads_hil.geometry.unary_union
 intersection = lines.intersection(sample_civic_df.geometry[0])
-output = gpd.GeoDataFrame({'geometry':intersection})
+output = gpd.GeoDataFrame({'geometry': intersection})
 
 
 # In[33]:
@@ -307,8 +313,8 @@ output = gpd.GeoDataFrame({'geometry':intersection})
 
 length_arr = []
 for i in range(len(output)):
-  len_i = output['geometry'][i].length
-  length_arr.append(len_i)
+    len_i = output['geometry'][i].length
+    length_arr.append(len_i)
 
 output['LENGTH'] = length_arr
 
@@ -325,7 +331,7 @@ output_points.plot(marker='*', color='red', markersize=60, ax=ax)
 
 
 intersection_2 = lines.intersection(sample_civic_df.geometry[1])
-output_2 = gpd.GeoDataFrame({'geometry':intersection_2})
+output_2 = gpd.GeoDataFrame({'geometry': intersection_2})
 
 
 # In[38]:
@@ -333,8 +339,8 @@ output_2 = gpd.GeoDataFrame({'geometry':intersection_2})
 
 length_arr = []
 for i in range(len(output_2)):
-  len_i = output_2['geometry'][i].length
-  length_arr.append(len_i)
+    len_i = output_2['geometry'][i].length
+    length_arr.append(len_i)
 
 output_2['LENGTH'] = length_arr
 

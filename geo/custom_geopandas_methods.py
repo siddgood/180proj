@@ -20,3 +20,42 @@ def join_reducer(left, right):
             pass
 
     return sjoin
+
+
+def sample_roads(geodf, n=100, isLine=False):
+    '''
+    Sample points and lines(street segments) from a road network
+    '''
+    m = len(geodf)
+    lengths = geodf['LENGTH'].tolist()
+    total_length = geodf.sum()['LENGTH']
+    lengths_normalized = [l/total_length for l in lengths]
+
+    indices = np.random.choice(range(m), size=n, p=lengths_normalized)
+    # indices = np.random.choice(range(m), size=n)
+
+    if isLine:
+        lines = []
+        for index in indices:
+            line = geodf.iloc[index]['geometry']
+            lines.append(line)
+
+        # return MultiPoint(lines)
+        return gpd.GeoSeries(lines)
+
+    points = []
+    for index in indices:
+        line = geodf.iloc[index]['geometry']
+        offset = np.random.rand() * line.length
+        point = line.interpolate(offset)
+        points.append(point)
+
+    # return MultiPoint(points)
+    return gpd.GeoSeries(points)
+
+
+def reverse_geocode(geoseries, provider='arcgis'):
+    '''
+    Function to reverse geocode GeoSeries points
+    '''
+    return gpd.tools.reverse_geocode(list(geoseries), provider=provider)

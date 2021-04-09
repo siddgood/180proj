@@ -26,22 +26,16 @@
           </div>
       </fieldset>
     </form>
-    {% for table in table1 %}
-        
-          {{title1[loop.index]}}              
-          {{ table|safe }}
-        
-      {% endfor %}
-      {% for table in table2 %}
-      
-                  {{title2[loop.index]}}
-                  {{ table|safe }}
-                
-      {% endfor %}
+    <div style="height: 500px; overflow: auto;"> 
+        {{ table1|safe}}
+    </div>
+    <div style="height: 500px; overflow: auto;"> 
+          {{ table2|safe}}
+    </div>
     <!-- <div style="height:40px; overflow:hidden"> -->
     <!-- {{ table1|safe }}
     {{ table2|safe }} -->
-  <!-- </div> --> -->
+  <!-- </div> --> 
     <!-- <div style="height:40px; overflow:hidden">
       {% for table in table1 %}
         

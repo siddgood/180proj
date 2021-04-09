@@ -10,7 +10,12 @@ import geopandas as gpd
 
 import os
 
-from custom_geopandas_methods import join_reducer
+from custom_geopandas_methods import *
+
+import base64
+from io import BytesIO
+import matplotlib.pyplot as plt
+import pandas as pd
 
 # configure application
 app = Flask(__name__)
@@ -80,13 +85,15 @@ def upload():
         # return render_template("result.html", filename="static/ouch.jpg")
 
         return render_template("result.html",
-                               table1=[fl_counties.to_html(
-                                   classes='data', max_rows=5)],
-                               table2=[fl_roads.to_html(
-                                   classes='data', max_rows=5)],
+                               table1=fl_counties.to_html(  # tables is currently a list
+                                   classes='data', max_rows=5),
+                               table2=fl_roads.to_html(
+                                   classes='data', max_rows=5),
                                title1=fl_counties.columns.values,
                                title2=fl_roads.columns.values,
                                files=list_of_files)
+
+#pylint: disable-all
 
 
 @app.route("/filter", methods=["GET", "POST"])
@@ -109,9 +116,7 @@ def filter():
             list_of_files[1] + "/" + list_of_files[1] + ".shp"
         fl_counties = gpd.read_file(filePathCounties)  # POLYGON geometry
         fl_counties = fl_counties.to_crs("EPSG:4326")
-        print("counties")
-        print(request.form.get("column"))
-        print(request.form.get("value"))
+
         fl_hil = fl_counties[fl_counties[request.form.get("column")]
                              == request.form.get("value")]
 
@@ -119,10 +124,47 @@ def filter():
             list_of_files[0] + "/" + list_of_files[0] + ".shp"
         fl_roads = gpd.read_file(filePathRoads)  # LINESTRING geometry
         fl_roads = fl_roads.to_crs("EPSG:4326")
-        print("here1")
         fl_roads_hil = join_reducer(fl_roads, fl_hil)
-        print("here2")
-    return render_template("error.html")
+        fig1 = fl_hil.plot(figsize=(14, 12), facecolor="none",
+                           edgecolor="black").get_figure()
+
+        plot1 = figToHTML(fig1)
+
+        fig2 = fl_roads_hil.plot(ax=fl_hil.plot(figsize=(14, 12), facecolor="none",
+                                                edgecolor="black")).get_figure()
+
+        plot2 = figToHTML(fig2)
+
+        sample_road_points = sample_roads(fl_roads_hil, n=5, isLine=False)
+        reverse_geocode(sample_road_points)
+
+        plot3 = fl_hil.plot(
+            figsize=(14, 12), facecolor="none", edgecolor="black")
+
+        fl_roads_hil.plot(ax=plot3)
+        fig3 = sample_road_points.plot(
+            marker='*', color='red', markersize=50, ax=plot3).get_figure()
+
+        plot3 = figToHTML(fig3)
+        sample_road_lines = sample_roads(fl_roads_hil, n=5, isLine=True)
+        sample_road_lines
+
+        ax = fl_hil.plot(figsize=(14, 12), facecolor="none", edgecolor="black")
+        fl_roads_hil.plot(ax=ax)
+        sample_road_lines.plot(color='red', ax=ax)
+
+        return render_template("filter.html", plot1=plot1, plot2=plot2,
+                               road_points_table=reverse_geocode(
+                                   sample_road_points).to_html(),
+                               plot3=plot3)
+
+
+def figToHTML(figure):
+    tmpfile = BytesIO()
+    figure.savefig(tmpfile, format='png')
+    encoded1 = base64.b64encode(tmpfile.getvalue()).decode('utf-8')
+
+    return '<img src=\'data:image/png;base64,{}\'>'.format(encoded1)
 
 
 def getApp():

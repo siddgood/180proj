@@ -8,6 +8,10 @@ import gdown
 import zipfile
 import geopandas as gpd
 
+import os
+
+from custom_geopandas_methods import join_reducer
+
 # configure application
 app = Flask(__name__)
 
@@ -26,10 +30,12 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
+
 @app.route("/")
 def index():
-    #returns index page
+    # returns index page
     return redirect(url_for('upload'))
+
 
 @app.route("/upload", methods=["GET", "POST"])
 def upload():
@@ -54,16 +60,75 @@ def upload():
             with zipfile.ZipFile(output, 'r') as zip_ref:
                 zip_ref.extractall('geo/tmpData/')
 
-        fl_counties = gpd.read_file("geo/tmpData/cntbnd_sep15/cntbnd_sep15.shp") # LINESTRING geometry
+        path = os.getcwd() + "/geo/tmpData/"
+        list_of_files = []
+
+        for filename in os.listdir(path):
+
+            if ".zip" not in filename and "__MACOSX" not in filename:
+
+                list_of_files.append(filename)
+
+        fl_counties = gpd.read_file(
+            "geo/tmpData/" + list_of_files[0] + "/" + list_of_files[0] + ".shp")  # LINESTRING geometry
         fl_counties = fl_counties.to_crs("EPSG:4326")
+
+        fl_roads = gpd.read_file(
+            "geo/tmpData/" + list_of_files[1] + "/" + list_of_files[1] + ".shp")  # LINESTRING geometry
+        fl_roads = fl_counties.to_crs("EPSG:4326")
 
         # return render_template("result.html", filename="static/ouch.jpg")
 
-        return render_template("result.html", tables=[fl_counties.to_html(classes='data', max_rows=5, max_cols=5)], titles=fl_counties.columns.values)
+        return render_template("result.html",
+                               table1=[fl_counties.to_html(
+                                   classes='data', max_rows=5)],
+                               table2=[fl_roads.to_html(
+                                   classes='data', max_rows=5)],
+                               title1=fl_counties.columns.values,
+                               title2=fl_roads.columns.values,
+                               files=list_of_files)
+
+
+@app.route("/filter", methods=["GET", "POST"])
+def filter():
+    if request.method == "GET":
+
+        return render_template("error.html")
+
+    if request.method == "POST":
+        path = os.getcwd() + "/geo/tmpData/"
+        list_of_files = []
+
+        for filename in os.listdir(path):
+
+            if ".zip" not in filename and "__MACOSX" not in filename:
+
+                list_of_files.append(filename)
+
+        filePathCounties = "geo/tmpData/" + \
+            list_of_files[1] + "/" + list_of_files[1] + ".shp"
+        fl_counties = gpd.read_file(filePathCounties)  # POLYGON geometry
+        fl_counties = fl_counties.to_crs("EPSG:4326")
+        print("counties")
+        print(request.form.get("column"))
+        print(request.form.get("value"))
+        fl_hil = fl_counties[fl_counties[request.form.get("column")]
+                             == request.form.get("value")]
+
+        filePathRoads = "geo/tmpData/" + \
+            list_of_files[0] + "/" + list_of_files[0] + ".shp"
+        fl_roads = gpd.read_file(filePathRoads)  # LINESTRING geometry
+        fl_roads = fl_roads.to_crs("EPSG:4326")
+        print("here1")
+        fl_roads_hil = join_reducer(fl_roads, fl_hil)
+        print("here2")
+    return render_template("error.html")
+
 
 def getApp():
     return app
 
+
 if __name__ == '__main__':
-    #app.debug = True
+    # app.debug = True
     app.run(host='0.0.0.0', port=5001)

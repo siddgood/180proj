@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Results
+{% endblock %}
+
+{% block main %}
+<div>
+  Road network shapefile: <b>{{files[0]}}.shp</b>
+</div>
+<div>
+  Area of interest shapefile: <b>{{files[1]}}.shp</b>
+</div>
+<div>
+  {{titles}}
+</div>
+
+<header>
+  <h3>Uploaded Road Network Data</h3>
+  <div style="height: 500px; width: 1000px; overflow: auto;">
+    {{ table1|safe }}
+  </div>
+</header>
+<header>
+  <h3>Uploaded AOI Data</h3>
+  <div style="height: 500px; width: 1000px; overflow: auto;">
+    {{ table2|safe }}
+  </div>
+</header>
+
+<div>
+  Select specific column and column value to filter from AOI (<b>only needed if uploaded AOI is NOT a custom shapefile <i>i.e. county shapefile</i></b>)
+<form action="{{ url_for('filter') }}" method="post">
+  <fieldset>
+    <div class="form-group">
+      <input autocomplete="on" autofocus class="form-control" name="column" placeholder="Column to select from AOI" type="text" />
+    </div>
+  </fieldset>
+  <fieldset>
+    <div class="form-group">
+      <input autocomplete="on" autofocus class="form-control" name="value" placeholder="Column value to filter from AOI" type="text" />
+    </div>
+    <div class="form-group">
+      <button class="btn btn-default" type="submit">Join Road Network and AOI</button>
+    </div>
+  </fieldset>
+</form>
+</div>
+
+<!-- <div style="height:40px; overflow:hidden">
+      {% for table in table1 %}
+
+          {{title1[loop.index]}}
+          {{ table|safe }}
+
+      {% endfor %}
+    </div> -->
+<!-- <div style="height:40px; overflow:hidden">
+      {% for table in table2 %}
+
+          {{title2[loop.index]}}
+          {{ table|safe }}
+
+      {% endfor %}
+    </div> -->
+{% endblock %}

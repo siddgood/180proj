@@ -5,14 +5,14 @@
 {% endblock %}
 
 {% block main %}
-    <div>Please upload your files in this format: "(Road file link), (area of interest file link), (optional third file)" </div>
+    <div>Please upload your files in this format: "(Road file link), (area of interest file link)" </div>
     <form action="{{ url_for('upload') }}" method="post">
         <fieldset>
             <div class="form-group">
                 <input autocomplete="on" autofocus class="form-control" name="link" placeholder="File Link" type="text"/>
             </div>
             <div class="form-group">
-                <button class="btn btn-default" type="submit">Download File</button>
+                <button class="btn btn-default" type="submit">Upload File(s)</button>
             </div>
         </fieldset>
     </form>

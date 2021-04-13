@@ -89,9 +89,9 @@ def upload():
 
         return render_template("result.html",
                                table1=fl_counties.to_html(  # tables is currently a list
-                                   classes='data', max_rows=5),
+                                   classes='data', max_rows=5, max_cols=7),
                                table2=fl_roads.to_html(
-                                   classes='data', max_rows=5),
+                                   classes='data', max_rows=5, max_cols=7),
                                title1=fl_counties.columns.values,
                                title2=fl_roads.columns.values,
                                files=list_of_files)

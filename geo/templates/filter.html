@@ -1,45 +1,67 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    File Upload
+File Upload
 {% endblock %}
 
 {% block main %}
-    <div>
-        plot 1:
+<header>
+  <h3>AOI of "<b>{{user_column}}": "{{user_value}}"</b></h3>
+</header>
+<div>
+  {{ plot1|safe }}
+</div>
+
+<header>
+  <h3>AOI "<b>{{user_column}}": "{{user_value}}"</b> w/ Road Network</h3>
+</header>
+<div>
+  {{ plot2|safe }}
+</div>
+
+<div>
+  Specify sampling output type <b>("point" OR "line")</b> and how many samples to generate (i.e. "5")
+<form action="{{ url_for('sample') }}" method="post">
+  <fieldset>
+    <div class="form-group">
+      <input autocomplete="on" autofocus class="form-control" name="output_type" placeholder="Sample output type (point or line accepted)" type="text" />
     </div>
-    <div>
-        {{plot1 | safe}}
+  </fieldset>
+  <fieldset>
+    <div class="form-group">
+      <input autocomplete="on" autofocus class="form-control" name="sample_size" placeholder="Sample size (i.e. 5)" type="text" />
     </div>
-    <div>
-        plot 2:
+    <div class="form-group">
+      <button class="btn btn-default" type="submit">Sample</button>
     </div>
-    <div>
-        {{plot2 | safe}}
-    </div>
-    <div>
-        sampled roads:
-    </div>
-    <div style="height: 500px; overflow: auto;">
-        {{road_points_table | safe}}
-    </div>
-    <form action="/download" method="POST">
-        <div class="form-group">
-            <input type="Submit" value="Download CSV of Roads Sampled" >
-        </div>
-        <!-- <div class="form-group">
+  </fieldset>
+</form>
+</div>
+
+<!-- <div>
+  plot 2:
+</div>
+<div>
+  {{plot2 | safe}}
+</div>
+<div>
+  sampled roads:
+</div>
+<div style="height: 500px; overflow: auto;">
+  {{road_points_table | safe}}
+</div> -->
+<!-- <form action="/download" method="POST">
+  <div class="form-group">
+    <input type="Submit" value="Download CSV of Roads Sampled">
+  </div>
+  <div class="form-group">
             <button class="btn btn-default" type="submit">Join</button>
         </div> -->
-    </form>
-    <div>
-        plot 3:
-    </div>
-    <div>
-        {{plot3 | safe}}
-    </div>
-    <form action="/download" method="POST">
-        <div class="form-group">
-            <input type="Submit" value="Download CSV of Roads Sampled" >
-        </div>
-    </form>
+<!-- </form> -->
+<!-- <div>
+  plot 3:
+</div>
+<div>
+  {{plot3 | safe}}
+</div> -->
 {% endblock %}

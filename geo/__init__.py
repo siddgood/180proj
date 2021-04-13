@@ -38,6 +38,7 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
+# global_variables = {}
 
 @app.route("/")
 def index():
@@ -77,12 +78,14 @@ def upload():
 
                 list_of_files.append(filename)
 
-        fl_counties = gpd.read_file(
+        road_ntwrk = gpd.read_file(
             "geo/tmpData/" + list_of_files[0] + "/" + list_of_files[0] + ".shp")  # LINESTRING geometry
-        fl_counties = fl_counties.to_crs("EPSG:4326")
+        road_ntwrk = road_ntwrk.to_crs("EPSG:4326")
+        road_ntwrk_nogeom = road_ntwrk.drop(columns=road_ntwrk.columns[-1], axis=1, inplace=False)
 
-        fl_roads = gpd.read_file(
+        AOI = gpd.read_file(
             "geo/tmpData/" + list_of_files[1] + "/" + list_of_files[1] + ".shp")  # LINESTRING geometry
+<<<<<<< HEAD
         fl_roads = fl_counties.to_crs("EPSG:4326")
 
         # return render_template("result.html", filename="static/ouch.jpg")
@@ -94,9 +97,24 @@ def upload():
                                    classes='data', max_rows=5, max_cols=7),
                                title1=fl_counties.columns.values,
                                title2=fl_roads.columns.values,
-                               files=list_of_files)
+=======
+        AOI = AOI.to_crs("EPSG:4326")
+        AOI_nogeom = AOI.drop(columns=AOI.columns[-1], axis=1, inplace=False)
 
-#pylint: disable-all
+        # global_variables["AOI"] = AOI
+        # global_variables["road_ntwrk"] = road_ntwrk
+        session['AOI'] = AOI
+        session['road_ntwrk'] = road_ntwrk
+
+        return render_template("upload_result.html",
+                               table1=road_ntwrk_nogeom.to_html(  # tables is currently a list
+                                   classes='data', max_rows=100),
+                               table2=AOI_nogeom.to_html(
+                                   classes='data', max_rows=100),
+                               title1=road_ntwrk_nogeom.columns.values,
+                               title2=AOI_nogeom.columns.values,
+>>>>>>> ed7959fb0d26421b2e3e439b6fe0c3d9efbb2b0a
+                               files=list_of_files)
 
 
 @app.route("/filter", methods=["GET", "POST"])
@@ -106,76 +124,102 @@ def filter():
         return render_template("error.html")
 
     if request.method == "POST":
-        path = os.getcwd() + "/geo/tmpData/"
-        list_of_files = []
+        # road_ntwrk = global_variables['road_ntwrk']
+        # AOI = global_variables['AOI']
+        road_ntwrk = session['road_ntwrk']
+        AOI = session['AOI']
+        user_column = request.form.get("column")
+        user_value = request.form.get("value")
+        AOI_userfilter = AOI[AOI[user_column] == user_value]
 
-        for filename in os.listdir(path):
+        road_x_aoi = join_reducer(road_ntwrk, AOI_userfilter)
+        # global_variables["road_x_aoi"] = road_x_aoi
+        session['road_x_aoi'] = road_x_aoi
 
-            if ".zip" not in filename and "__MACOSX" not in filename:
+        fig1 = AOI_userfilter.plot(figsize=(14, 12), facecolor="none", edgecolor="black").get_figure()
 
-                list_of_files.append(filename)
+        fig1_HTML = figToHTML(fig1)
 
-        filePathCounties = "geo/tmpData/" + \
-            list_of_files[1] + "/" + list_of_files[1] + ".shp"
-        fl_counties = gpd.read_file(filePathCounties)  # POLYGON geometry
-        fl_counties = fl_counties.to_crs("EPSG:4326")
+        fig2 = road_x_aoi.plot(ax=AOI_userfilter.plot(figsize=(14, 12), facecolor="none", edgecolor="black")).get_figure()
 
-        fl_hil = fl_counties[fl_counties[request.form.get("column")]
-                             == request.form.get("value")]
+        fig2_HTML = figToHTML(fig2)
 
-        filePathRoads = "geo/tmpData/" + \
-            list_of_files[0] + "/" + list_of_files[0] + ".shp"
-        fl_roads = gpd.read_file(filePathRoads)  # LINESTRING geometry
-        fl_roads = fl_roads.to_crs("EPSG:4326")
-        fl_roads_hil = join_reducer(fl_roads, fl_hil)
-        fig1 = fl_hil.plot(figsize=(14, 12), facecolor="none",
-                           edgecolor="black").get_figure()
-
-        plot1 = figToHTML(fig1)
-
-        fig2 = fl_roads_hil.plot(ax=fl_hil.plot(figsize=(14, 12), facecolor="none",
-                                                edgecolor="black")).get_figure()
-
-        plot2 = figToHTML(fig2)
-
-        sample_road_points = sample_roads(fl_roads_hil, n=5, isLine=False)
-        reverse_geocode(sample_road_points)
-
-        plot3 = fl_hil.plot(
-            figsize=(14, 12), facecolor="none", edgecolor="black")
-
-        fl_roads_hil.plot(ax=plot3)
-        fig3 = sample_road_points.plot(
-            marker='*', color='red', markersize=50, ax=plot3).get_figure()
-
-        plot3 = figToHTML(fig3)
-        sample_road_lines = sample_roads(fl_roads_hil, n=5, isLine=True)
-        sample_road_lines
-
-        ax = fl_hil.plot(figsize=(14, 12), facecolor="none", edgecolor="black")
-        fl_roads_hil.plot(ax=ax)
-        sample_road_lines.plot(color='red', ax=ax)
+        # sample_road_points = sample_roads(fl_roads_hil, n=5, isLine=False)
+        # reverse_geocode(sample_road_points)
+        #
+        # plot3 = fl_hil.plot(
+        #     figsize=(14, 12), facecolor="none", edgecolor="black")
+        #
+        # fl_roads_hil.plot(ax=plot3)
+        # fig3 = sample_road_points.plot(
+        #     marker='*', color='red', markersize=50, ax=plot3).get_figure()
+        #
+        # plot3 = figToHTML(fig3)
+        # sample_road_lines = sample_roads(fl_roads_hil, n=5, isLine=True)
+        # sample_road_lines
+        #
+        # ax = fl_hil.plot(figsize=(14, 12), facecolor="none", edgecolor="black")
+        # fl_roads_hil.plot(ax=ax)
+        # sample_road_lines.plot(color='red', ax=ax)
 
         # resp = make_response(df.to_csv())
         # resp.headers["Content-Disposition"] = "attachment; filename=export.csv"
         # resp.headers["Content-Type"] = "text/csv"
         # return resp
+        #
+        # session["df"] = sample_road_lines.to_csv(
+        #     index=False, header=True, sep=";")
 
-        session["df"] = sample_road_lines.to_csv(
-            index=False, header=True, sep=";")
-        return render_template("filter.html", plot1=plot1, plot2=plot2,
-                               road_points_table=reverse_geocode(
-                                   sample_road_points).to_html(),
-                               plot3=plot3)
+        return render_template("filter.html", plot1=fig1_HTML, plot2=fig2_HTML, user_column=user_column, user_value=user_value)
+        # return render_template("filter.html", plot1=plot1, plot2=plot2,
+        #                        road_points_table=reverse_geocode(
+        #                            sample_road_points).to_html(),
+        #                        plot3=plot3)
+
+@app.route("/sample", methods=["GET", "POST"])
+def sample():
+    if request.method == "GET":
+
+        return render_template("error.html")
+
+    if request.method == "POST":
+        road_x_aoi = session['road_x_aoi']
+        user_output_type = request.form.get("output_type")
+        user_sample_size = int(request.form.get("sample_size"))
+
+        if user_output_type == 'line':
+            isLine = True
+        else:
+            isLine = False
+
+        sample_output = sample_roads(road_x_aoi, n=user_sample_size, isLine=isLine)
+        sample_output_gdf = gpd.GeoDataFrame(geometry=gpd.GeoSeries(sample_output))
+
+        if not isLine:
+            reverse_sample_output = reverse_geocode(sample_output)
+            session['sample_output_csv'] = reverse_sample_output.to_csv(index=False, header=True, sep=",")
+        else:
+            session['sample_output_csv'] = sample_output_gdf.to_csv(index=False, header=True, sep=",")
+
+        ax = road_x_aoi.plot(figsize=(14, 12))
+        if not isLine:
+            fig1 = sample_output.plot(marker='*', color='red', markersize=50, ax=ax).get_figure()
+            fig1_HTML = figToHTML(fig1)
+            return render_template("sample.html", plot1=fig1_HTML, sample_output=sample_output_gdf.to_html(classes='data'),
+                                    reverse_sample_output=reverse_sample_output.to_html(classes='data'))
+        else:
+            fig1 = sample_output.plot(color='red', ax=ax).get_figure()
+            fig1_HTML = figToHTML(fig1)
+            return render_template("sample.html", plot1=fig1_HTML, sample_output=sample_output_gdf.to_html(classes='data'))
 
 
 @app.route("/download", methods=["POST"])
 def download():
     # Get the CSV data as a string from the session
-    csv = session["df"] if "df" in session else ""
+    sample_ouput_csv = session["sample_output_csv"] if "sample_output_csv" in session else ""
 
     # Create a string buffer
-    buf_str = StringIO(csv)
+    buf_str = StringIO(sample_ouput_csv)
 
     # Create a bytes buffer from the string buffer
     buf_byt = BytesIO(buf_str.read().encode("utf-8"))
@@ -184,7 +228,7 @@ def download():
     return send_file(buf_byt,
                      mimetype="text/csv",
                      as_attachment=True,
-                     attachment_filename="data.csv")
+                     attachment_filename="sample_output_data.csv")
 
 
 def figToHTML(figure):

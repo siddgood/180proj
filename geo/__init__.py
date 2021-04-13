@@ -40,6 +40,7 @@ Session(app)
 
 # global_variables = {}
 
+
 @app.route("/")
 def index():
     # returns index page
@@ -81,23 +82,11 @@ def upload():
         road_ntwrk = gpd.read_file(
             "geo/tmpData/" + list_of_files[0] + "/" + list_of_files[0] + ".shp")  # LINESTRING geometry
         road_ntwrk = road_ntwrk.to_crs("EPSG:4326")
-        road_ntwrk_nogeom = road_ntwrk.drop(columns=road_ntwrk.columns[-1], axis=1, inplace=False)
+        road_ntwrk_nogeom = road_ntwrk.drop(
+            columns=road_ntwrk.columns[-1], axis=1, inplace=False)
 
         AOI = gpd.read_file(
             "geo/tmpData/" + list_of_files[1] + "/" + list_of_files[1] + ".shp")  # LINESTRING geometry
-<<<<<<< HEAD
-        fl_roads = fl_counties.to_crs("EPSG:4326")
-
-        # return render_template("result.html", filename="static/ouch.jpg")
-
-        return render_template("result.html",
-                               table1=fl_counties.to_html(  # tables is currently a list
-                                   classes='data', max_rows=5, max_cols=7),
-                               table2=fl_roads.to_html(
-                                   classes='data', max_rows=5, max_cols=7),
-                               title1=fl_counties.columns.values,
-                               title2=fl_roads.columns.values,
-=======
         AOI = AOI.to_crs("EPSG:4326")
         AOI_nogeom = AOI.drop(columns=AOI.columns[-1], axis=1, inplace=False)
 
@@ -113,7 +102,6 @@ def upload():
                                    classes='data', max_rows=100),
                                title1=road_ntwrk_nogeom.columns.values,
                                title2=AOI_nogeom.columns.values,
->>>>>>> ed7959fb0d26421b2e3e439b6fe0c3d9efbb2b0a
                                files=list_of_files)
 
 
@@ -136,11 +124,13 @@ def filter():
         # global_variables["road_x_aoi"] = road_x_aoi
         session['road_x_aoi'] = road_x_aoi
 
-        fig1 = AOI_userfilter.plot(figsize=(14, 12), facecolor="none", edgecolor="black").get_figure()
+        fig1 = AOI_userfilter.plot(
+            figsize=(14, 12), facecolor="none", edgecolor="black").get_figure()
 
         fig1_HTML = figToHTML(fig1)
 
-        fig2 = road_x_aoi.plot(ax=AOI_userfilter.plot(figsize=(14, 12), facecolor="none", edgecolor="black")).get_figure()
+        fig2 = road_x_aoi.plot(ax=AOI_userfilter.plot(
+            figsize=(14, 12), facecolor="none", edgecolor="black")).get_figure()
 
         fig2_HTML = figToHTML(fig2)
 
@@ -176,6 +166,7 @@ def filter():
         #                            sample_road_points).to_html(),
         #                        plot3=plot3)
 
+
 @app.route("/sample", methods=["GET", "POST"])
 def sample():
     if request.method == "GET":
@@ -192,21 +183,26 @@ def sample():
         else:
             isLine = False
 
-        sample_output = sample_roads(road_x_aoi, n=user_sample_size, isLine=isLine)
-        sample_output_gdf = gpd.GeoDataFrame(geometry=gpd.GeoSeries(sample_output))
+        sample_output = sample_roads(
+            road_x_aoi, n=user_sample_size, isLine=isLine)
+        sample_output_gdf = gpd.GeoDataFrame(
+            geometry=gpd.GeoSeries(sample_output))
 
         if not isLine:
             reverse_sample_output = reverse_geocode(sample_output)
-            session['sample_output_csv'] = reverse_sample_output.to_csv(index=False, header=True, sep=",")
+            session['sample_output_csv'] = reverse_sample_output.to_csv(
+                index=False, header=True, sep=",")
         else:
-            session['sample_output_csv'] = sample_output_gdf.to_csv(index=False, header=True, sep=",")
+            session['sample_output_csv'] = sample_output_gdf.to_csv(
+                index=False, header=True, sep=",")
 
         ax = road_x_aoi.plot(figsize=(14, 12))
         if not isLine:
-            fig1 = sample_output.plot(marker='*', color='red', markersize=50, ax=ax).get_figure()
+            fig1 = sample_output.plot(
+                marker='*', color='red', markersize=50, ax=ax).get_figure()
             fig1_HTML = figToHTML(fig1)
             return render_template("sample.html", plot1=fig1_HTML, sample_output=sample_output_gdf.to_html(classes='data'),
-                                    reverse_sample_output=reverse_sample_output.to_html(classes='data'))
+                                   reverse_sample_output=reverse_sample_output.to_html(classes='data'))
         else:
             fig1 = sample_output.plot(color='red', ax=ax).get_figure()
             fig1_HTML = figToHTML(fig1)

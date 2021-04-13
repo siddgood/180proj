@@ -45,6 +45,12 @@ Results
     </div>
   </fieldset>
 </form>
+{% if scrollUp %}
+<script>
+  // so it doesn't load to the bottom
+    window.location.href = '#top';
+</script>
+{% endif %}
 </div>
 
 <!-- <div style="height:40px; overflow:hidden">

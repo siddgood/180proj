@@ -45,3 +45,9 @@ main td
     text-align: left;
     overflow:hidden;
 }
+
+.output
+{
+    height: 500px; 
+    overflow: auto;
+}

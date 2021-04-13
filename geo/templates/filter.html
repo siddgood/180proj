@@ -21,10 +21,13 @@ File Upload
 
 <div>
   Specify sampling output type <b>("point" OR "line")</b> and how many samples to generate (i.e. "5")
-<form action="{{ url_for('sample') }}" method="post">
+<form name="myForm" action="{{ url_for('sample') }}" method="post" onSubmit="return formValdiation()">
   <fieldset>
     <div class="form-group">
       <input autocomplete="on" autofocus class="form-control" name="output_type" placeholder="Sample output type (point or line accepted)" type="text" />
+      <script>
+            window.location.href = '#top';
+        </script>
     </div>
   </fieldset>
   <fieldset>
@@ -37,7 +40,20 @@ File Upload
   </fieldset>
 </form>
 </div>
+<script>
+    function formValdiation() {
+      var output_type = document.forms["myForm"]["output_type"].value
+      output_type = output_type.toLowerCase()
 
+      var sample_size = document.forms["myForm"]["sample_size"].value
+
+      if ((output_type == "point" || output_type == "line") && Number.isFinite(sample_size))
+          return true;
+      else
+          alert("invalid input")
+          return false;
+    }
+</script>
 <!-- <div>
   plot 2:
 </div>

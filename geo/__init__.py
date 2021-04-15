@@ -23,6 +23,8 @@ app = Flask(__name__)
 # to use sessions
 app.secret_key = b"_o'yyUq1.45{s{a"
 
+# pylint: disable-all
+
 # ensure responses aren't cached
 if app.config["DEBUG"]:
     @app.after_request
@@ -39,6 +41,7 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 # global_variables = {}
+
 
 @app.route("/")
 def index():
@@ -81,7 +84,8 @@ def upload():
         road_ntwrk = gpd.read_file(
             "geo/tmpData/" + list_of_files[0] + "/" + list_of_files[0] + ".shp")  # LINESTRING geometry
         road_ntwrk = road_ntwrk.to_crs("EPSG:4326")
-        road_ntwrk_nogeom = road_ntwrk.drop(columns=road_ntwrk.columns[-1], axis=1, inplace=False)
+        road_ntwrk_nogeom = road_ntwrk.drop(
+            columns=road_ntwrk.columns[-1], axis=1, inplace=False)
 
         AOI = gpd.read_file(
             "geo/tmpData/" + list_of_files[1] + "/" + list_of_files[1] + ".shp")  # LINESTRING geometry
@@ -100,7 +104,8 @@ def upload():
                                    classes='data', max_rows=100),
                                title1=road_ntwrk_nogeom.columns.values,
                                title2=AOI_nogeom.columns.values,
-                               files=list_of_files)
+                               files=list_of_files,
+                               scrollUp=True)
 
 
 @app.route("/filter", methods=["GET", "POST"])
@@ -123,15 +128,18 @@ def filter():
         # global_variables["road_x_aoi"] = road_x_aoi
         session['road_x_aoi'] = road_x_aoi
 
-        fig1 = AOI_userfilter.plot(figsize=(14, 12), facecolor="none", edgecolor="black").get_figure()
+        fig1 = AOI_userfilter.plot(
+            figsize=(14, 12), facecolor="none", edgecolor="black").get_figure()
 
         fig1_HTML = figToHTML(fig1)
 
-        fig2 = road_x_aoi.plot(ax=AOI_userfilter.plot(figsize=(14, 12), facecolor="none", edgecolor="black")).get_figure()
+        fig2 = road_x_aoi.plot(ax=AOI_userfilter.plot(
+            figsize=(14, 12), facecolor="none", edgecolor="black")).get_figure()
 
         fig2_HTML = figToHTML(fig2)
 
         return render_template("filter.html", plot1=fig1_HTML, plot2=fig2_HTML, user_column=user_column, user_value=user_value)
+
 
 @app.route("/sample", methods=["GET", "POST"])
 def sample():
@@ -145,28 +153,39 @@ def sample():
 
         if user_output_type == 'line':
             isLine = True
-        else:
+        elif user_output_type == 'point':
             isLine = False
+        # else:
 
-        sample_output = sample_roads(road_x_aoi, n=user_sample_size, isLine=isLine)
-        sample_output_gdf = gpd.GeoDataFrame(geometry=gpd.GeoSeries(sample_output))
+        sample_output = sample_roads(
+            road_x_aoi, n=user_sample_size, isLine=isLine)
+        sample_output_gdf = gpd.GeoDataFrame(
+            geometry=gpd.GeoSeries(sample_output))
 
         if not isLine:
             reverse_sample_output = reverse_geocode(sample_output)
-            session['sample_output_csv'] = reverse_sample_output.to_csv(index=False, header=True, sep=",")
+            session['sample_output_csv'] = reverse_sample_output.to_csv(
+                index=False, header=True, sep=",")
         else:
-            session['sample_output_csv'] = sample_output_gdf.to_csv(index=False, header=True, sep=",")
+            session['sample_output_csv'] = sample_output_gdf.to_csv(
+                index=False, header=True, sep=",")
 
         ax = road_x_aoi.plot(figsize=(14, 12))
         if not isLine:
-            fig1 = sample_output.plot(marker='*', color='red', markersize=50, ax=ax).get_figure()
+            fig1 = sample_output.plot(
+                marker='*', color='red', markersize=50, ax=ax).get_figure()
             fig1_HTML = figToHTML(fig1)
-            return render_template("sample.html", plot1=fig1_HTML, sample_output=sample_output_gdf.to_html(classes='data'),
-                                    reverse_sample_output=reverse_sample_output.to_html(classes='data'))
+            return render_template("sample.html",
+                                   plot1=fig1_HTML,
+                                   sample_output=sample_output_gdf.to_html(
+                                       classes='data'),
+                                   reverse_sample_output=reverse_sample_output.to_html(classes='data'))
         else:
             fig1 = sample_output.plot(color='red', ax=ax).get_figure()
             fig1_HTML = figToHTML(fig1)
-            return render_template("sample.html", plot1=fig1_HTML, sample_output=sample_output_gdf.to_html(classes='data'))
+            return render_template("sample.html",
+                                   plot1=fig1_HTML,
+                                   sample_output=sample_output_gdf.to_html(classes='data'))
 
 
 @app.route("/download", methods=["POST"])
@@ -226,6 +245,13 @@ def sample_param():
         return render_template("error.html")
     if request.method == "POST":
         return
+
+
+@app.route("/help", methods=["GET"])
+def help():
+    return render_template("help.html")
+
+# helper functions
 
 
 def figToHTML(figure):

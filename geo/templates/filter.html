@@ -21,22 +21,35 @@ File Upload
 
 <div>
   Specify sampling output type <b>("point" OR "line")</b> and how many samples to generate (i.e. "5")
-<form action="{{ url_for('sample') }}" method="post">
+  <form action="{{ url_for('sample') }}" method="post">
+    <fieldset>
+      <div class="form-group">
+        <input autocomplete="on" autofocus class="form-control" name="output_type" placeholder="Sample output type (point or line accepted)" type="text" />
+      </div>
+    </fieldset>
+    <fieldset>
+      <div class="form-group">
+        <input autocomplete="on" autofocus class="form-control" name="sample_size" placeholder="Sample size (i.e. 5)" type="text" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-default" type="submit">Sample</button>
+      </div>
+    </fieldset>
+  </form>
+</div>
+
+<div><b>OR</b> upload an additional shapefile link to merge"
+</div>
+<form action="{{ url_for('param_filter') }}" method="post">
   <fieldset>
     <div class="form-group">
-      <input autocomplete="on" autofocus class="form-control" name="output_type" placeholder="Sample output type (point or line accepted)" type="text" />
-    </div>
-  </fieldset>
-  <fieldset>
-    <div class="form-group">
-      <input autocomplete="on" autofocus class="form-control" name="sample_size" placeholder="Sample size (i.e. 5)" type="text" />
+      <input autocomplete="on" autofocus class="form-control" name="link" placeholder="File Link" type="text" />
     </div>
     <div class="form-group">
-      <button class="btn btn-default" type="submit">Sample</button>
+      <button class="btn btn-default" type="submit">Upload File</button>
     </div>
   </fieldset>
 </form>
-</div>
 
 <!-- <div>
   plot 2:

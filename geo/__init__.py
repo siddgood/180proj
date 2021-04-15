@@ -117,6 +117,7 @@ def filter():
         user_column = request.form.get("column")
         user_value = request.form.get("value")
         AOI_userfilter = AOI[AOI[user_column] == user_value]
+        session["AOI_userfilter"] = AOI_userfilter
 
         road_x_aoi = join_reducer(road_ntwrk, AOI_userfilter)
         # global_variables["road_x_aoi"] = road_x_aoi
@@ -130,42 +131,11 @@ def filter():
 
         fig2_HTML = figToHTML(fig2)
 
-        # sample_road_points = sample_roads(fl_roads_hil, n=5, isLine=False)
-        # reverse_geocode(sample_road_points)
-        #
-        # plot3 = fl_hil.plot(
-        #     figsize=(14, 12), facecolor="none", edgecolor="black")
-        #
-        # fl_roads_hil.plot(ax=plot3)
-        # fig3 = sample_road_points.plot(
-        #     marker='*', color='red', markersize=50, ax=plot3).get_figure()
-        #
-        # plot3 = figToHTML(fig3)
-        # sample_road_lines = sample_roads(fl_roads_hil, n=5, isLine=True)
-        # sample_road_lines
-        #
-        # ax = fl_hil.plot(figsize=(14, 12), facecolor="none", edgecolor="black")
-        # fl_roads_hil.plot(ax=ax)
-        # sample_road_lines.plot(color='red', ax=ax)
-
-        # resp = make_response(df.to_csv())
-        # resp.headers["Content-Disposition"] = "attachment; filename=export.csv"
-        # resp.headers["Content-Type"] = "text/csv"
-        # return resp
-        #
-        # session["df"] = sample_road_lines.to_csv(
-        #     index=False, header=True, sep=";")
-
         return render_template("filter.html", plot1=fig1_HTML, plot2=fig2_HTML, user_column=user_column, user_value=user_value)
-        # return render_template("filter.html", plot1=plot1, plot2=plot2,
-        #                        road_points_table=reverse_geocode(
-        #                            sample_road_points).to_html(),
-        #                        plot3=plot3)
 
 @app.route("/sample", methods=["GET", "POST"])
 def sample():
     if request.method == "GET":
-
         return render_template("error.html")
 
     if request.method == "POST":
@@ -215,6 +185,47 @@ def download():
                      mimetype="text/csv",
                      as_attachment=True,
                      attachment_filename="sample_output_data.csv")
+
+@app.route("/param_filter", methods=["GET", "POST"])
+def param_filter():
+    if request.method == "GET":
+        return render_template("error.html")
+    if request.method == "POST":
+        link_string = request.form.get("link")
+        file_id = link_string[32:].split('/')[0]
+
+        url = "https://drive.google.com/uc?id=" + file_id
+        output = 'geo/tmpData/tmp.zip'
+        gdown.download(url, output, quiet=False)
+
+        with zipfile.ZipFile(output, 'r') as zip_ref:
+            zip_ref.extractall('geo/tmpData/')
+
+        path = os.getcwd() + "/geo/tmpData/"
+        filename = os.listdir(path)[-1]
+
+        param_shapefile = gpd.read_file(
+            "geo/tmpData/" + filename + "/" + filename + ".shp")  # LINESTRING geometry
+        param_shapefile = param_shapefile.to_crs("EPSG:4326")
+
+        AOI_userfilter = session['AOI_userfilter']
+        road_x_aoi = session['road_x_aoi']
+        param_x_AOIuser = join_reducer(param_shapefile, AOI_userfilter)
+
+        ax = AOI_userfilter.plot(figsize=(14,12), facecolor="none", edgecolor="black")
+        param_x_AOIuser_fig = param_x_AOIuser.plot(marker='*', color='red', markersize=50, ax=ax).get_figure()
+        road_x_param_x_AOIuser_fig = road_x_aoi.plot(ax=ax).get_figure()
+
+
+        return render_template("param_filter.html",
+                                plot1=figToHTML(road_x_param_x_AOIuser_fig))
+
+@app.route("/sample_param", methods=["GET", "POST"])
+def sample_param():
+    if request.method == "GET":
+        return render_template("error.html")
+    if request.method == "POST":
+        return
 
 
 def figToHTML(figure):

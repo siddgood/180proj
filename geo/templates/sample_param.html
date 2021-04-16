@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}
+File Upload
+{% endblock %}
+
+{% block main %}
+<div>
+  {{ plot1|safe }}
+</div>
+{% for output in masterOutputList %}
+<div>
+  {{ output.0|safe }}
+</div>
+<div style="height: 500px;
+overflow: auto;">
+  {{ output.1|safe }}
+</div>
+{% endfor %}
+{% endblock %}

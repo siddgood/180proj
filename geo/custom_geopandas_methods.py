@@ -59,3 +59,24 @@ def reverse_geocode(geoseries, provider='arcgis'):
     Function to reverse geocode GeoSeries points
     '''
     return gpd.tools.reverse_geocode(list(geoseries), provider=provider)
+
+def sample_location(geodf, n, buffer=None):
+  '''
+  Samples from a shapefile that has
+  ALL entries as point geometries
+  '''
+  m = len(geodf)
+  indices = np.random.choice(range(m), size=n)
+  sample = []
+
+  for index in indices:
+    point = geodf.iloc[index]['geometry']
+    sample.append(point)
+
+  output = gpd.GeoSeries(sample)
+  if buffer:
+    output.set_crs('EPSG:4326', inplace=True)
+    output = output.to_crs(epsg=3763)
+    output = output.buffer(buffer)
+    output = output.to_crs(epsg=4326)
+  return output

@@ -121,7 +121,7 @@ def filter():
         AOI = session['AOI']
         user_column = request.form.get("column")
         user_value = request.form.get("value")
-        AOI_userfilter = AOI[AOI[user_column] == user_value]
+        AOI_userfilter = AOI[AOI[user_column] == user_value] # Florida county = PALMBEACH
         session["AOI_userfilter"] = AOI_userfilter
 
         road_x_aoi = join_reducer(road_ntwrk, AOI_userfilter)
@@ -134,7 +134,7 @@ def filter():
         fig1_HTML = figToHTML(fig1)
 
         fig2 = road_x_aoi.plot(ax=AOI_userfilter.plot(
-            figsize=(14, 12), facecolor="none", edgecolor="black")).get_figure()
+            figsize=(14, 12), facecolor="none", edgecolor="black"), lw=0.25).get_figure()
 
         fig2_HTML = figToHTML(fig2)
 
@@ -170,7 +170,7 @@ def sample():
             session['sample_output_csv'] = sample_output_gdf.to_csv(
                 index=False, header=True, sep=",")
 
-        ax = road_x_aoi.plot(figsize=(14, 12))
+        ax = road_x_aoi.plot(figsize=(14, 12), lw=0.25)
         if not isLine:
             fig1 = sample_output.plot(
                 marker='*', color='red', markersize=50, ax=ax).get_figure()
@@ -230,21 +230,69 @@ def param_filter():
         AOI_userfilter = session['AOI_userfilter']
         road_x_aoi = session['road_x_aoi']
         param_x_AOIuser = join_reducer(param_shapefile, AOI_userfilter)
+        session["param_x_AOIuser"] = param_x_AOIuser
 
         ax = AOI_userfilter.plot(figsize=(14,12), facecolor="none", edgecolor="black")
-        param_x_AOIuser_fig = param_x_AOIuser.plot(marker='*', color='red', markersize=50, ax=ax).get_figure()
-        road_x_param_x_AOIuser_fig = road_x_aoi.plot(ax=ax).get_figure()
-
+        fig1 = param_x_AOIuser.plot(marker='o', color='magenta', markersize=15, ax=ax).get_figure()
+        fig2 = road_x_aoi.plot(ax=ax, lw=0.25).get_figure()
 
         return render_template("param_filter.html",
-                                plot1=figToHTML(road_x_param_x_AOIuser_fig))
+                                plot1=figToHTML(fig2))
 
 @app.route("/sample_param", methods=["GET", "POST"])
 def sample_param():
     if request.method == "GET":
         return render_template("error.html")
     if request.method == "POST":
-        return
+        user_output_type = request.form.get("output_type")
+        user_sample_size = int(request.form.get("sample_size"))
+        user_sample_param_size = int(request.form.get("sample_param_size"))
+        user_buffer = int(request.form.get("buffer")) # 8046.72
+
+        AOI_userfilter = session['AOI_userfilter']
+        road_x_aoi = session['road_x_aoi']
+        param_x_AOIuser = session["param_x_AOIuser"]
+
+        sample_param_region = sample_location(param_x_AOIuser, n=user_sample_param_size, buffer=user_buffer)
+
+        ax = AOI_userfilter.plot(figsize=(20, 18), facecolor="none", edgecolor="black")
+        fig1 = road_x_aoi.plot(ax=ax, lw=0.25).get_figure()
+        fig2 = sample_param_region.plot(marker='o', color='magenta', ax=ax).get_figure()
+
+        sample_param_region_df = gpd.GeoDataFrame(sample_param_region)
+        sample_param_region_df = sample_param_region_df.rename(columns={0:'geometry'}).set_geometry('geometry')
+        road_x_aoi_x_sampleParamRegion = join_reducer(road_x_aoi, sample_param_region_df)
+
+        output_list = []
+        fig_list = []
+        for i in range(len(sample_param_region_df)):
+            lines = road_x_aoi.geometry.unary_union
+            intersection = lines.intersection(sample_param_region_df.geometry[i])
+            intersect_result = gpd.GeoDataFrame({'geometry':intersection})
+
+            length_arr = []
+            for i in range(len(intersect_result)):
+                len_i = intersect_result['geometry'][i].length
+                length_arr.append(len_i)
+            intersect_result['LENGTH'] = length_arr
+
+            isLine = False
+            if user_output_type == "line":
+                isLine = True
+            sample_output = sample_roads(intersect_result, n=user_sample_size, isLine=isLine)
+            sample_output_gdf = gpd.GeoDataFrame(gpd.GeoSeries(sample_output))
+            sample_output_gdf = sample_output_gdf.rename(columns={0:'geometry'}).set_geometry('geometry')
+            output_list.append(sample_output_gdf.to_html(classes='data'))
+
+            ax = intersect_result.plot(figsize=(14, 12), lw=0.25)
+            fig_i = sample_output.plot(marker='*', color='red', markersize=60, ax=ax).get_figure()
+            fig_list.append(figToHTML(fig_i))
+
+        master_output_list = zip(fig_list, output_list)
+
+        return render_template("sample_param.html",
+                                plot1=figToHTML(fig2),
+                                masterOutputList=master_output_list)
 
 
 @app.route("/help", methods=["GET"])

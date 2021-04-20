@@ -75,8 +75,10 @@ def upload():
             with zipfile.ZipFile(output, 'r') as zip_ref:
                 zip_ref.extractall('geo/tmpData/')
 
+        print(os.getcwd())
         path = os.getcwd() + "/geo/tmpData/"
         list_of_files = []
+        print(list_of_files)
 
         for filename in os.listdir(path):
 

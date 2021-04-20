@@ -84,12 +84,14 @@ def upload():
 
                 list_of_files.append(filename)
 
+        print("geo/tmpData/" + list_of_files[0] + "/" + list_of_files[0] + ".shp")
         road_ntwrk = gpd.read_file(
             "geo/tmpData/" + list_of_files[0] + "/" + list_of_files[0] + ".shp")  # LINESTRING geometry
         road_ntwrk = road_ntwrk.to_crs("EPSG:4326")
         road_ntwrk_nogeom = road_ntwrk.drop(
             columns=road_ntwrk.columns[-1], axis=1, inplace=False)
 
+        print("geo/tmpData/" + list_of_files[1] + "/" + list_of_files[1] + ".shp")
         AOI = gpd.read_file(
             "geo/tmpData/" + list_of_files[1] + "/" + list_of_files[1] + ".shp")  # LINESTRING geometry
         AOI = AOI.to_crs("EPSG:4326")

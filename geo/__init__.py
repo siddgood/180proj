@@ -69,7 +69,7 @@ def upload():
             file_id = l[32:].split('/')[0]
 
             url = "https://drive.google.com/uc?id=" + file_id
-            output = 'geo/tmpData/tmp.zip'
+            output = "geo/tmpData/tmp.zip"
             gdown.download(url, output, quiet=False)
 
             with zipfile.ZipFile(output, 'r') as zip_ref:

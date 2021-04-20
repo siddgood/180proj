@@ -85,7 +85,11 @@ def upload():
             if ".zip" not in filename and "__MACOSX" not in filename:
 
                 list_of_files.append(filename)
-
+        '''
+        Note: For some reason, this procedure happens in reverse when app is
+        deployed in Heroku. The 0-th index file is the AOI shapefile and
+        the 1st-index file is the road network shapefile. 
+        '''
         print("geo/tmpData/" + list_of_files[0] + "/" + list_of_files[0] + ".shp")
         road_ntwrk = gpd.read_file(
             "geo/tmpData/" + list_of_files[0] + "/" + list_of_files[0] + ".shp")  # LINESTRING geometry

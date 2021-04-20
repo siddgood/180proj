@@ -5,7 +5,8 @@ File Upload
 {% endblock %}
 
 {% block main %}
-<div>Please upload your files in this format: "(Road file link), (area of interest file link)" </div>
+<!-- <div>Please upload your files in this format: "(Road file link), (area of interest file link)" </div> -->
+<div>Please upload your files in this format: "(AOI file Google Drive link), (Road file Google Drive link)" </div>
 <form action="{{ url_for('upload') }}" method="post">
   <fieldset>
     <div class="form-group">

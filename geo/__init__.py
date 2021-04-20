@@ -10,7 +10,10 @@ import geopandas as gpd
 
 import os
 
-from custom_geopandas_methods import *
+try:
+    from custom_geopandas_methods import *
+except ImportError:
+    from .custom_geopandas_methods import *
 
 import base64
 from io import BytesIO, StringIO

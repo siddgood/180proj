@@ -61,10 +61,11 @@ def upload():
 
     if request.method == "POST":
 
-        link_string = request.form.get("link")
-        link_string = link_string.replace(' ', '')
-        links = link_string.split(",")
+        road_link = request.form.get("road_link")
+        AOI_link = request.form.get("AOI_link")
+        links = [road_link, AOI_link]
 
+        list_of_files = []
         for l in links:
             file_id = l[32:].split('/')[0]
 
@@ -73,31 +74,30 @@ def upload():
             gdown.download(url, output, quiet=False)
 
             with zipfile.ZipFile(output, 'r') as zip_ref:
-                print(zip_ref.namelist())
-                print('Hi')
+                folder_name = zip_ref.namelist()[0][:-1]
+                file_name = 'geo/tmpData/{}/{}.shp'.format(folder_name, folder_name)
+                list_of_files.append(file_name)
                 zip_ref.extractall('geo/tmpData/')
 
-        print(os.getcwd())
-        path = os.getcwd() + "/geo/tmpData/"
-        list_of_files = []
-        print(list_of_files)
+        # print(os.getcwd())
+        # path = os.getcwd() + "/geo/tmpData/"
+        # list_of_files = []
+        # print(list_of_files)
+        #
+        # for filename in os.listdir(path):
+        #
+        #     if ".zip" not in filename and "__MACOSX" not in filename:
+        #
+        #         list_of_files.append(filename)
 
-        for filename in os.listdir(path):
-
-            if ".zip" not in filename and "__MACOSX" not in filename:
-
-                list_of_files.append(filename)
-
-        print("geo/tmpData/" + list_of_files[0] + "/" + list_of_files[0] + ".shp")
-        road_ntwrk = gpd.read_file(
-            "geo/tmpData/" + list_of_files[0] + "/" + list_of_files[0] + ".shp")  # LINESTRING geometry
+        print(list_of_files[0])
+        road_ntwrk = gpd.read_file(list_of_files[0])  # LINESTRING geometry
         road_ntwrk = road_ntwrk.to_crs("EPSG:4326")
         road_ntwrk_nogeom = road_ntwrk.drop(
             columns=road_ntwrk.columns[-1], axis=1, inplace=False)
 
-        print("geo/tmpData/" + list_of_files[1] + "/" + list_of_files[1] + ".shp")
-        AOI = gpd.read_file(
-            "geo/tmpData/" + list_of_files[1] + "/" + list_of_files[1] + ".shp")  # LINESTRING geometry
+        print(list_of_files[1])
+        AOI = gpd.read_file(list_of_files[1])  # LINESTRING geometry
         AOI = AOI.to_crs("EPSG:4326")
         AOI_nogeom = AOI.drop(columns=AOI.columns[-1], axis=1, inplace=False)
 

@@ -14,23 +14,20 @@ source venv/bin/activate
 pip3 install -r requirements.txt
 ```
 
-## To launch:
+## To launch and view:
 
 ```sh
 python3 geo/__init__.py
 ```
-
-## To view:
-
-http://0.0.0.0:5001/ 
+Local deployment should be viewable at http://0.0.0.0:5001/ 
 
 # Usage
 
 ## Sample upload files
 
-Road network shapefile: https://drive.google.com/file/d/1ohwYyl2wa1AIgoR5b7T6opPkauRHc6Vv/view?usp=sharing
-Area of interest (AOI) shapefile: https://drive.google.com/file/d/1ILbsKRob4alKkAqzzZxquXs8q4wx2KoZ/view?usp=sharing
-Parameter shapefile: https://drive.google.com/file/d/1z93Xpo2Ikc8FSdgiRuxixqOvzqEckDwD/view?usp=sharing
+* Road network shapefile: https://drive.google.com/file/d/1ohwYyl2wa1AIgoR5b7T6opPkauRHc6Vv/view?usp=sharing
+* Area of interest (AOI) shapefile: https://drive.google.com/file/d/1ILbsKRob4alKkAqzzZxquXs8q4wx2KoZ/view?usp=sharing
+* Parameter shapefile: https://drive.google.com/file/d/1z93Xpo2Ikc8FSdgiRuxixqOvzqEckDwD/view?usp=sharing
 
 # For Heroku Usage
 

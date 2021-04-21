@@ -29,7 +29,7 @@ Local deployment should be viewable at http://0.0.0.0:5001/
 * Area of interest (AOI) shapefile: https://drive.google.com/file/d/1ILbsKRob4alKkAqzzZxquXs8q4wx2KoZ/view?usp=sharing
 * Parameter shapefile: https://drive.google.com/file/d/1z93Xpo2Ikc8FSdgiRuxixqOvzqEckDwD/view?usp=sharing
 
-# For Heroku Usage (LIVE)
+# For Heroku Usage
 
 Latest build is live on https://geosampling.herokuapp.com
 

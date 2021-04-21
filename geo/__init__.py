@@ -101,8 +101,6 @@ def upload():
         AOI = AOI.to_crs("EPSG:4326")
         AOI_nogeom = AOI.drop(columns=AOI.columns[-1], axis=1, inplace=False)
 
-        # global_variables["AOI"] = AOI
-        # global_variables["road_ntwrk"] = road_ntwrk
         session['AOI'] = AOI
         session['road_ntwrk'] = road_ntwrk
 
@@ -219,22 +217,42 @@ def param_filter():
     if request.method == "GET":
         return render_template("error.html")
     if request.method == "POST":
-        link_string = request.form.get("link")
-        file_id = link_string[32:].split('/')[0]
+        param_link = request.form.get("link")
+        links = [param_link]
 
-        url = "https://drive.google.com/uc?id=" + file_id
-        output = 'geo/tmpData/tmp.zip'
-        gdown.download(url, output, quiet=False)
+        list_of_files = []
+        for l in links:
+            file_id = l[32:].split('/')[0]
 
-        with zipfile.ZipFile(output, 'r') as zip_ref:
-            zip_ref.extractall('geo/tmpData/')
+            url = "https://drive.google.com/uc?id=" + file_id
+            output = "geo/tmpData/tmp.zip"
+            gdown.download(url, output, quiet=False)
 
-        path = os.getcwd() + "/geo/tmpData/"
-        filename = os.listdir(path)[-1]
+            with zipfile.ZipFile(output, 'r') as zip_ref:
+                folder_name = zip_ref.namelist()[0][:-1]
+                file_name = 'geo/tmpData/{}/{}.shp'.format(folder_name, folder_name)
+                list_of_files.append(file_name)
+                zip_ref.extractall('geo/tmpData/')
 
-        param_shapefile = gpd.read_file(
-            "geo/tmpData/" + filename + "/" + filename + ".shp")  # LINESTRING geometry
-        param_shapefile = param_shapefile.to_crs("EPSG:4326")
+            param_shapefile = gpd.read_file(list_of_files[0]) # POINT geometry
+            param_shapefile = param_shapefile.to_crs("EPSG:4326")
+
+        # link_string = request.form.get("link")
+        # file_id = link_string[32:].split('/')[0]
+        #
+        # url = "https://drive.google.com/uc?id=" + file_id
+        # output = 'geo/tmpData/tmp.zip'
+        # gdown.download(url, output, quiet=False)
+        #
+        # with zipfile.ZipFile(output, 'r') as zip_ref:
+        #     zip_ref.extractall('geo/tmpData/')
+        #
+        # path = os.getcwd() + "/geo/tmpData/"
+        # filename = os.listdir(path)[-1]
+        #
+        # param_shapefile = gpd.read_file(
+        #     "geo/tmpData/" + filename + "/" + filename + ".shp")  # LINESTRING geometry
+        # param_shapefile = param_shapefile.to_crs("EPSG:4326")
 
         AOI_userfilter = session['AOI_userfilter']
         road_x_aoi = session['road_x_aoi']

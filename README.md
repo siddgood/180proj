@@ -1,6 +1,6 @@
 # README
 
-## Set up in terminal:
+## Set up for local deployment via terminal:
 
 ```sh
 git clone https://github.com/siddgood/180proj
@@ -29,7 +29,7 @@ Local deployment should be viewable at http://0.0.0.0:5001/
 * Area of interest (AOI) shapefile: https://drive.google.com/file/d/1ILbsKRob4alKkAqzzZxquXs8q4wx2KoZ/view?usp=sharing
 * Parameter shapefile: https://drive.google.com/file/d/1z93Xpo2Ikc8FSdgiRuxixqOvzqEckDwD/view?usp=sharing
 
-# For Heroku Usage
+# For Heroku Usage (LIVE)
 
 Latest build is live on https://geosampling.herokuapp.com
 

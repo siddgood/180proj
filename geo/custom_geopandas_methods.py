@@ -18,7 +18,6 @@ def join_reducer(left, right):
         except Exception as e:
             # ignore if there are no index columns
             pass
-
     return sjoin
 
 
@@ -59,6 +58,7 @@ def reverse_geocode(geoseries, provider='arcgis'):
     Function to reverse geocode GeoSeries points
     '''
     return gpd.tools.reverse_geocode(list(geoseries), provider=provider)
+
 
 def sample_location(geodf, n, buffer=None):
   '''

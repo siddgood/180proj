@@ -7,7 +7,6 @@ from tempfile import mkdtemp
 import gdown
 import zipfile
 import geopandas as gpd
-
 import os
 
 try:
@@ -43,8 +42,6 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
-# global_variables = {}
-
 
 @app.route("/")
 def index():
@@ -79,17 +76,6 @@ def upload():
                 list_of_files.append(file_name)
                 zip_ref.extractall('geo/tmpData/')
 
-        # print(os.getcwd())
-        # path = os.getcwd() + "/geo/tmpData/"
-        # list_of_files = []
-        # print(list_of_files)
-        #
-        # for filename in os.listdir(path):
-        #
-        #     if ".zip" not in filename and "__MACOSX" not in filename:
-        #
-        #         list_of_files.append(filename)
-
         print(list_of_files[0])
         road_ntwrk = gpd.read_file(list_of_files[0])  # LINESTRING geometry
         road_ntwrk = road_ntwrk.to_crs("EPSG:4326")
@@ -105,7 +91,7 @@ def upload():
         session['road_ntwrk'] = road_ntwrk
 
         return render_template("upload_result.html",
-                               table1=road_ntwrk_nogeom.to_html(  # tables is currently a list
+                               table1=road_ntwrk_nogeom.to_html(
                                    classes='data', max_rows=100),
                                table2=AOI_nogeom.to_html(
                                    classes='data', max_rows=100),
@@ -122,8 +108,6 @@ def filter():
         return render_template("error.html")
 
     if request.method == "POST":
-        # road_ntwrk = global_variables['road_ntwrk']
-        # AOI = global_variables['AOI']
         road_ntwrk = session['road_ntwrk']
         AOI = session['AOI']
         user_column = request.form.get("column")
@@ -132,7 +116,6 @@ def filter():
         session["AOI_userfilter"] = AOI_userfilter
 
         road_x_aoi = join_reducer(road_ntwrk, AOI_userfilter)
-        # global_variables["road_x_aoi"] = road_x_aoi
         session['road_x_aoi'] = road_x_aoi
 
         fig1 = AOI_userfilter.plot(
@@ -162,7 +145,6 @@ def sample():
             isLine = True
         elif user_output_type == 'point':
             isLine = False
-        # else:
 
         sample_output = sample_roads(
             road_x_aoi, n=user_sample_size, isLine=isLine)
@@ -212,6 +194,7 @@ def download():
                      as_attachment=True,
                      attachment_filename="sample_output_data.csv")
 
+
 @app.route("/param_filter", methods=["GET", "POST"])
 def param_filter():
     if request.method == "GET":
@@ -237,23 +220,6 @@ def param_filter():
             param_shapefile = gpd.read_file(list_of_files[0]) # POINT geometry
             param_shapefile = param_shapefile.to_crs("EPSG:4326")
 
-        # link_string = request.form.get("link")
-        # file_id = link_string[32:].split('/')[0]
-        #
-        # url = "https://drive.google.com/uc?id=" + file_id
-        # output = 'geo/tmpData/tmp.zip'
-        # gdown.download(url, output, quiet=False)
-        #
-        # with zipfile.ZipFile(output, 'r') as zip_ref:
-        #     zip_ref.extractall('geo/tmpData/')
-        #
-        # path = os.getcwd() + "/geo/tmpData/"
-        # filename = os.listdir(path)[-1]
-        #
-        # param_shapefile = gpd.read_file(
-        #     "geo/tmpData/" + filename + "/" + filename + ".shp")  # LINESTRING geometry
-        # param_shapefile = param_shapefile.to_crs("EPSG:4326")
-
         AOI_userfilter = session['AOI_userfilter']
         road_x_aoi = session['road_x_aoi']
         param_x_AOIuser = join_reducer(param_shapefile, AOI_userfilter)
@@ -265,6 +231,7 @@ def param_filter():
 
         return render_template("param_filter.html",
                                 plot1=figToHTML(fig2))
+
 
 @app.route("/sample_param", methods=["GET", "POST"])
 def sample_param():
@@ -326,9 +293,8 @@ def sample_param():
 def help():
     return render_template("help.html")
 
+
 # helper functions
-
-
 def figToHTML(figure):
     tmpfile = BytesIO()
     figure.savefig(tmpfile, format='png')

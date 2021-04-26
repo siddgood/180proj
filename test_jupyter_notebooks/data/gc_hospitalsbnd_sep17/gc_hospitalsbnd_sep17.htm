@@ -1,0 +1,1343 @@
+<HTML>
+<HEAD>
+<TITLE> FGDL Documentation </TITLE>
+<STYLE>
+          .pre { color: black; font-size: 12pt; font-weight: normal; font-family: courier; }
+	  strong {font-weight: normal; text-transform: uppercase; }
+</STYLE>
+</HEAD>
+<BODY>
+<table width="90%">
+<tr>
+<td>
+<strong><b>FLORIDA GEOGRAPHIC DATA LIBRARY DOCUMENTATION</b></strong><br />
+<p>
+<strong><b>TITLE: HOSPITAL FACILITY BOUNDARIES IN FLORIDA - 2017</b></strong>
+</p>
+<pre>
+Geodataset Name:       GC_HOSPITALSBND_SEP17
+Geodataset Type:       SHAPEFILE
+Geodataset Feature:    <strong>Polygon</strong>
+Feature Count:         349
+</pre>
+</td>
+</tr>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr>
+<td>
+<strong><b>GENERAL DESCRIPTION:</b></strong>
+<table width="650">
+<tr>
+<td>
+This dataset contains 2017 Hospital Facility Information for the State of Florida. It is a combination of hospital facility addresses from different sources. The data contains selected fields denoting the name, physical address, and other facility information for hospitals located in Florida. This data is meant to be used for planning purposes only and is not intended to represent a 100% inventory of hospitals in Florida.  Hospital locations that have been verified are marked with the letter V in the FLAG field.  This layer corresponds to the hospital points layer GC_HOSPITALS_SEP17 available through FGDL.
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td></td></tr>
+<tr>
+<td>
+<pre>
+DATA SOURCE(S):                    University of Florida GeoPlan Center
+SCALE OF ORIGINAL SOURCE MAPS:     Varies
+GEODATASET EXTENT:                 State of Florida<br />
+PUBLICATION DATE:                  20170906
+TIME PERIOD OF CONTENT:            Begin Date: 20031003    End Date: 20170906
+DOWNLOAD LINK:                     <A href="http://www.fgdl.org/metadataexplorer/explorer.jsp">http://www.fgdl.org/metadataexplorer/explorer.jsp</A>
+</pre>
+</td>
+</tr>
+</table>
+<P>
+<strong><b>FEATURE ATTRIBUTE TABLES:</b></strong>
+</P>
+<pre>Datafile Name: GC_HOSPITALSBND_SEP17.DBF</pre>
+<table width="75%" cellspacing="0" cellpadding="0" border="0">
+<tr align="left">
+<td> ITEM NAME </td>
+<td>WIDTH</td>
+<td>TYPE</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">OBJECTID
+</DIV>
+</td>
+<td>4</td>
+<td>OID</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">Shape
+</DIV>
+</td>
+<td>4</td>
+<td>Geometry</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">PARCELID
+</DIV>
+</td>
+<td>40</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">FDEM_ID
+</DIV>
+</td>
+<td>10</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">NAME
+</DIV>
+</td>
+<td>100</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">ADDRESS
+</DIV>
+</td>
+<td>65</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">CITY
+</DIV>
+</td>
+<td>40</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">ZIPCODE
+</DIV>
+</td>
+<td>8</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">COUNTY
+</DIV>
+</td>
+<td>35</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">PHONE
+</DIV>
+</td>
+<td>20</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">TYPE
+</DIV>
+</td>
+<td>55</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">OWNER
+</DIV>
+</td>
+<td>60</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">OPERATING
+</DIV>
+</td>
+<td>60</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">OP_CLASS
+</DIV>
+</td>
+<td>20</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">AHCA_OWNER
+</DIV>
+</td>
+<td>60</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">PROFIT
+</DIV>
+</td>
+<td>20</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">CAPACITY
+</DIV>
+</td>
+<td>8</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">BEDS
+</DIV>
+</td>
+<td>8</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">STATE_ID
+</DIV>
+</td>
+<td>20</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">EFCLASS
+</DIV>
+</td>
+<td>5</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">AHCA_NUM
+</DIV>
+</td>
+<td>20</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">CON1_TYPE
+</DIV>
+</td>
+<td>50</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">CON1_UP
+</DIV>
+</td>
+<td>50</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">CON1_DOWN
+</DIV>
+</td>
+<td>50</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">CON2_TYPE
+</DIV>
+</td>
+<td>50</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">CON2_UP
+</DIV>
+</td>
+<td>50</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">CON2_DOWN
+</DIV>
+</td>
+<td>50</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">CON3_TYPE
+</DIV>
+</td>
+<td>50</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">CON3_UP
+</DIV>
+</td>
+<td>50</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">CON3_DOWN
+</DIV>
+</td>
+<td>50</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">NET_CONS
+</DIV>
+</td>
+<td>5</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">WEBSITE
+</DIV>
+</td>
+<td>100</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">ACTYRBLT
+</DIV>
+</td>
+<td>8</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">FSOURCE
+</DIV>
+</td>
+<td>100</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">DATASOURCE
+</DIV>
+</td>
+<td>100</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">NOTES
+</DIV>
+</td>
+<td>50</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">LAT_DD
+</DIV>
+</td>
+<td>8</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">LONG_DD
+</DIV>
+</td>
+<td>8</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">MGRS
+</DIV>
+</td>
+<td>15</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">GCID
+</DIV>
+</td>
+<td>8</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">ACRES
+</DIV>
+</td>
+<td>8</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">DESCRIPT
+</DIV>
+</td>
+<td>100</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">FLAG
+</DIV>
+</td>
+<td>2</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">UPDATE_DAY
+</DIV>
+</td>
+<td>36</td>
+<td>Date</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">FGDLAQDATE
+</DIV>
+</td>
+<td>36</td>
+<td>Date</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">AUTOID
+</DIV>
+</td>
+<td>4</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">SHAPE.AREA
+</DIV>
+</td>
+<td>0</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">SHAPE.LEN
+</DIV>
+</td>
+<td>0</td>
+<td>Double</td>
+</tr>
+</table>
+<p>
+<strong><b>FEATURE ATTRIBUTE TABLES CODES AND VALUES:</b></strong>
+</p>
+<P />
+<table width="75%" cellspacing="0" cellpadding="0" border="0">
+<tr>
+<td width="30%">Item<pre></pre></td>
+<td>Item Description<pre></pre></td>
+</tr>
+<tr valign="top">
+<td>OBJECTID</td>
+<td>
+Internal feature number.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>Shape</td>
+<td>
+Feature geometry.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>PARCELID</td>
+<td>
+Parcel Identification Number, derived from either the 2014 or 2015 statewide parcel layers.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>FDEM_ID</td>
+<td>
+Florida Department of Emergency Management Idenitification number.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>NAME</td>
+<td>
+Name of the facility.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>ADDRESS</td>
+<td>
+A description of a facility's physical location providing direction for delivery and provision of emergency services.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>CITY</td>
+<td>
+City of facility's physical location.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>ZIPCODE</td>
+<td>
+US postal delivery designation of facility's physical location.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>COUNTY</td>
+<td>
+County of facility's physical location.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>PHONE</td>
+<td>
+The phone number of the facility.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>TYPE</td>
+<td>
+Category of hospital.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>OWNER</td>
+<td>
+Entity owner of the facility.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>OPERATING</td>
+<td>
+The responsible organization for management and operation of a facility (e.g., public, private, quasi-public).<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>OP_CLASS</td>
+<td>
+Classification of the operating entity.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>AHCA_OWNER</td>
+<td>
+Agency for Healthcare Administration Owner<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>PROFIT</td>
+<td>
+Profit status for hospital.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>CAPACITY</td>
+<td>
+Capacity of the facility.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>BEDS</td>
+<td>
+Number of beds in the facility.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>STATE_ID</td>
+<td>
+State Hospital Data ID. For states that contributed data, this attribute is populated with the unique ID used by the state to track hospitals. Duplicate IDs may be possible where TGS has added records which correspond to a state provided record and, therefore, an identical ID was created.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>EFCLASS</td>
+<td>
+Indicates essential facilities classification. The values for this attribute were provided by the Post, Buckley, Schuh, and Jernigan, Incorporated (PBSJ) and TGS did not verify these values.<table>
+<tr>
+<td>
+EFHL = Entity is classified as : Medical Care Facilities -- Large Hospital -- Hospitals with greater than 150 beds.<br /><pre></pre>
+EFHM = Entity is classified as : Medical Care Facilities -- Medium Hospital -- Hospitals with beds between 50 and 150.<br /><pre></pre>
+EFHS = Entity is classified as : Medical Care Facilities -- Small Hospital -- Hospitals with less than 50 beds.<br /><pre></pre>
+&lt;BLANK&gt; = Unknown<br /><pre></pre>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>AHCA_NUM</td>
+<td>
+Agency for Health Care Administration number.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>CON1_TYPE</td>
+<td>
+Type of service of first internet connection.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>CON1_UP</td>
+<td>
+Upstream connection speed of first internet connection.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>CON1_DOWN</td>
+<td>
+Downstream connection speed of first internet connection.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>CON2_TYPE</td>
+<td>
+Type of service of second internet connection.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>CON2_UP</td>
+<td>
+Upstream connection speed of second internet connection.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>CON2_DOWN</td>
+<td>
+Downstream connection speed of second internet connection.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>CON3_TYPE</td>
+<td>
+Type of service of third internet connection.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>CON3_UP</td>
+<td>
+Upstream connection speed of third internet connection.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>CON3_DOWN</td>
+<td>
+Downstream connection speed of third internet connection.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>NET_CONS</td>
+<td>
+Total number of internet connections.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>WEBSITE</td>
+<td>
+Web address.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>ACTYRBLT</td>
+<td>
+The actual year built derived from the 2014-15 parcel database.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>FSOURCE</td>
+<td>
+Feature spatial source.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>DATASOURCE</td>
+<td>
+Feature Data/Tabular Source.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>NOTES</td>
+<td>
+Notes<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>LAT_DD</td>
+<td>
+Latitude in decimal degrees.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>LONG_DD</td>
+<td>
+Longitude in decimal degrees.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>MGRS</td>
+<td>
+Military Grid Reference System (MGRS) Coordinate of the Facility. The MGRS is the geocoordinate standard used by NATO militaries for locating points on the Earth. The MGRS provides a means to represent any location on the surface of the Earth using alphanumeric string. Hierarchical references are based on the Universal Transverse Mercator (UTM) Coordinate System. The MGRS is used for the entire Earth. http://mgrs-data.org/<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>GCID</td>
+<td>
+The GeoPlan Center identification number that links this polygon layer feature with it's corresponding point layer feature (GC_HOSPITALS).<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>ACRES</td>
+<td>
+Facility acreage.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>DESCRIPT</td>
+<td>
+Field added by FGDL based on NAME.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>FLAG</td>
+<td>
+Identifies if the facility's spatial location has been visually verified.<table>
+<tr>
+<td>
+V = Verified. Verified, in most cases this verification was based on ESRI/Google Imagery, Google Street View, and Parcel Data. The exact facility boundaries are not verified and in many cases only based on parcel boundaries.<br /><pre></pre>
+NV = Not Verified.<br /><pre></pre>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>UPDATE_DAY</td>
+<td>
+The date the data was last updated by the Source.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>FGDLAQDATE</td>
+<td>
+The date FGDL acquired the data from the Source.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>AUTOID</td>
+<td>
+Unique ID added by GeoPlan<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>SHAPE.AREA</td>
+<td>
+Area in meters<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>SHAPE.LEN</td>
+<td>
+Perimeter in meters<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td>
+<pre></pre>
+</td>
+</tr>
+</table>
+<strong><b>USER NOTES:</b></strong>
+<br />
+<table width="500">
+<tr>
+<td>
+<pre>
+This data is provided 'as is'. GeoPlan relied on the integrity
+of the original data layer's topology
+</pre>
+</td>
+</tr>
+</table>
+<table width="500">
+<tr>
+<td>
+<pre>
+This data is provided 'as is' by GeoPlan and is complete to our
+knowledge.
+</pre>
+</td>
+</tr>
+</table>
+<table width="500">
+<tr>
+<td>
+<pre>
+GeoPlan relied on the integrity of the attribute information within
+the original data.
+</pre>
+</td>
+</tr>
+</table>
+<table width="500">
+<tr>
+<td>
+<pre>
+What is Geocoding?
+Geocoding is term used to describe the act of address matching.  Geocoding
+is the process of finding a geographic location (x, y point) for an address
+(such as street number and name, city, state, and ZIP Code) on a map.
+Geocoding is based off the typical address scheme for the US, in which one
+side of the street contains even house numbers while the other side of the
+street contains odd house numbers.
+
+The geocoding process uses an algorithm to find the geographic location
+of addresses. First, a street segment is identified using the zip code and
+street name. Next, the geographic location of the address is matched using
+the building number to determine how far down the street and on which side
+of the street the building is located.
+
+Geocoding Accuracy
+The locational accuracy of geocoded addresses may vary from urban to rural
+areas due to the algorithm used to generate the geographic locations of
+addresses. The algorithm assumes that the size of parcels are equivalent
+along a road route. This assumption tends to be more consistent in urban
+areas, where the size of parcels vary less than in rural areas.
+Consequently, the results of geocoded addresses in urban areas are usually
+more reliable than those in rural areas.
+
+For example, the locational accuracy of rural addresses can be slightly
+off because some parcels along a rural route may be 15 acres while others
+may be 2.5 acres, but the geocoding algorithm assumes that the addresses
+are distributed evenly along the route.
+
+In the case of this dataset, special attention was given to the position
+of the resulting x,y point location of the geocoded address. The location of 
+geocoded x,y point was manually moved by GeoPlan Center 
+from the street to on top of the facility building.<br /><br />
+</pre>
+</td>
+</tr>
+</table>
+<table width="500">
+<tr>
+<td>
+<pre>
+The data was created to serve as base information for use in GIS systems for
+a variety of planning and analytical purposes.<br /><br />
+</pre>
+</td>
+</tr>
+</table>
+<table width="500">
+<tr>
+<td>
+<pre>
+This data is provided 'as is' and its horizontal positional accuracy
+has not been verified by GeoPlan<br /><br />
+</pre>
+</td>
+</tr>
+</table>
+<table width="500">
+<tr>
+<td>
+<pre>
+This data is provided 'as is' and its vertical positional accuracy
+has not been verified by GeoPlan<br /><br />
+</pre>
+</td>
+</tr>
+</table>
+<table width="550">
+<tr>
+<td>
+<pre>
+None</pre>
+<br />
+</td>
+</tr>
+</table>
+<table width="550">
+<tr>
+<td>
+<pre>
+The Florida Geographic Data Library is a collection of Geospatial Data
+compiled by the University of Florida GeoPlan Center with support from
+the Florida Department of Transportation. GIS data available in FGDL is
+collected from various state, federal, and other agencies (data sources)
+who are data stewards, producers, or publishers. The data available in
+FGDL may not be the most current version of the data offered by the
+data source. University of Florida GeoPlan Center makes no guarantees
+about the currentness of the data and suggests that data users check
+with the data source to see if more recent versions of the data exist.
+
+Furthermore, the GIS data available in the FGDL are provided 'as is'.
+The University of Florida GeoPlan Center makes no warranties, guaranties
+or representations as to the truth, accuracy or completeness of the data
+provided by the data sources. The University of Florida GeoPlan Center
+makes no representations or warranties about the quality or suitability
+of the materials, either expressly or implied, including but not limited
+to any implied warranties of merchantability, fitness for a particular
+purpose, or non-infringement. The University of Florida GeoPlan Center
+shall not be liable for any damages suffered as a result of using,
+modifying, contributing or distributing the materials.
+
+A note about data scale: 
+
+Scale is an important factor in data usage.  Certain scale datasets
+are not suitable for some project, analysis, or modeling purposes.
+Please be sure you are using the best available data. 
+
+1:24000 scale datasets are recommended for projects that are at the
+county level.
+1:24000 data should NOT be used for high accuracy base mapping such
+as property parcel boundaries.
+1:100000 scale datasets are recommended for projects that are at the
+multi-county or regional level.
+1:125000 scale datasets are recommended for projects that are at the
+regional or state level or larger.
+
+Vector datasets with no defined scale or accuracy should be
+considered suspect. Make sure you are familiar with your data
+before using it for projects or analysis. Every effort has been
+made to supply the user with data documentation. For additional
+information, see the References section and the Data Source Contact
+section of this documentation. For more information regarding
+scale and accuracy, see our webpage at:
+http://geoplan.ufl.edu/education.html</pre>
+<br />
+</td>
+</tr>
+</table>
+<strong><b>REFERENCES: </b></strong>
+<table width="60%">
+<tr>
+<td>
+<pre>
+Hospital and Nursing Home Profiles
+http://www.hospital-data.com/
+
+Federation of American Hospitals - Florida
+http://fah.org/#
+
+Florida Hospital Association - 
+www.fha.org
+
+Florida Department of Health - Environmental Health GIS Data
+http://www.floridahealth.gov/environmental-health/gis/gis-data.html
+
+Florida Agency for Health Care Administration - Facility Locator
+http://www.floridahealthfinder.gov/facilitylocator/facloc.aspx
+</pre>
+<br />
+</td>
+</tr>
+</table>
+<strong><b>DATA LINEAGE SUMMARY: </b></strong>
+<br />
+<table width="60%">
+<tr>
+<td>
+<pre>
+In 2017, GeoPlan created the Florida hospitals boundaries shapefile.  
+During the QA/QC process, GeoPlan performed the following tasks:
+
+- Created a new shapefile (GC_HOSPITALSBND_SEP17.shp) with an Albers projection.
+
+- Spatially joined the Hospitals points shapefile with the 2014 Florida parcel layer.
+
+- Verified all records in GC_HOSPITALSBND_SEP17.shp using imagery, 2014-15 FGDL 
+parcel data, and Google Street View. If the 2015 parcel record differed from the 2014 
+record, the shapefile was updated with the 2015 parcel data. Records unable to be 
+verified were noted.  See the attribute flag field for an in-depth definition.
+
+- A GCID field was created and populated with a unique ID linking each polygon feature 
+with its corresponding point layer feature, GC_HOSPITALS_SEP17.
+
+- To reflect the current table syntax by GeoPlan, all unnecessary parcel information
+fields were deleted.
+
+- FDEM_ID, NAME, ADDRESS, CITY, ZIPCODE, COUNTY, PHONE, TYPE, OWNER, 
+OPERATING, OP_CLASS, AHCA_OWNER, PROFIT, CAPACITY, BEDS, STATE_ID, 
+EFCLASS, AHCA_NUM, CON1_TYPE, CON1_UP, CON1_DOWN, CON2_TYPE, 
+CON2_UP, CON2_DOWN, CON3_TYPE, CON3_UP, CON3_DOWN, NET_CONS, 
+WEBSITE, FSOURCE, LAT_DD, LONG_DD, and DESCRIPT fields were added and 
+populated with the exact same data as the GC_HOPSITALS_SEP17.shp.
+
+- The table was then restructured and uppercased.
+Process Date: 20170906
+<br />
+Dataset copied.
+Process Date: 20170922
+<br />
+</pre>
+</td>
+</tr>
+</table>
+<strong><b>MAP PROJECTION PARAMETERS: </b></strong>
+<br />
+<pre>
+Projection                          ALBERS
+Datum                               HPGN
+Units                               METERS
+Spheroid                            GRS1980
+1st Standard Parallel               24  0  0.000
+2nd Standard Parallel               31 30  0.000
+Central Meridian                   -84 00  0.000
+Latitude of Projection's Origin     24  0  0.000
+False Easting (meters)              400000.00000
+False Northing (meters)             0.00000
+</pre>
+<p>
+<strong><b>DATA SOURCE CONTACT (S):</b></strong>
+</p>
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr>
+<td>
+<pre>
+Name:
+Abbr. Name:
+Address:
+
+
+Phone:
+
+Web site:
+E-mail:
+Contact Person:
+         Phone:
+        E-mail:
+</pre>
+</td>
+<td valign="top"><pre>University of Florida GeoPlan Center
+GeoPlan
+131 Architecture PO Box 115706
+Gainesville, FL
+32611
+
+<br />
+http://www.fgdl.org/metadataexplorer
+data@fgdl.org
+Kate Norris
+</pre>
+</td>
+</tr>
+</table>
+<br />
+<strong><b>FGDL CONTACT:</b></strong>
+<pre>
+Name:                   FLORIDA GEOGRAPHIC DATA LIBRARY
+Abbr. Name:             FGDL
+Address:                Florida Geographic Data Library
+                        431 Architecture Building
+                        PO Box 115706
+                        Gainesville, FL  32611-5706
+Web site:               <a href="http://www.fgdl.org">http://www.fgdl.org</a>
+
+Contact FGDL: 
+
+      Technical Support:	        <a href="http://www.fgdl.org/fgdlfeed.html">http://www.fgdl.org/fgdlfeed.html</a>
+      FGDL Frequently Asked Questions:  <a href="http://www.fgdl.org/fgdlfaq.html">http://www.fgdl.org/fgdlfaq.html</a>
+      FGDL Mailing Lists:		<a href="http://www.fgdl.org/fgdl-l.html">http://www.fgdl.org/fgdl-l.html</a>
+      For FGDL Software:                <a href="http://www.fgdl.org/software.html">http://www.fgdl.org/software.html</a>
+</pre>
+</BODY>
+</HTML>

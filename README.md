@@ -1,6 +1,8 @@
 # README
 
-## Set up for local deployment via terminal:
+## Local Deployment
+
+### Set up via terminal:
 
 ```sh
 git clone https://github.com/siddgood/180proj
@@ -14,26 +16,26 @@ source venv/bin/activate
 pip3 install -r requirements.txt
 ```
 
-## To launch and view:
+### To launch and view:
 
 ```sh
 python3 geo/__init__.py
 ```
 Local deployment should be viewable at http://0.0.0.0:5001/
 
-# Usage
+## Usage
 
-## Sample upload files
+### Sample upload files
 
 * Road network shapefile: https://drive.google.com/file/d/1ohwYyl2wa1AIgoR5b7T6opPkauRHc6Vv/view?usp=sharing
 * Area of interest (AOI) shapefile: https://drive.google.com/file/d/1ILbsKRob4alKkAqzzZxquXs8q4wx2KoZ/view?usp=sharing
 * Parameter shapefile: https://drive.google.com/file/d/1z93Xpo2Ikc8FSdgiRuxixqOvzqEckDwD/view?usp=sharing
 
-# For Heroku Usage
+## Heroku Deployment
 
 Latest build is live on https://geosampling.herokuapp.com
 
-## To upload your own shapefiles
+### To upload your own shapefiles
 
 To upload your own shapefiles, the use must **at least** upload a road network shapefile (w/ LINESTRING geometry) and an AOI shapefile (w/ POLYGON/MULTIPOLYGON geometry). Please refer to the sample shapefiles for reference.
 

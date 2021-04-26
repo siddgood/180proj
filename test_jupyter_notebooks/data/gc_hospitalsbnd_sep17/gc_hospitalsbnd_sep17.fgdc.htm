@@ -1,0 +1,1815 @@
+<HTML>
+<HEAD>
+<SCRIPT><!--
+
+      function fix(e) {
+        var par = e.parentNode;
+        e.id = "";
+        e.style.marginLeft = "0.42in";
+        var pos = e.innerText.indexOf("\n");
+        if (pos > 0) {
+          while (pos > 0) {
+            var t = e.childNodes(0);
+            var n = document.createElement("PRE");
+            var s = t.splitText(pos);
+            e.insertAdjacentElement("afterEnd", n);
+            n.appendChild(s);
+            n.style.marginLeft = "0.42in";
+            e = n;
+            pos = e.innerText.indexOf("\n");
+          }
+          var count = (par.children.length);
+          for (var i = 0; i < count; i++) {
+            e = par.children(i);
+            if (e.tagName == "PRE") {
+              pos = e.innerText.indexOf(">");
+              if (pos != 0) {
+                n = document.createElement("DD");
+                e.insertAdjacentElement("afterEnd", n);
+                n.innerText = e.innerText;
+                e.removeNode(true);
+              }
+            }
+          }
+          if (par.children.tags("PRE").length > 0) {
+            count = (par.children.length);
+            for (i = 0; i < count; i++) {
+              e = par.children(i);
+              if (e.tagName == "PRE") {
+                e.id = "";
+                if (i < (count-1)) {
+                  var e2 = par.children(i + 1);
+                  if (e2.tagName == "PRE") {
+                    e.insertAdjacentText("beforeEnd", e2.innerText+"\n");
+                    e2.removeNode(true);
+                    count = count-1;
+                    i = i-1;
+                  }
+                }
+              }
+            }
+          }
+        }
+        else {
+          n = document.createElement("DD");
+          par.appendChild(n);
+          n.innerText = e.innerText;
+          e.removeNode(true);
+        }
+      }
+
+    --></SCRIPT>
+</HEAD>
+<BODY oncontextmenu="return true">
+<A name="Top" />
+<H1>HOSPITAL FACILITY BOUNDARIES IN FLORIDA - 2017</H1>
+<H2>Metadata:</H2>
+<UL>
+<LI><A HREF="#Identification_Information">Identification_Information</A></LI>
+<LI><A HREF="#Data_Quality_Information">Data_Quality_Information</A></LI>
+<LI><A HREF="#Spatial_Data_Organization_Information">Spatial_Data_Organization_Information</A></LI>
+<LI><A HREF="#Spatial_Reference_Information">Spatial_Reference_Information</A></LI>
+<LI><A HREF="#Entity_and_Attribute_Information">Entity_and_Attribute_Information</A></LI>
+<LI>
+<A HREF="#1">
+
+                  Distribution_Information
+                </A>
+</LI>
+<LI><A HREF="#Metadata_Reference_Information">Metadata_Reference_Information</A></LI>
+</UL>
+<A name="Identification_Information"><HR /></A>
+<DL>
+<DT><I>Identification_Information:</I></DT>
+<DD>
+<DL>
+<DT><I>Citation:</I></DT>
+<DD>
+<DL>
+<DT><I>Citation_Information:</I></DT>
+<DD>
+<DL>
+<DT><I>Originator:</I>
+University of Florida GeoPlan Center</DT>
+<DT><I>Publication_Date:</I>
+20170906</DT>
+<DT><I>Title:</I></DT>
+<DD>HOSPITAL FACILITY BOUNDARIES IN FLORIDA - 2017</DD>
+<DT><I>Geospatial_Data_Presentation_Form:</I>
+vector digital data</DT>
+<DT><I>Publication_Information:</I></DT>
+<DD>
+<DL>
+<DT><I>Publication_Place:</I>
+Gainesville, FL</DT>
+<DT><I>Publisher:</I>
+University of Florida GeoPlan Center</DT>
+</DL>
+</DD>
+<DT><I>Other_Citation_Details:</I></DT>
+<DD>State of Florida</DD>
+<DT><I>Online_Linkage:</I>
+<A TARGET="viewer" HREF="http://www.fgdl.org/metadataexplorer">
+http://www.fgdl.org/metadataexplorer</A>
+</DT>
+</DL>
+</DD>
+</DL>
+</DD>
+<DT><I>Description:</I></DT>
+<DD>
+<DL>
+<DIV>
+<DT><I>Abstract:</I></DT>
+<PRE ID="original">This dataset contains 2017 Hospital Facility Information for the State of Florida. It is a combination of hospital facility addresses from different sources. The data contains selected fields denoting the name, physical address, and other facility information for hospitals located in Florida. This data is meant to be used for planning purposes only and is not intended to represent a 100% inventory of hospitals in Florida.  Hospital locations that have been verified are marked with the letter V in the FLAG field.  This layer corresponds to the hospital points layer GC_HOSPITALS_SEP17 available through FGDL.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Purpose:</I></DT>
+<PRE ID="original">The data was created to serve as base information for use in GIS systems for
+a variety of planning and analytical purposes.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Supplemental_Information:</I></DT>
+<PRE ID="original">What is Geocoding?
+Geocoding is term used to describe the act of address matching.  Geocoding
+is the process of finding a geographic location (x, y point) for an address
+(such as street number and name, city, state, and ZIP Code) on a map.
+Geocoding is based off the typical address scheme for the US, in which one
+side of the street contains even house numbers while the other side of the
+street contains odd house numbers.
+
+The geocoding process uses an algorithm to find the geographic location
+of addresses. First, a street segment is identified using the zip code and
+street name. Next, the geographic location of the address is matched using
+the building number to determine how far down the street and on which side
+of the street the building is located.
+
+Geocoding Accuracy
+The locational accuracy of geocoded addresses may vary from urban to rural
+areas due to the algorithm used to generate the geographic locations of
+addresses. The algorithm assumes that the size of parcels are equivalent
+along a road route. This assumption tends to be more consistent in urban
+areas, where the size of parcels vary less than in rural areas.
+Consequently, the results of geocoded addresses in urban areas are usually
+more reliable than those in rural areas.
+
+For example, the locational accuracy of rural addresses can be slightly
+off because some parcels along a rural route may be 15 acres while others
+may be 2.5 acres, but the geocoding algorithm assumes that the addresses
+are distributed evenly along the route.
+
+In the case of this dataset, special attention was given to the position
+of the resulting x,y point location of the geocoded address. The location of 
+geocoded x,y point was manually moved by GeoPlan Center 
+from the street to on top of the facility building.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Time_Period_of_Content:</I></DT>
+<DD>
+<DL>
+<DT><I>Time_Period_Information:</I></DT>
+<DD>
+<DL>
+<DT><I>Range_of_Dates/Times:</I></DT>
+<DD>
+<DL>
+<DT><I>Beginning_Date:</I>
+20031003</DT>
+<DT><I>Ending_Date:</I>
+20170906</DT>
+</DL>
+</DD>
+</DL>
+</DD>
+<DIV>
+<DT><I>Currentness_Reference:</I></DT>
+<PRE ID="original">publication date</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Status:</I></DT>
+<DD>
+<DL>
+<DT><I>Progress:</I>
+Complete</DT>
+<DT><I>Maintenance_and_Update_Frequency:</I>
+As needed</DT>
+</DL>
+</DD>
+<DT><I>Spatial_Domain:</I></DT>
+<DD>
+<DL>
+<DT><I>Bounding_Coordinates:</I></DT>
+<DD>
+<DL>
+<DT><I>West_Bounding_Coordinate:</I>
+-87.429040</DT>
+<DT><I>East_Bounding_Coordinate:</I>
+-79.872251</DT>
+<DT><I>North_Bounding_Coordinate:</I>
+30.983191</DT>
+<DT><I>South_Bounding_Coordinate:</I>
+24.492815</DT>
+</DL>
+</DD>
+</DL>
+</DD>
+<DT><I>Keywords:</I></DT>
+<DD>
+<DL>
+<DT><I>Theme:</I></DT>
+<DD>
+<DL>
+<DT><I>Theme_Keyword_Thesaurus:</I>
+NONE</DT>
+<DT><I>Theme_Keyword:</I>
+Emergency</DT>
+<DT><I>Theme_Keyword:</I>
+Regional Medical Center</DT>
+<DT><I>Theme_Keyword:</I>
+Emergency Management</DT>
+<DT><I>Theme_Keyword:</I>
+Urgent Care</DT>
+<DT><I>Theme_Keyword:</I>
+FDEM</DT>
+<DT><I>Theme_Keyword:</I>
+Hospitals</DT>
+</DL>
+</DD>
+<DT><I>Theme:</I></DT>
+<DD>
+<DL>
+<DT><I>Theme_Keyword_Thesaurus:</I>
+ISO 19115 Topic Category</DT>
+<DT><I>Theme_Keyword:</I>
+health</DT>
+</DL>
+</DD>
+<DT><I>Place:</I></DT>
+<DD>
+<DL>
+<DT><I>Place_Keyword_Thesaurus:</I>
+NONE</DT>
+<DT><I>Place_Keyword:</I>
+Florida</DT>
+</DL>
+</DD>
+<DT><I>Temporal:</I></DT>
+<DD>
+<DL>
+<DT><I>Temporal_Keyword_Thesaurus:</I>
+NONE</DT>
+<DT><I>Temporal_Keyword:</I>
+2017</DT>
+</DL>
+</DD>
+</DL>
+</DD>
+<DT><I>Access_Constraints:</I>
+None</DT>
+<DIV>
+<DT><I>Use_Constraints:</I></DT>
+<PRE ID="original">None</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DT><I>Point_of_Contact:</I></DT>
+<DD>
+<DL>
+<DT><I>Contact_Information:</I></DT>
+<DD>
+<DL>
+<DT><I>Contact_Organization_Primary:</I></DT>
+<DD>
+<DL>
+<DT><I>Contact_Organization:</I>
+University of Florida GeoPlan Center</DT>
+<DT><I>Contact_Person:</I>
+Kate Norris</DT>
+</DL>
+</DD>
+<DT><I>Contact_Address:</I></DT>
+<DD>
+<DL>
+<DT><I>Address_Type:</I>
+mailing and physical address</DT>
+<DIV>
+<DT><I>Address:</I></DT>
+<PRE ID="original">131 Architecture PO Box 115706</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DT><I>City:</I>
+Gainesville</DT>
+<DT><I>State_or_Province:</I>
+FL</DT>
+<DT><I>Postal_Code:</I>
+32611</DT>
+<DT><I>Country:</I>
+USA</DT>
+</DL>
+</DD>
+<DT><I>Contact_Electronic_Mail_Address:</I>
+data@fgdl.org</DT>
+<DT><I>Contact Instructions:</I></DT>
+<DIV>
+<PRE ID="original">www.geoplan.ufl.edu/</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+</DL>
+</DD>
+<DIV>
+<DT><I>Data_Set_Credit:</I></DT>
+<PRE ID="original">See Process Steps for Sources.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DT><I>Native_Data_Set_Environment:</I></DT>
+<DD>Microsoft Windows Vista Version 6.1 (Build 7601) Service Pack 1; ESRI ArcCatalog 9.3.1.4000</DD>
+<DT><I>Cross_Reference:</I></DT>
+<DD>
+<DL>
+<DT><I>Citation_Information:</I></DT>
+<DD>
+<DL>
+<DT><I>Other_Citation_Details:</I></DT>
+<DD>Hospital and Nursing Home Profiles
+http://www.hospital-data.com/
+
+Federation of American Hospitals - Florida
+http://fah.org/#
+
+Florida Hospital Association - 
+www.fha.org
+
+Florida Department of Health - Environmental Health GIS Data
+http://www.floridahealth.gov/environmental-health/gis/gis-data.html
+
+Florida Agency for Health Care Administration - Facility Locator
+http://www.floridahealthfinder.gov/facilitylocator/facloc.aspx</DD>
+</DL>
+</DD>
+</DL>
+</DD>
+</DL>
+</DD>
+</DL>
+<A HREF="#Top">Back to Top</A>
+<A name="Data_Quality_Information"><HR /></A>
+<DL>
+<DT><I>Data_Quality_Information:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Accuracy:</I></DT>
+<DD>
+<DL>
+<DIV>
+<DT><I>Attribute_Accuracy_Report:</I></DT>
+<PRE ID="original">GeoPlan relied on the integrity of the attribute information within
+the original data.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DIV>
+<DT><I>Logical_Consistency_Report:</I></DT>
+<PRE ID="original">This data is provided 'as is'. GeoPlan relied on the integrity
+of the original data layer's topology</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Completeness_Report:</I></DT>
+<PRE ID="original">This data is provided 'as is' by GeoPlan and is complete to our
+knowledge.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DT><I>Positional_Accuracy:</I></DT>
+<DD>
+<DL>
+<DT><I>Horizontal_Positional_Accuracy:</I></DT>
+<DD>
+<DL>
+<DIV>
+<DT><I>Horizontal_Positional_Accuracy_Report:</I></DT>
+<PRE ID="original">This data is provided 'as is' and its horizontal positional accuracy
+has not been verified by GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Vertical_Positional_Accuracy:</I></DT>
+<DD>
+<DL>
+<DIV>
+<DT><I>Vertical_Positional_Accuracy_Report:</I></DT>
+<PRE ID="original">This data is provided 'as is' and its vertical positional accuracy
+has not been verified by GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+</DL>
+</DD>
+<DT><I>Lineage:</I></DT>
+<DD>
+<DL>
+<DT><I>Source_Information:</I></DT>
+<DD>
+<DL>
+<DT><I>Source_Scale_Denominator:</I>
+Varies</DT>
+<DT><I>Source_Citation_Abbreviation:</I></DT>
+<DD>GeoPlan</DD>
+<DIV>
+<DT><I>Source_Contribution:</I></DT>
+<PRE ID="original">Spatial and Attribute Information</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Process_Step:</I></DT>
+<DD>
+<DL>
+<DIV>
+<DT><I>Process_Description:</I></DT>
+<PRE ID="original">In 2017, GeoPlan created the Florida hospitals boundaries shapefile.  
+During the QA/QC process, GeoPlan performed the following tasks:
+
+- Created a new shapefile (GC_HOSPITALSBND_SEP17.shp) with an Albers projection.
+
+- Spatially joined the Hospitals points shapefile with the 2014 Florida parcel layer.
+
+- Verified all records in GC_HOSPITALSBND_SEP17.shp using imagery, 2014-15 FGDL 
+parcel data, and Google Street View. If the 2015 parcel record differed from the 2014 
+record, the shapefile was updated with the 2015 parcel data. Records unable to be 
+verified were noted.  See the attribute flag field for an in-depth definition.
+
+- A GCID field was created and populated with a unique ID linking each polygon feature 
+with its corresponding point layer feature, GC_HOSPITALS_SEP17.
+
+- To reflect the current table syntax by GeoPlan, all unnecessary parcel information
+fields were deleted.
+
+- FDEM_ID, NAME, ADDRESS, CITY, ZIPCODE, COUNTY, PHONE, TYPE, OWNER, 
+OPERATING, OP_CLASS, AHCA_OWNER, PROFIT, CAPACITY, BEDS, STATE_ID, 
+EFCLASS, AHCA_NUM, CON1_TYPE, CON1_UP, CON1_DOWN, CON2_TYPE, 
+CON2_UP, CON2_DOWN, CON3_TYPE, CON3_UP, CON3_DOWN, NET_CONS, 
+WEBSITE, FSOURCE, LAT_DD, LONG_DD, and DESCRIPT fields were added and 
+populated with the exact same data as the GC_HOPSITALS_SEP17.shp.
+
+- The table was then restructured and uppercased.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DT><I>Source_Used_Citation_Abbreviation:</I></DT>
+<DD>GeoPlan</DD>
+<DT><I>Process_Date:</I>
+20170906</DT>
+</DL>
+</DD>
+<DT><I>Process_Step:</I></DT>
+<DD>
+<DL>
+<DIV>
+<DT><I>Process_Description:</I></DT>
+<PRE ID="original">Dataset copied.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DT><I>Source_Used_Citation_Abbreviation:</I></DT>
+<DD>Server=wopr.fla-etat.org; Service=5151; User=etat; Version=SDE.DEFAULT</DD>
+<DT><I>Process_Date:</I>
+20170922</DT>
+<DT><I>Process_Time:</I>
+11574700</DT>
+</DL>
+</DD>
+</DL>
+</DD>
+</DL>
+</DD>
+</DL>
+<A HREF="#Top">Back to Top</A>
+<A name="Spatial_Data_Organization_Information"><HR /></A>
+<DL>
+<DT><I>Spatial_Data_Organization_Information:</I></DT>
+<DD>
+<DL>
+<DT><I>Direct_Spatial_Reference_Method:</I>
+Vector</DT>
+<DT><I>Point_and_Vector_Object_Information:</I></DT>
+<DD>
+<DL>
+<DT><I>SDTS_Terms_Description:</I></DT>
+<DD>
+<DL>
+<DT><I>SDTS_Point_and_Vector_Object_Type:</I>
+G-polygon</DT>
+<DT><I>Point_and_Vector_Object_Count:</I>
+349</DT>
+</DL>
+</DD>
+</DL>
+</DD>
+</DL>
+</DD>
+</DL>
+<A HREF="#Top">Back to Top</A>
+<A name="Spatial_Reference_Information"><HR /></A>
+<DL>
+<DT><I>Spatial_Reference_Information:</I></DT>
+<DD>
+<DL>
+<DT><I>Horizontal_Coordinate_System_Definition:</I></DT>
+<DD>
+<DL>
+<DT><I>Planar:</I></DT>
+<DD>
+<DL>
+<DT><I>Map_Projection:</I></DT>
+<DD>
+<DL>
+<DT><I>Map_Projection_Name:</I>
+Albers Conical Equal Area</DT>
+<DT><I>Albers_Conical_Equal_Area:</I></DT>
+<DD>
+<DL>
+<DT><I>Standard_Parallel:</I>
+24.000000</DT>
+<DT><I>Standard_Parallel:</I>
+31.500000</DT>
+<DT><I>Longitude_of_Central_Meridian:</I>
+-84.000000</DT>
+<DT><I>Latitude_of_Projection_Origin:</I>
+24.000000</DT>
+<DT><I>False_Easting:</I>
+400000.000000</DT>
+<DT><I>False_Northing:</I>
+0.000000</DT>
+</DL>
+</DD>
+</DL>
+</DD>
+<DT><I>Planar_Coordinate_Information:</I></DT>
+<DD>
+<DL>
+<DT><I>Planar_Coordinate_Encoding_Method:</I>
+coordinate pair</DT>
+<DT><I>Coordinate_Representation:</I></DT>
+<DD>
+<DL>
+<DT><I>Abscissa_Resolution:</I>
+0.002048</DT>
+<DT><I>Ordinate_Resolution:</I>
+0.002048</DT>
+</DL>
+</DD>
+<DT><I>Planar_Distance_Units:</I>
+meters</DT>
+</DL>
+</DD>
+</DL>
+</DD>
+<DT><I>Geodetic_Model:</I></DT>
+<DD>
+<DL>
+<DT><I>Horizontal_Datum_Name:</I>
+D_North_American_1983_HARN</DT>
+<DT><I>Ellipsoid_Name:</I>
+Geodetic Reference System 80</DT>
+<DT><I>Semi-major_Axis:</I>
+6378137.000000</DT>
+<DT><I>Denominator_of_Flattening_Ratio:</I>
+298.257222</DT>
+</DL>
+</DD>
+</DL>
+</DD>
+<DT><I>Vertical_Coordinate_System_Definition:</I></DT>
+<DD>
+<DL>
+<DT><I>Altitude_System_Definition:</I></DT>
+<DD>
+<DL>
+<DT><I>Altitude_Resolution:</I>
+1.000000</DT>
+<DT><I>Altitude_Encoding_Method:</I>
+Explicit elevation coordinate included with horizontal coordinates</DT>
+</DL>
+</DD>
+</DL>
+</DD>
+</DL>
+</DD>
+</DL>
+<A HREF="#Top">Back to Top</A>
+<A name="Entity_and_Attribute_Information"><HR /></A>
+<DL>
+<DT><I>Entity_and_Attribute_Information:</I></DT>
+<DD>
+<DL>
+<DT><I>Detailed_Description:</I></DT>
+<DD>
+<DL>
+<DT><I>Entity_Type:</I></DT>
+<DD>
+<DL>
+<DT><I>Entity_Type_Label:</I>
+GC_HOSPITALSBND_SEP17</DT>
+<DT><I>Entity_Type_Definition:</I></DT>
+<DD>GC_HOSPITALSBND_SEP17.DBF</DD>
+<DT><I>Entity_Type_Definition_Source:</I></DT>
+<DD>GeoPlan</DD>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+OBJECTID</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Internal feature number.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">ESRI</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DT><I>Attribute_Domain_Values:</I></DT>
+<DD>
+<DL>
+<DT><I>Unrepresentable_Domain:</I></DT>
+<DD>Sequential unique whole numbers that are automatically generated.</DD>
+</DL>
+</DD>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+Shape</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Feature geometry.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">ESRI</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DT><I>Attribute_Domain_Values:</I></DT>
+<DD>
+<DL>
+<DT><I>Unrepresentable_Domain:</I></DT>
+<DD>Coordinates defining the features.</DD>
+</DL>
+</DD>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+PARCELID</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Parcel Identification Number, derived from either the 2014 or 2015 statewide parcel layers.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+FDEM_ID</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Florida Department of Emergency Management Idenitification number.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+NAME</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Name of the facility.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+ADDRESS</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">A description of a facility's physical location providing direction for delivery and provision of emergency services.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+CITY</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">City of facility's physical location.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+ZIPCODE</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">US postal delivery designation of facility's physical location.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+COUNTY</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">County of facility's physical location.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+PHONE</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">The phone number of the facility.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+TYPE</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Category of hospital.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+OWNER</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Entity owner of the facility.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+OPERATING</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">The responsible organization for management and operation of a facility (e.g., public, private, quasi-public).</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+OP_CLASS</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Classification of the operating entity.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+AHCA_OWNER</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Agency for Healthcare Administration Owner</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+PROFIT</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Profit status for hospital.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+CAPACITY</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Capacity of the facility.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+BEDS</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Number of beds in the facility.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+STATE_ID</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">State Hospital Data ID. For states that contributed data, this attribute is populated with the unique ID used by the state to track hospitals. Duplicate IDs may be possible where TGS has added records which correspond to a state provided record and, therefore, an identical ID was created.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+EFCLASS</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Indicates essential facilities classification. The values for this attribute were provided by the Post, Buckley, Schuh, and Jernigan, Incorporated (PBSJ) and TGS did not verify these values.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">TGS</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DT><I>Attribute_Domain_Values:</I></DT>
+<DD>
+<DL>
+<DT><I>Enumerated_Domain:</I></DT>
+<DD>
+<DL>
+<DT><I>Enumerated_Domain_Value:</I>
+EFHL</DT>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition:</I></DT>
+<PRE ID="original">Entity is classified as : Medical Care Facilities -- Large Hospital -- Hospitals with greater than 150 beds.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition_Source:</I></DT>
+<PRE ID="original">TGS</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+</DL>
+</DD>
+<DT><I>Attribute_Domain_Values:</I></DT>
+<DD>
+<DL>
+<DT><I>Enumerated_Domain:</I></DT>
+<DD>
+<DL>
+<DT><I>Enumerated_Domain_Value:</I>
+EFHM</DT>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition:</I></DT>
+<PRE ID="original">Entity is classified as : Medical Care Facilities -- Medium Hospital -- Hospitals with beds between 50 and 150.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition_Source:</I></DT>
+<PRE ID="original">TGS</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+</DL>
+</DD>
+<DT><I>Attribute_Domain_Values:</I></DT>
+<DD>
+<DL>
+<DT><I>Enumerated_Domain:</I></DT>
+<DD>
+<DL>
+<DT><I>Enumerated_Domain_Value:</I>
+EFHS</DT>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition:</I></DT>
+<PRE ID="original">Entity is classified as : Medical Care Facilities -- Small Hospital -- Hospitals with less than 50 beds.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition_Source:</I></DT>
+<PRE ID="original">TGS</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+</DL>
+</DD>
+<DT><I>Attribute_Domain_Values:</I></DT>
+<DD>
+<DL>
+<DT><I>Enumerated_Domain:</I></DT>
+<DD>
+<DL>
+<DT><I>Enumerated_Domain_Value:</I>
+&lt;BLANK&gt;</DT>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition:</I></DT>
+<PRE ID="original">Unknown</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+</DL>
+</DD>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+AHCA_NUM</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Agency for Health Care Administration number.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+CON1_TYPE</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Type of service of first internet connection.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+CON1_UP</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Upstream connection speed of first internet connection.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+CON1_DOWN</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Downstream connection speed of first internet connection.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+CON2_TYPE</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Type of service of second internet connection.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+CON2_UP</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Upstream connection speed of second internet connection.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+CON2_DOWN</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Downstream connection speed of second internet connection.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+CON3_TYPE</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Type of service of third internet connection.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+CON3_UP</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Upstream connection speed of third internet connection.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+CON3_DOWN</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Downstream connection speed of third internet connection.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+NET_CONS</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Total number of internet connections.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+WEBSITE</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Web address.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+ACTYRBLT</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">The actual year built derived from the 2014-15 parcel database.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+FSOURCE</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Feature spatial source.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+DATASOURCE</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Feature Data/Tabular Source.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+NOTES</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Notes</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+LAT_DD</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Latitude in decimal degrees.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+LONG_DD</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Longitude in decimal degrees.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+MGRS</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Military Grid Reference System (MGRS) Coordinate of the Facility. The MGRS is the geocoordinate standard used by NATO militaries for locating points on the Earth. The MGRS provides a means to represent any location on the surface of the Earth using alphanumeric string. Hierarchical references are based on the Universal Transverse Mercator (UTM) Coordinate System. The MGRS is used for the entire Earth. http://mgrs-data.org/</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+GCID</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">The GeoPlan Center identification number that links this polygon layer feature with it's corresponding point layer feature (GC_HOSPITALS).</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+ACRES</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Facility acreage.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+DESCRIPT</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Field added by FGDL based on NAME.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+FLAG</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Identifies if the facility's spatial location has been visually verified.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DT><I>Attribute_Domain_Values:</I></DT>
+<DD>
+<DL>
+<DT><I>Enumerated_Domain:</I></DT>
+<DD>
+<DL>
+<DT><I>Enumerated_Domain_Value:</I>
+V</DT>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition:</I></DT>
+<PRE ID="original">Verified. Verified, in most cases this verification was based on ESRI/Google Imagery, Google Street View, and Parcel Data. The exact facility boundaries are not verified and in many cases only based on parcel boundaries.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+</DL>
+</DD>
+<DT><I>Attribute_Domain_Values:</I></DT>
+<DD>
+<DL>
+<DT><I>Enumerated_Domain:</I></DT>
+<DD>
+<DL>
+<DT><I>Enumerated_Domain_Value:</I>
+NV</DT>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition:</I></DT>
+<PRE ID="original">Not Verified.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+</DL>
+</DD>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+UPDATE_DAY</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">The date the data was last updated by the Source.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+FGDLAQDATE</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">The date FGDL acquired the data from the Source.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+AUTOID</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Unique ID added by GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+SHAPE.AREA</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Area in meters</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+SHAPE.LEN</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Perimeter in meters</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+</DL>
+</DD>
+</DL>
+</DD>
+</DL>
+<A HREF="#Top">Back to Top</A>
+<A NAME="1">
+<HR />
+</A>
+<DL>
+<DT><I>Distribution_Information:</I>
+</DT>
+<DD>
+<DL>
+<DT><I>Distributor:</I></DT>
+<DD>
+<DL>
+<DT><I>Contact_Information:</I></DT>
+<DD>
+<DL>
+<DT><I>Contact_Organization_Primary:</I></DT>
+<DD>
+<DL>
+<DT><I>Contact_Organization:</I>
+Florida Geographic Data Library (FGDL)</DT>
+<DT><I>Contact_Person:</I>
+</DT>
+</DL>
+</DD>
+<DT><I>Contact_Position:</I>
+</DT>
+<DT><I>Contact_Address:</I></DT>
+<DD>
+<DL>
+<DT><I>Address_Type:</I>
+mailing address</DT>
+<DIV>
+<DT><I>Address:</I></DT>
+<PRE ID="original">431 Architecture PO Box 115706</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DT><I>City:</I>
+Gainesville</DT>
+<DT><I>State_or_Province:</I>
+Florida</DT>
+<DT><I>Postal_Code:</I>
+32611-5706</DT>
+<DT><I>Country:</I>
+United States</DT>
+</DL>
+</DD>
+<DT><I>Contact_Voice_Telephone:</I>
+</DT>
+<DT><I>Contact_TDD/TTY_Telephone:</I>
+</DT>
+<DT><I>Contact_Facsimile_Telephone:</I>
+</DT>
+<DT><I>Contact_Electronic_Mail_Address:</I>
+Web site: http://www.fgdl.org</DT>
+<DT><I>Contact_Electronic_Mail_Address:</I>
+Technical Support: http://www.fgdl.org/fgdlfeed.html</DT>
+<DT><I>Contact_Electronic_Mail_Address:</I>
+For FGDL Software: http://www.fgdl.org/software.html</DT>
+<DT><I>Contact_Electronic_Mail_Address:</I>
+FGDL Frequently Asked Questions: http://www.fgdl.org/fgdlfaq.html</DT>
+<DT><I>Contact_Electronic_Mail_Address:</I>
+Mailing list for FGDL: http://www.fgdl.org/fgdl-l.html</DT>
+<DT><I>Hours_of_Service:</I>
+</DT>
+<DT><I>Contact Instructions:</I></DT>
+<DIV>
+<PRE ID="original"></PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+</DL>
+</DD>
+<DT><I>Resource_Description:</I>
+DOWNLOADABLE DATA</DT>
+<DIV>
+<DT><I>Distribution_Liability:</I></DT>
+<PRE ID="original">The Florida Geographic Data Library is a collection of Geospatial Data
+compiled by the University of Florida GeoPlan Center with support from
+the Florida Department of Transportation. GIS data available in FGDL is
+collected from various state, federal, and other agencies (data sources)
+who are data stewards, producers, or publishers. The data available in
+FGDL may not be the most current version of the data offered by the
+data source. University of Florida GeoPlan Center makes no guarantees
+about the currentness of the data and suggests that data users check
+with the data source to see if more recent versions of the data exist.
+
+Furthermore, the GIS data available in the FGDL are provided 'as is'.
+The University of Florida GeoPlan Center makes no warranties, guaranties
+or representations as to the truth, accuracy or completeness of the data
+provided by the data sources. The University of Florida GeoPlan Center
+makes no representations or warranties about the quality or suitability
+of the materials, either expressly or implied, including but not limited
+to any implied warranties of merchantability, fitness for a particular
+purpose, or non-infringement. The University of Florida GeoPlan Center
+shall not be liable for any damages suffered as a result of using,
+modifying, contributing or distributing the materials.
+
+A note about data scale: 
+
+Scale is an important factor in data usage.  Certain scale datasets
+are not suitable for some project, analysis, or modeling purposes.
+Please be sure you are using the best available data. 
+
+1:24000 scale datasets are recommended for projects that are at the
+county level.
+1:24000 data should NOT be used for high accuracy base mapping such
+as property parcel boundaries.
+1:100000 scale datasets are recommended for projects that are at the
+multi-county or regional level.
+1:125000 scale datasets are recommended for projects that are at the
+regional or state level or larger.
+
+Vector datasets with no defined scale or accuracy should be
+considered suspect. Make sure you are familiar with your data
+before using it for projects or analysis. Every effort has been
+made to supply the user with data documentation. For additional
+information, see the References section and the Data Source Contact
+section of this documentation. For more information regarding
+scale and accuracy, see our webpage at:
+http://geoplan.ufl.edu/education.html</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DT><I>Standard_Order_Process:</I></DT>
+<DD>
+<DL>
+<DT><I>Digital_Form:</I></DT>
+<DD>
+<DL>
+<DT><I>Digital_Transfer_Information:</I></DT>
+<DD>
+<DL>
+<DT><I>Transfer_Size:</I>
+0.816</DT>
+</DL>
+</DD>
+</DL>
+</DD>
+</DL>
+</DD>
+<DT><I>Technical_Prerequisites:</I></DT>
+<DD>This data is intended for use with a Geographic Information Systems or Remote Sensing software package.</DD>
+</DL>
+</DD>
+</DL>
+<A HREF="#Top">Back to Top</A>
+<A name="Metadata_Reference_Information"><HR /></A>
+<DL>
+<DT><I>Metadata_Reference_Information:</I></DT>
+<DD>
+<DL>
+<DT><I>Metadata_Date:</I>
+20170922</DT>
+<DT><I>Metadata_Contact:</I></DT>
+<DD>
+<DL>
+<DT><I>Contact_Information:</I></DT>
+<DD>
+<DL>
+<DT><I>Contact_Organization_Primary:</I></DT>
+<DD>
+<DL>
+<DT><I>Contact_Organization:</I>
+University of Florida GeoPlan Center</DT>
+<DT><I>Contact_Person:</I>
+Kate Norris</DT>
+</DL>
+</DD>
+<DT><I>Contact_Address:</I></DT>
+<DD>
+<DL>
+<DT><I>Address_Type:</I>
+mailing and physical address</DT>
+<DIV>
+<DT><I>Address:</I></DT>
+<PRE ID="original">131 Architecture PO Box 115706</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DT><I>City:</I>
+Gainesville</DT>
+<DT><I>State_or_Province:</I>
+FL</DT>
+<DT><I>Postal_Code:</I>
+32611</DT>
+<DT><I>Country:</I>
+USA</DT>
+</DL>
+</DD>
+<DT><I>Contact_Electronic_Mail_Address:</I>
+data@fgdl.org</DT>
+<DT><I>Contact Instructions:</I></DT>
+<DIV>
+<PRE ID="original">www.fgdl.org</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+</DL>
+</DD>
+<DT><I>Metadata_Standard_Name:</I>
+FGDC Content Standards for Digital Geospatial Metadata</DT>
+<DT><I>Metadata_Standard_Version:</I>
+FGDC-STD-001-1998</DT>
+<DT><I>Metadata_Time_Convention:</I>
+local time</DT>
+<DT><I>Metadata_Extensions:</I></DT>
+<DD>
+<DL>
+<DT><I>Online_Linkage:</I>
+<A TARGET="viewer" HREF="http://www.esri.com/metadata/esriprof80.html">
+http://www.esri.com/metadata/esriprof80.html</A>
+</DT>
+<DT><I>Profile_Name:</I>
+ESRI Metadata Profile</DT>
+</DL>
+</DD>
+</DL>
+</DD>
+</DL>
+<A HREF="#Top">Back to Top</A>
+</BODY>
+</HTML>

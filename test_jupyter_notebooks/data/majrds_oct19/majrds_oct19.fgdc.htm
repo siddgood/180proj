@@ -1,0 +1,1551 @@
+<HTML>
+<HEAD>
+<SCRIPT><!--
+
+      function fix(e) {
+        var par = e.parentNode;
+        e.id = "";
+        e.style.marginLeft = "0.42in";
+        var pos = e.innerText.indexOf("\n");
+        if (pos > 0) {
+          while (pos > 0) {
+            var t = e.childNodes(0);
+            var n = document.createElement("PRE");
+            var s = t.splitText(pos);
+            e.insertAdjacentElement("afterEnd", n);
+            n.appendChild(s);
+            n.style.marginLeft = "0.42in";
+            e = n;
+            pos = e.innerText.indexOf("\n");
+          }
+          var count = (par.children.length);
+          for (var i = 0; i < count; i++) {
+            e = par.children(i);
+            if (e.tagName == "PRE") {
+              pos = e.innerText.indexOf(">");
+              if (pos != 0) {
+                n = document.createElement("DD");
+                e.insertAdjacentElement("afterEnd", n);
+                n.innerText = e.innerText;
+                e.removeNode(true);
+              }
+            }
+          }
+          if (par.children.tags("PRE").length > 0) {
+            count = (par.children.length);
+            for (i = 0; i < count; i++) {
+              e = par.children(i);
+              if (e.tagName == "PRE") {
+                e.id = "";
+                if (i < (count-1)) {
+                  var e2 = par.children(i + 1);
+                  if (e2.tagName == "PRE") {
+                    e.insertAdjacentText("beforeEnd", e2.innerText+"\n");
+                    e2.removeNode(true);
+                    count = count-1;
+                    i = i-1;
+                  }
+                }
+              }
+            }
+          }
+        }
+        else {
+          n = document.createElement("DD");
+          par.appendChild(n);
+          n.innerText = e.innerText;
+          e.removeNode(true);
+        }
+      }
+
+    --></SCRIPT>
+</HEAD>
+<BODY oncontextmenu="return true">
+<A name="Top" />
+<H1>FLORIDA DEPARTMENT OF TRANSPORTATION - RCI DERIVED MAJOR ROADS - OCTOBER 2019</H1>
+<H2>Metadata:</H2>
+<UL>
+<LI><A HREF="#Identification_Information">Identification_Information</A></LI>
+<LI><A HREF="#Data_Quality_Information">Data_Quality_Information</A></LI>
+<LI><A HREF="#Spatial_Data_Organization_Information">Spatial_Data_Organization_Information</A></LI>
+<LI><A HREF="#Spatial_Reference_Information">Spatial_Reference_Information</A></LI>
+<LI><A HREF="#Entity_and_Attribute_Information">Entity_and_Attribute_Information</A></LI>
+<LI>
+<A HREF="#1">
+
+                  Distribution_Information
+                </A>
+</LI>
+<LI><A HREF="#Metadata_Reference_Information">Metadata_Reference_Information</A></LI>
+</UL>
+<A name="Identification_Information"><HR /></A>
+<DL>
+<DT><I>Identification_Information:</I></DT>
+<DD>
+<DL>
+<DT><I>Citation:</I></DT>
+<DD>
+<DL>
+<DT><I>Citation_Information:</I></DT>
+<DD>
+<DL>
+<DT><I>Originator:</I>
+Florida Department of Transportation</DT>
+<DT><I>Publication_Date:</I>
+20191005</DT>
+<DT><I>Title:</I></DT>
+<DD>FLORIDA DEPARTMENT OF TRANSPORTATION - RCI DERIVED MAJOR ROADS - OCTOBER 2019</DD>
+<DT><I>Geospatial_Data_Presentation_Form:</I>
+vector digital data</DT>
+<DT><I>Publication_Information:</I></DT>
+<DD>
+<DL>
+<DT><I>Publication_Place:</I>
+Tallahassee, FL</DT>
+<DT><I>Publisher:</I>
+Florida Department of Transportation</DT>
+</DL>
+</DD>
+<DT><I>Other_Citation_Details:</I></DT>
+<DD>State of Florida</DD>
+<DT><I>Online_Linkage:</I>
+<A TARGET="viewer" HREF="http://www.fdot.gov/statistics/gis/default.shtm">
+http://www.fdot.gov/statistics/gis/default.shtm</A>
+</DT>
+<DT><I>Larger_Work_Citation:</I></DT>
+<DD>
+<DL>
+<DT><I>Citation_Information:</I></DT>
+<DD>
+<DL>
+</DL>
+</DD>
+</DL>
+</DD>
+</DL>
+</DD>
+</DL>
+</DD>
+<DT><I>Description:</I></DT>
+<DD>
+<DL>
+<DIV>
+<DT><I>Abstract:</I></DT>
+<PRE ID="original">This dataset contains major roads from the October 2019 version of 
+the Florida Department of Transportation Roads Characteristics 
+inventory (RCI) dataset.  The dataset has been updated from the 
+previous versions of FGDL. This data represents the information collected and reported as of the most recent inventory performed and may not reflect the current conditions.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Purpose:</I></DT>
+<PRE ID="original">The data was created to serve as base information for use in GIS systems for a 
+variety of planning and analytical purposes</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Supplemental_Information:</I></DT>
+<PRE ID="original">The RCI is a computerized database of physical and administrative data
+related to the roadway networks that are either maintained by or are of
+special interest to the Department. In addition to data required by the
+Department, the RCI contains other data as required for special Federal and
+State reporting obligations. The RCI is maintained by District and Central
+Office personnel. While there are many other important databases
+maintained by the Department (several that contain more highly technical
+data such as bridge specifications, highway design, or pavement) the RCI
+remains the largest database with over 1 million records.
+(Chapter 1   Page 1 RCI Office Handbook)</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Time_Period_of_Content:</I></DT>
+<DD>
+<DL>
+<DT><I>Time_Period_Information:</I></DT>
+<DD>
+<DL>
+<DT><I>Single_Date/Time:</I></DT>
+<DD>
+<DL>
+<DT><I>Calendar_Date:</I>
+20191005</DT>
+</DL>
+</DD>
+</DL>
+</DD>
+<DIV>
+<DT><I>Currentness_Reference:</I></DT>
+<PRE ID="original">publication date</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Status:</I></DT>
+<DD>
+<DL>
+<DT><I>Progress:</I>
+Complete</DT>
+<DT><I>Maintenance_and_Update_Frequency:</I>
+As needed</DT>
+</DL>
+</DD>
+<DT><I>Spatial_Domain:</I></DT>
+<DD>
+<DL>
+<DT><I>Bounding_Coordinates:</I></DT>
+<DD>
+<DL>
+<DT><I>West_Bounding_Coordinate:</I>
+-87.429040</DT>
+<DT><I>East_Bounding_Coordinate:</I>
+-79.872251</DT>
+<DT><I>North_Bounding_Coordinate:</I>
+30.983191</DT>
+<DT><I>South_Bounding_Coordinate:</I>
+24.492815</DT>
+</DL>
+</DD>
+</DL>
+</DD>
+<DT><I>Keywords:</I></DT>
+<DD>
+<DL>
+<DT><I>Theme:</I></DT>
+<DD>
+<DL>
+<DT><I>Theme_Keyword_Thesaurus:</I>
+ISO 19115 Topic Category</DT>
+<DT><I>Theme_Keyword:</I>
+transportation</DT>
+</DL>
+</DD>
+<DT><I>Place:</I></DT>
+<DD>
+<DL>
+<DT><I>Place_Keyword:</I>
+Florida</DT>
+</DL>
+</DD>
+</DL>
+</DD>
+<DT><I>Access_Constraints:</I>
+NONE</DT>
+<DIV>
+<DT><I>Use_Constraints:</I></DT>
+<PRE ID="original">This product has been compiled from the most accurate source data from the 
+Florida Department of Transportation's Transportation Statistics Office. However, 
+this product is for reference purposes only and is not to be construed as a legal 
+document or survey instrument. Any reliance on the information contained herein is 
+at the user's own risk. The Florida Department of Transportation assumes no 
+responsibility for any use of the information contained herein or any loss resulting 
+therefrom.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DT><I>Point_of_Contact:</I></DT>
+<DD>
+<DL>
+<DT><I>Contact_Information:</I></DT>
+<DD>
+<DL>
+<DT><I>Contact_Organization_Primary:</I></DT>
+<DD>
+<DL>
+<DT><I>Contact_Organization:</I>
+Florida Department of Transportation, Data and Analytics Office</DT>
+<DT><I>Contact_Person:</I>
+GIS Section Manager</DT>
+</DL>
+</DD>
+<DT><I>Contact_Address:</I></DT>
+<DD>
+<DL>
+<DT><I>Address_Type:</I>
+mailing address</DT>
+<DIV>
+<DT><I>Address:</I></DT>
+<PRE ID="original">Transportation Statistics Office, 605 Suwannee Street, MS 27</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DT><I>City:</I>
+Tallahassee</DT>
+<DT><I>State_or_Province:</I>
+Florida</DT>
+<DT><I>Postal_Code:</I>
+32399-0450</DT>
+</DL>
+</DD>
+<DT><I>Contact_Voice_Telephone:</I>
+(850) 414-4848/Toll Free: (800) 399-5503</DT>
+<DT><I>Contact_Electronic_Mail_Address:</I>
+CO-TDAGIS@dot.state.fl.us</DT>
+</DL>
+</DD>
+</DL>
+</DD>
+<DT><I>Native_Data_Set_Environment:</I></DT>
+<DD>Microsoft Windows Vista Version 6.1 (Build 7601) Service Pack 1; ESRI ArcCatalog 9.3.1.4000</DD>
+<DT><I>Cross_Reference:</I></DT>
+<DD>
+<DL>
+<DT><I>Citation_Information:</I></DT>
+<DD>
+<DL>
+<DT><I>Other_Citation_Details:</I></DT>
+<DD>FDOT GIS:
+http://www.fdot.gov/statistics/gis/default.shtm</DD>
+</DL>
+</DD>
+</DL>
+</DD>
+</DL>
+</DD>
+</DL>
+<A HREF="#Top">Back to Top</A>
+<A name="Data_Quality_Information"><HR /></A>
+<DL>
+<DT><I>Data_Quality_Information:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Accuracy:</I></DT>
+<DD>
+<DL>
+<DIV>
+<DT><I>Attribute_Accuracy_Report:</I></DT>
+<PRE ID="original">GeoPlan relied on the integrity of the attribute information within
+the original data.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DT><I>Quantitative_Attribute_Accuracy_Assessment:</I></DT>
+<DD>
+<DL>
+</DL>
+</DD>
+</DL>
+</DD>
+<DIV>
+<DT><I>Logical_Consistency_Report:</I></DT>
+<PRE ID="original">This data is provided 'as is'. GeoPlan relied on the integrity of 
+the original data layer's topology</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Completeness_Report:</I></DT>
+<PRE ID="original">This data is provided 'as is' by GeoPlan and is complete to our knowledge.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DT><I>Positional_Accuracy:</I></DT>
+<DD>
+<DL>
+<DT><I>Horizontal_Positional_Accuracy:</I></DT>
+<DD>
+<DL>
+<DIV>
+<DT><I>Horizontal_Positional_Accuracy_Report:</I></DT>
+<PRE ID="original">This data is provided 'as is' and its horizontal positional accuracy 
+has not been verified by GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Vertical_Positional_Accuracy:</I></DT>
+<DD>
+<DL>
+<DIV>
+<DT><I>Vertical_Positional_Accuracy_Report:</I></DT>
+<PRE ID="original">This data is provided 'as is' and its vertical positional accuracy has 
+not been verified by GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+</DL>
+</DD>
+<DT><I>Lineage:</I></DT>
+<DD>
+<DL>
+<DT><I>Source_Information:</I></DT>
+<DD>
+<DL>
+<DT><I>Source_Citation:</I></DT>
+<DD>
+<DL>
+<DT><I>Citation_Information:</I></DT>
+<DD>
+<DL>
+<DT><I>Originator:</I>
+Florida Department of Transportation</DT>
+<DT><I>Publication_Date:</I>
+20191005</DT>
+<DT><I>Title:</I></DT>
+<DD>MAJOR ROADS</DD>
+<DT><I>Geospatial_Data_Presentation_Form:</I>
+vector digital data</DT>
+<DT><I>Online_Linkage:</I>
+<A TARGET="viewer" HREF="www.dot.state.fl.us">
+www.dot.state.fl.us</A>
+</DT>
+</DL>
+</DD>
+</DL>
+</DD>
+<DT><I>Source_Scale_Denominator:</I>
+24000</DT>
+<DT><I>Type_of_Source_Media:</I>
+online</DT>
+<DT><I>Source_Time_Period_of_Content:</I></DT>
+<DD>
+<DL>
+<DT><I>Time_Period_Information:</I></DT>
+<DD>
+<DL>
+<DT><I>Single_Date/Time:</I></DT>
+<DD>
+<DL>
+<DT><I>Calendar_Date:</I>
+20191005</DT>
+</DL>
+</DD>
+</DL>
+</DD>
+<DT><I>Source_Currentness_Reference:</I></DT>
+<DD>publication date</DD>
+</DL>
+</DD>
+<DT><I>Source_Citation_Abbreviation:</I></DT>
+<DD>FDOT</DD>
+<DIV>
+<DT><I>Source_Contribution:</I></DT>
+<PRE ID="original">Spatial and Attribute Information</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Process_Step:</I></DT>
+<DD>
+<DL>
+<DIV>
+<DT><I>Process_Description:</I></DT>
+<PRE ID="original">The data set was taken from the Florida Department of 
+Transportation Statistics Office from the following webpage:  
+http://www.dot.state.fl.us/planning/statistics/gis
+The data set was originally downloaded in OCTOBER 2019 as the 
+RCI basemap.  Specific instructions, created by URS 
+Corporation and the GeoPlan Center, were carried out.
+The data set is then to be updated on a regular basis. The 
+data was originally in UTM Zone 17, Nad83, units meters.  
+The data was projected to Albers HPGN.
+
+-Download the most recent RCI GeoDatabase  
+-Join the road status descriptions to the status event table
+-Add a Route Event theme using the road status descriptions
+-Add a Route Event theme using the local names
+-Add a Route Event theme using the State Road Numbers
+-Add a Route Event theme using the Federal Highway Numbers
+-Add a Route Event theme county roads
+-Add a Route Event theme using Interstates
+-Add a Route Event theme using Toll Roads
+-Add a description field to be associated with the Functional Classification 
+values based on the following values:
+FUNCLASS     DESCRIPT
+00 = Roadway Feature
+01 = Principal Arterial-Interstate - RURAL
+02 = Principal Arterial-Expressway - RURAL
+04 = Principal Arterial-Other - RURAL
+06 = Minor Arterial - RURAL
+07 = Major Collector - RURAL
+08 = Minor Collector - RURAL
+09 = Local - RURAL
+11 = Principal Arterial-Interstate - URBAN
+12 = Principal Arterial-Freeway and Expressway - URBAN
+14 = Principal Arterial-Other - URBAN
+16 = Minor Arterial - URBAN
+17 = Major Collector - URBAN
+18 = Minor Collector (Fed Aid) - URBAN
+19 = Local - URBAN
+
+-Add a Route Event theme using the FDOT Functional Classifications
+-Use the ArcGIS Route Events GeoProcessing Wizard to merge all route events
+-Export from Route Event to Shapefile
+-Select the existing roadways from the "Roadway_road_status Events" layer
+-Combine the "localnam Events" layer with the "stroute Events" layer
+-Finally, add the following fields:
+	USROUTE, text, 8
+	STROUTE, text, 8
+	CNTROAD, text, 8
+	TOLLROAD, text, 3
+	INTERSTATE, text, 3    
+	RD_STATUS, text, 25
+	LENGTH, double, precision 18, scale 11
+-Delete all non relevant columns 
+-Project the shape file to the standard FGDL projection.  
+-Update the Length field with the length (in meters) for each segment
+-Create a shapefile without any remaining zero-length features.
+
+note: as of October 2019, no longer only using primary routes, (RANK = 1). This 
+affects SR, US, CR roadway events.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DT><I>Source_Used_Citation_Abbreviation:</I></DT>
+<DD>GeoPlan</DD>
+<DT><I>Process_Date:</I>
+20191007</DT>
+</DL>
+</DD>
+<DT><I>Process_Step:</I></DT>
+<DD>
+<DL>
+<DIV>
+<DT><I>Process_Description:</I></DT>
+<PRE ID="original">Dataset copied.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DT><I>Source_Used_Citation_Abbreviation:</I></DT>
+<DD>Server=wopr.fla-etat.org; Service=5151; User=etat; Version=SDE.DEFAULT</DD>
+<DT><I>Process_Date:</I>
+20191017</DT>
+<DT><I>Process_Time:</I>
+16062100</DT>
+</DL>
+</DD>
+</DL>
+</DD>
+</DL>
+</DD>
+</DL>
+<A HREF="#Top">Back to Top</A>
+<A name="Spatial_Data_Organization_Information"><HR /></A>
+<DL>
+<DT><I>Spatial_Data_Organization_Information:</I></DT>
+<DD>
+<DL>
+<DT><I>Direct_Spatial_Reference_Method:</I>
+Vector</DT>
+<DT><I>Point_and_Vector_Object_Information:</I></DT>
+<DD>
+<DL>
+<DT><I>SDTS_Terms_Description:</I></DT>
+<DD>
+<DL>
+<DT><I>SDTS_Point_and_Vector_Object_Type:</I>
+String</DT>
+<DT><I>Point_and_Vector_Object_Count:</I>
+25299</DT>
+</DL>
+</DD>
+</DL>
+</DD>
+</DL>
+</DD>
+</DL>
+<A HREF="#Top">Back to Top</A>
+<A name="Spatial_Reference_Information"><HR /></A>
+<DL>
+<DT><I>Spatial_Reference_Information:</I></DT>
+<DD>
+<DL>
+<DT><I>Horizontal_Coordinate_System_Definition:</I></DT>
+<DD>
+<DL>
+<DT><I>Planar:</I></DT>
+<DD>
+<DL>
+<DT><I>Map_Projection:</I></DT>
+<DD>
+<DL>
+<DT><I>Map_Projection_Name:</I>
+Albers Conical Equal Area</DT>
+<DT><I>Albers_Conical_Equal_Area:</I></DT>
+<DD>
+<DL>
+<DT><I>Standard_Parallel:</I>
+24.000000</DT>
+<DT><I>Standard_Parallel:</I>
+31.500000</DT>
+<DT><I>Longitude_of_Central_Meridian:</I>
+-84.000000</DT>
+<DT><I>Latitude_of_Projection_Origin:</I>
+24.000000</DT>
+<DT><I>False_Easting:</I>
+400000.000000</DT>
+<DT><I>False_Northing:</I>
+0.000000</DT>
+</DL>
+</DD>
+</DL>
+</DD>
+<DT><I>Planar_Coordinate_Information:</I></DT>
+<DD>
+<DL>
+<DT><I>Planar_Coordinate_Encoding_Method:</I>
+coordinate pair</DT>
+<DT><I>Coordinate_Representation:</I></DT>
+<DD>
+<DL>
+<DT><I>Abscissa_Resolution:</I>
+0.002048</DT>
+<DT><I>Ordinate_Resolution:</I>
+0.002048</DT>
+</DL>
+</DD>
+<DT><I>Planar_Distance_Units:</I>
+meters</DT>
+</DL>
+</DD>
+</DL>
+</DD>
+<DT><I>Geodetic_Model:</I></DT>
+<DD>
+<DL>
+<DT><I>Horizontal_Datum_Name:</I>
+D_North_American_1983_HARN</DT>
+<DT><I>Ellipsoid_Name:</I>
+Geodetic Reference System 80</DT>
+<DT><I>Semi-major_Axis:</I>
+6378137.000000</DT>
+<DT><I>Denominator_of_Flattening_Ratio:</I>
+298.257222</DT>
+</DL>
+</DD>
+</DL>
+</DD>
+<DT><I>Vertical_Coordinate_System_Definition:</I></DT>
+<DD>
+<DL>
+<DT><I>Altitude_System_Definition:</I></DT>
+<DD>
+<DL>
+<DT><I>Altitude_Resolution:</I>
+1.000000</DT>
+<DT><I>Altitude_Encoding_Method:</I>
+Explicit elevation coordinate included with horizontal coordinates</DT>
+</DL>
+</DD>
+</DL>
+</DD>
+</DL>
+</DD>
+</DL>
+<A HREF="#Top">Back to Top</A>
+<A name="Entity_and_Attribute_Information"><HR /></A>
+<DL>
+<DT><I>Entity_and_Attribute_Information:</I></DT>
+<DD>
+<DL>
+<DT><I>Detailed_Description:</I></DT>
+<DD>
+<DL>
+<DT><I>Entity_Type:</I></DT>
+<DD>
+<DL>
+<DT><I>Entity_Type_Label:</I>
+MAJRDS_OCT19</DT>
+<DT><I>Entity_Type_Definition:</I></DT>
+<DD>MAJRDS_OCT19.DBF</DD>
+<DT><I>Entity_Type_Definition_Source:</I></DT>
+<DD>FDOT</DD>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+OBJECTID</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Internal feature number.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">ESRI</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DT><I>Attribute_Domain_Values:</I></DT>
+<DD>
+<DL>
+<DT><I>Unrepresentable_Domain:</I></DT>
+<DD>Sequential unique whole numbers that are automatically generated.</DD>
+</DL>
+</DD>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+Shape</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Feature geometry.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">ESRI</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DT><I>Attribute_Domain_Values:</I></DT>
+<DD>
+<DL>
+<DT><I>Unrepresentable_Domain:</I></DT>
+<DD>Coordinates defining the features.</DD>
+</DL>
+</DD>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+ROADWAY</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">A unique 8-character identification number assigned to a roadway or section of a roadway either On or Off the State Highway System for which information is maintained in the Department's Roadway Characteristics Inventory (RCI).</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">FDOT</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+BEGIN_POST</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Denotes the lowest milepoint for the record.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">FDOT</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+END_POST</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Denotes the highest milepoint for the record.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">FDOT</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+NAME</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Name Posted or known local street name (from localnam feature class)</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">FDOT</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+RD_STATUS</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Status of the roadway or section or roadway. Pending (new construction anticipated to be added to the SHS). Active (route owned and maintained by FDOT)-Inactive (route kept for historic purposes). Active/Exclusive (ramps,frontage roads, etc.). Active/Off System (NOT part of the SHS and NOT maintained by FDOT). Active with Combination (roadway segment with two or more status values).</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">FDOT</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+DESCR</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Road type descriptions (taken from roadway feature class)</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">FDOT</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+ROAD_DIREC</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Direction of the roadway segment.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">Florida Department of Transportation, Transportation Statistics Office</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DT><I>Attribute_Domain_Values:</I></DT>
+<DD>
+<DL>
+<DT><I>Enumerated_Domain:</I></DT>
+<DD>
+<DL>
+<DT><I>Enumerated_Domain_Value:</I>
+1</DT>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition:</I></DT>
+<PRE ID="original">North</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition_Source:</I></DT>
+<PRE ID="original">Florida Department of Transportation, Transportation Statistics Office</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Enumerated_Domain:</I></DT>
+<DD>
+<DL>
+<DT><I>Enumerated_Domain_Value:</I>
+2</DT>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition:</I></DT>
+<PRE ID="original">Northeast</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition_Source:</I></DT>
+<PRE ID="original">Florida Department of Transportation, Transportation Statistics Office</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Enumerated_Domain:</I></DT>
+<DD>
+<DL>
+<DT><I>Enumerated_Domain_Value:</I>
+3</DT>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition:</I></DT>
+<PRE ID="original">East</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition_Source:</I></DT>
+<PRE ID="original">Florida Department of Transportation, Transportation Statistics Office</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Enumerated_Domain:</I></DT>
+<DD>
+<DL>
+<DT><I>Enumerated_Domain_Value:</I>
+4</DT>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition:</I></DT>
+<PRE ID="original">Southeast</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition_Source:</I></DT>
+<PRE ID="original">Florida Department of Transportation, Transportation Statistics Office</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Enumerated_Domain:</I></DT>
+<DD>
+<DL>
+<DT><I>Enumerated_Domain_Value:</I>
+5</DT>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition:</I></DT>
+<PRE ID="original">South</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition_Source:</I></DT>
+<PRE ID="original">Florida Department of Transportation, Transportation Statistics Office</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Enumerated_Domain:</I></DT>
+<DD>
+<DL>
+<DT><I>Enumerated_Domain_Value:</I>
+6</DT>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition:</I></DT>
+<PRE ID="original">Southwest</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition_Source:</I></DT>
+<PRE ID="original">Florida Department of Transportation, Transportation Statistics Office</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Enumerated_Domain:</I></DT>
+<DD>
+<DL>
+<DT><I>Enumerated_Domain_Value:</I>
+7</DT>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition:</I></DT>
+<PRE ID="original">West</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition_Source:</I></DT>
+<PRE ID="original">Florida Department of Transportation, Transportation Statistics Office</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Enumerated_Domain:</I></DT>
+<DD>
+<DL>
+<DT><I>Enumerated_Domain_Value:</I>
+8</DT>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition:</I></DT>
+<PRE ID="original">Northwest</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition_Source:</I></DT>
+<PRE ID="original">Florida Department of Transportation, Transportation Statistics Office</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Enumerated_Domain:</I></DT>
+<DD>
+<DL>
+<DT><I>Enumerated_Domain_Value:</I>
+null value</DT>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition:</I></DT>
+<PRE ID="original">N/A</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition_Source:</I></DT>
+<PRE ID="original">Florida Department of Transportation, Transportation Statistics Office</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+</DL>
+</DD>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+INTERSTATE</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">A value of YES indicates that the road segment is part of the Florida Interstate highway system.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+TOLLROAD</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">A value of YES indicates that the road segment is a Florida Toll Road, including Florida's Turnpike, Alligator Alley, Beeline Expressway, etc.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+USROUTE</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">US Route number</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">FDOT</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+STROUTE</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">State Road number. FDOT roads are categorized as Interstate, U.S Route, State and County roads and are collectively called the "State Highway System"  (SHS). All SHS roads have a state road number, indicated with a prefix of SR. County roads are also included in this characteristic, with a prefix of CR. If a road transfers from the SHS, the State Road Number is changed to a County Road Number in the database by changing the SR prefix to OS (Old State Road Number). After one year, the OS is changed to CR.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">FDOT</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+CNTROAD</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Indicates the county route number for this segment</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+LENGTH</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Length in meters</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">FDOT</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+FUNCLASS</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Functional class codes. Values for item "FUNCLASS"</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">FDOT</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DT><I>Attribute_Domain_Values:</I></DT>
+<DD>
+<DL>
+<DT><I>Enumerated_Domain:</I></DT>
+<DD>
+<DL>
+<DT><I>Enumerated_Domain_Value:</I>
+00</DT>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition:</I></DT>
+<PRE ID="original">Roadway Feature</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Enumerated_Domain:</I></DT>
+<DD>
+<DL>
+<DT><I>Enumerated_Domain_Value:</I>
+01</DT>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition:</I></DT>
+<PRE ID="original">Principal Arterial-Interstate - RURAL</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Enumerated_Domain:</I></DT>
+<DD>
+<DL>
+<DT><I>Enumerated_Domain_Value:</I>
+02</DT>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition:</I></DT>
+<PRE ID="original">Principal Arterial-Expressway - RURAL</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Enumerated_Domain:</I></DT>
+<DD>
+<DL>
+<DT><I>Enumerated_Domain_Value:</I>
+04</DT>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition:</I></DT>
+<PRE ID="original">Principal Arterial-Other - RURAL</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Enumerated_Domain:</I></DT>
+<DD>
+<DL>
+<DT><I>Enumerated_Domain_Value:</I>
+06</DT>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition:</I></DT>
+<PRE ID="original">Minor Arterial - RURAL</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Enumerated_Domain:</I></DT>
+<DD>
+<DL>
+<DT><I>Enumerated_Domain_Value:</I>
+07</DT>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition:</I></DT>
+<PRE ID="original">Major Collector - RURAL</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Enumerated_Domain:</I></DT>
+<DD>
+<DL>
+<DT><I>Enumerated_Domain_Value:</I>
+08</DT>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition:</I></DT>
+<PRE ID="original">Minor Collector - RURAL</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Enumerated_Domain:</I></DT>
+<DD>
+<DL>
+<DT><I>Enumerated_Domain_Value:</I>
+09</DT>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition:</I></DT>
+<PRE ID="original">Local - RURAL</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Enumerated_Domain:</I></DT>
+<DD>
+<DL>
+<DT><I>Enumerated_Domain_Value:</I>
+11</DT>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition:</I></DT>
+<PRE ID="original">Principal Arterial-Interstate - URBAN</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Enumerated_Domain:</I></DT>
+<DD>
+<DL>
+<DT><I>Enumerated_Domain_Value:</I>
+12</DT>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition:</I></DT>
+<PRE ID="original">Principal Arterial-Freeway and Expressway - URBAN</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Enumerated_Domain:</I></DT>
+<DD>
+<DL>
+<DT><I>Enumerated_Domain_Value:</I>
+14</DT>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition:</I></DT>
+<PRE ID="original">Principal Arterial-Other - URBAN</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Enumerated_Domain:</I></DT>
+<DD>
+<DL>
+<DT><I>Enumerated_Domain_Value:</I>
+16</DT>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition:</I></DT>
+<PRE ID="original">Minor Arterial - URBAN</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Enumerated_Domain:</I></DT>
+<DD>
+<DL>
+<DT><I>Enumerated_Domain_Value:</I>
+17</DT>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition:</I></DT>
+<PRE ID="original">Major Collector - URBAN</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Enumerated_Domain:</I></DT>
+<DD>
+<DL>
+<DT><I>Enumerated_Domain_Value:</I>
+18</DT>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition:</I></DT>
+<PRE ID="original">Minor Collector (Fed Aid) - URBAN</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Enumerated_Domain:</I></DT>
+<DD>
+<DL>
+<DT><I>Enumerated_Domain_Value:</I>
+19</DT>
+<DIV>
+<DT><I>Enumerated_Domain_Value_Definition:</I></DT>
+<PRE ID="original">Local - URBAN</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+</DL>
+</DD>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+DESCRIPT</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">GeoPlan added item based on FUNCLASS</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+FGDLAQDATE</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Date GeoPlan acquired data from source.</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+AUTOID</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Unique ID added by GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+<DT><I>Attribute:</I></DT>
+<DD>
+<DL>
+<DT><I>Attribute_Label:</I>
+SHAPE.LEN</DT>
+<DIV>
+<DT><I>Attribute_Definition:</I></DT>
+<PRE ID="original">Length in meters</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DIV>
+<DT><I>Attribute_Definition_Source:</I></DT>
+<PRE ID="original">GeoPlan</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+</DL>
+</DD>
+</DL>
+</DD>
+</DL>
+</DD>
+</DL>
+<A HREF="#Top">Back to Top</A>
+<A NAME="1">
+<HR />
+</A>
+<DL>
+<DT><I>Distribution_Information:</I>
+</DT>
+<DD>
+<DL>
+<DT><I>Distributor:</I></DT>
+<DD>
+<DL>
+<DT><I>Contact_Information:</I></DT>
+<DD>
+<DL>
+<DT><I>Contact_Organization_Primary:</I></DT>
+<DD>
+<DL>
+<DT><I>Contact_Organization:</I>
+Florida Geographic Data Library (FGDL)</DT>
+</DL>
+</DD>
+<DT><I>Contact_Address:</I></DT>
+<DD>
+<DL>
+<DT><I>Address_Type:</I>
+mailing address</DT>
+<DIV>
+<DT><I>Address:</I></DT>
+<PRE ID="original">431 Architecture PO Box 115706</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DT><I>City:</I>
+Gainesville</DT>
+<DT><I>State_or_Province:</I>
+Florida</DT>
+<DT><I>Postal_Code:</I>
+32611-5706</DT>
+<DT><I>Country:</I>
+United States</DT>
+</DL>
+</DD>
+<DT><I>Contact_Electronic_Mail_Address:</I>
+Web site: http://www.fgdl.org</DT>
+<DT><I>Contact_Electronic_Mail_Address:</I>
+Technical Support: http://www.fgdl.org/fgdlfeed.html</DT>
+<DT><I>Contact_Electronic_Mail_Address:</I>
+For FGDL Software: http://www.fgdl.org/software.html</DT>
+<DT><I>Contact_Electronic_Mail_Address:</I>
+FGDL Frequently Asked Questions: http://www.fgdl.org/fgdlfaq.html</DT>
+<DT><I>Contact_Electronic_Mail_Address:</I>
+Mailing list for FGDL: http://www.fgdl.org/fgdl-l.html</DT>
+</DL>
+</DD>
+</DL>
+</DD>
+<DT><I>Resource_Description:</I>
+DOWNLOADABLE DATA</DT>
+<DIV>
+<DT><I>Distribution_Liability:</I></DT>
+<PRE ID="original">The Florida Geographic Data Library is a collection of Geospatial Data
+compiled by the University of Florida GeoPlan Center with support from
+the Florida Department of Transportation. GIS data available in FGDL is
+collected from various state, federal, and other agencies (data sources)
+who are data stewards, producers, or publishers. The data available in
+FGDL may not be the most current version of the data offered by the
+data source. University of Florida GeoPlan Center makes no guarantees
+about the currentness of the data and suggests that data users check
+with the data source to see if more recent versions of the data exist.
+
+Furthermore, the GIS data available in the FGDL are provided 'as is'.
+The University of Florida GeoPlan Center makes no warranties, guaranties
+or representations as to the truth, accuracy or completeness of the data
+provided by the data sources. The University of Florida GeoPlan Center
+makes no representations or warranties about the quality or suitability
+of the materials, either expressly or implied, including but not limited
+to any implied warranties of merchantability, fitness for a particular
+purpose, or non-infringement. The University of Florida GeoPlan Center
+shall not be liable for any damages suffered as a result of using,
+modifying, contributing or distributing the materials.
+
+A note about data scale: 
+
+Scale is an important factor in data usage.  Certain scale datasets
+are not suitable for some project, analysis, or modeling purposes.
+Please be sure you are using the best available data. 
+
+1:24000 scale datasets are recommended for projects that are at the
+county level.
+1:24000 data should NOT be used for high accuracy base mapping such
+as property parcel boundaries.
+1:100000 scale datasets are recommended for projects that are at the
+multi-county or regional level.
+1:125000 scale datasets are recommended for projects that are at the
+regional or state level or larger.
+
+Vector datasets with no defined scale or accuracy should be
+considered suspect. Make sure you are familiar with your data
+before using it for projects or analysis. Every effort has been
+made to supply the user with data documentation. For additional
+information, see the References section and the Data Source Contact
+section of this documentation. For more information regarding
+scale and accuracy, see our webpage at:
+http://geoplan.ufl.edu/education.html</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DT><I>Standard_Order_Process:</I></DT>
+<DD>
+<DL>
+<DT><I>Digital_Form:</I></DT>
+<DD>
+<DL>
+<DT><I>Digital_Transfer_Information:</I></DT>
+<DD>
+<DL>
+<DT><I>Transfer_Size:</I>
+15.216</DT>
+</DL>
+</DD>
+</DL>
+</DD>
+</DL>
+</DD>
+<DT><I>Technical_Prerequisites:</I></DT>
+<DD>This data is intended for use with a Geographic Information Systems or Remote Sensing software package.</DD>
+</DL>
+</DD>
+</DL>
+<A HREF="#Top">Back to Top</A>
+<A name="Metadata_Reference_Information"><HR /></A>
+<DL>
+<DT><I>Metadata_Reference_Information:</I></DT>
+<DD>
+<DL>
+<DT><I>Metadata_Date:</I>
+20191017</DT>
+<DT><I>Metadata_Contact:</I></DT>
+<DD>
+<DL>
+<DT><I>Contact_Information:</I></DT>
+<DD>
+<DL>
+<DT><I>Contact_Organization_Primary:</I></DT>
+<DD>
+<DL>
+<DT><I>Contact_Organization:</I>
+Florida Department of Transportation, Transportation Statistics Office</DT>
+<DT><I>Contact_Person:</I>
+GIS Section Manager</DT>
+</DL>
+</DD>
+<DT><I>Contact_Position:</I>
+GIS Section Manager</DT>
+<DT><I>Contact_Address:</I></DT>
+<DD>
+<DL>
+<DT><I>Address_Type:</I>
+mailing and physical address</DT>
+<DIV>
+<DT><I>Address:</I></DT>
+<PRE ID="original">Transportation Statistics Office, 605 Suwannee Street, MS 27</PRE>
+<SCRIPT>fix(original)</SCRIPT>
+</DIV>
+<DT><I>City:</I>
+Tallahassee</DT>
+<DT><I>State_or_Province:</I>
+Florida</DT>
+<DT><I>Postal_Code:</I>
+32399-0450</DT>
+<DT><I>Country:</I>
+USA</DT>
+</DL>
+</DD>
+<DT><I>Contact_Voice_Telephone:</I>
+(850) 414-4848/Toll Free: (800) 399-5503</DT>
+<DT><I>Contact_TDD/TTY_Telephone:</I>
+Florida Department of Transportation: TDD/TTY: 850-410-5708</DT>
+<DT><I>Contact_TDD/TTY_Telephone:</I>
+Florida Relay: 711</DT>
+<DT><I>Contact_TDD/TTY_Telephone:</I>
+Florida Relay: 1-800-955-8771 (TTY)</DT>
+<DT><I>Contact_TDD/TTY_Telephone:</I>
+Florida Relay: 1-800-955-8770 (Voice)</DT>
+<DT><I>Contact_TDD/TTY_Telephone:</I>
+Florida Relay: 1-800-955-1339 (ASCII)</DT>
+<DT><I>Contact_TDD/TTY_Telephone:</I>
+Florida Relay: 1-877-955-8773 (Spanish)</DT>
+<DT><I>Contact_Electronic_Mail_Address:</I>
+CO-TDAGIS@dot.state.fl.us</DT>
+</DL>
+</DD>
+</DL>
+</DD>
+<DT><I>Metadata_Standard_Name:</I>
+FGDC Content Standards for Digital Geospatial Metadata</DT>
+<DT><I>Metadata_Standard_Version:</I>
+FGDC-STD-001-1998</DT>
+<DT><I>Metadata_Time_Convention:</I>
+local time</DT>
+<DT><I>Metadata_Extensions:</I></DT>
+<DD>
+<DL>
+<DT><I>Online_Linkage:</I>
+<A TARGET="viewer" HREF="http://www.esri.com/metadata/esriprof80.html">
+http://www.esri.com/metadata/esriprof80.html</A>
+</DT>
+<DT><I>Profile_Name:</I>
+ESRI Metadata Profile</DT>
+</DL>
+</DD>
+</DL>
+</DD>
+</DL>
+<A HREF="#Top">Back to Top</A>
+</BODY>
+</HTML>

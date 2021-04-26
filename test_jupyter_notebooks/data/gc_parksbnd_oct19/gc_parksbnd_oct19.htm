@@ -1,0 +1,2254 @@
+<HTML>
+<HEAD>
+<TITLE> FGDL Documentation </TITLE>
+<STYLE>
+          .pre { color: black; font-size: 12pt; font-weight: normal; font-family: courier; }
+	  strong {font-weight: normal; text-transform: uppercase; }
+</STYLE>
+</HEAD>
+<BODY>
+<table width="90%">
+<tr>
+<td>
+<strong><b>FLORIDA GEOGRAPHIC DATA LIBRARY DOCUMENTATION</b></strong><br />
+<p>
+<strong><b>TITLE: PARKS AND RECREATIONAL FACILITIES BOUNDARIES IN FLORIDA - 2019</b></strong>
+</p>
+<pre>
+Geodataset Name:       GC_PARKSBND_OCT19
+Geodataset Type:       SHAPEFILE
+Geodataset Feature:    <strong>Polygon</strong>
+Feature Count:         13014
+</pre>
+</td>
+</tr>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr>
+<td>
+<strong><b>GENERAL DESCRIPTION:</b></strong>
+<table width="650">
+<tr>
+<td>
+This dataset contains 2019 Parks and Recreational Facilities boundary information for the State of Florida. This parks layer focuses mainly on county and locally owned parks, for state and federally owned parks please use the Florida Natural Areas Inventory; Florida Managed Lands (FLMA) layer available on FGDL. This dataset is a combination of parks and recreational facility locations from over 65 different sources. The data contains selected fields denoting the name, physical address, and other facility information for parks located in Florida. This data is meant to be used for planning purposes only and is not intended to represent a 100% inventory of parks in Florida.  Park locations that have been verified are marked with the letter V in the FLAG field.  Please Note: Campground, Boat Ramp and Trailhead boundary information is often generalized and not exact. This is an update to the FGDL layer GC_PARKSBND_MAY19.shp
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td></td></tr>
+<tr>
+<td>
+<pre>
+DATA SOURCE(S):                    University of Florida GeoPlan Center
+SCALE OF ORIGINAL SOURCE MAPS:     Varies
+GEODATASET EXTENT:                 State of Florida<br />
+PUBLICATION DATE:                  20191001
+TIME PERIOD OF CONTENT:            Begin Date: 19990101    End Date: 20191001
+DOWNLOAD LINK:                     <A href="http://www.fgdl.org/metadataexplorer/explorer.jsp">http://www.fgdl.org/metadataexplorer/explorer.jsp</A>
+</pre>
+</td>
+</tr>
+</table>
+<P>
+<strong><b>FEATURE ATTRIBUTE TABLES:</b></strong>
+</P>
+<pre>Datafile Name: GC_PARKSBND_OCT19.DBF</pre>
+<table width="75%" cellspacing="0" cellpadding="0" border="0">
+<tr align="left">
+<td> ITEM NAME </td>
+<td>WIDTH</td>
+<td>TYPE</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">OBJECTID
+</DIV>
+</td>
+<td>4</td>
+<td>OID</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">Shape
+</DIV>
+</td>
+<td>4</td>
+<td>Geometry</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">PARCELID
+</DIV>
+</td>
+<td>40</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">NAME
+</DIV>
+</td>
+<td>100</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">ADDRESS
+</DIV>
+</td>
+<td>65</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">CITY
+</DIV>
+</td>
+<td>40</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">ZIPCODE
+</DIV>
+</td>
+<td>8</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">COUNTY
+</DIV>
+</td>
+<td>35</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">TYPE
+</DIV>
+</td>
+<td>55</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">POOL
+</DIV>
+</td>
+<td>8</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">BOATRAMPID
+</DIV>
+</td>
+<td>25</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">NPSSITE_ID
+</DIV>
+</td>
+<td>50</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">ST_PARK_ID
+</DIV>
+</td>
+<td>10</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">OWNER
+</DIV>
+</td>
+<td>60</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">OPERATING
+</DIV>
+</td>
+<td>60</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">OP_CLASS
+</DIV>
+</td>
+<td>20</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">WEB_LINK
+</DIV>
+</td>
+<td>100</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">FSOURCE
+</DIV>
+</td>
+<td>100</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">DATASOURCE
+</DIV>
+</td>
+<td>100</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">LAT_DD
+</DIV>
+</td>
+<td>8</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">LONG_DD
+</DIV>
+</td>
+<td>8</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">MGRS
+</DIV>
+</td>
+<td>15</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">GOOGLEMAP
+</DIV>
+</td>
+<td>100</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">GCID
+</DIV>
+</td>
+<td>8</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">ACRES
+</DIV>
+</td>
+<td>8</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">DESCRIPT
+</DIV>
+</td>
+<td>100</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">FLAG
+</DIV>
+</td>
+<td>5</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">UPDATE_DAY
+</DIV>
+</td>
+<td>36</td>
+<td>Date</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">FGDLAQDATE
+</DIV>
+</td>
+<td>36</td>
+<td>Date</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">AUTOID
+</DIV>
+</td>
+<td>4</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">SHAPE.AREA
+</DIV>
+</td>
+<td>0</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">SHAPE.LEN
+</DIV>
+</td>
+<td>0</td>
+<td>Double</td>
+</tr>
+</table>
+<p>
+<strong><b>FEATURE ATTRIBUTE TABLES CODES AND VALUES:</b></strong>
+</p>
+<P />
+<table width="75%" cellspacing="0" cellpadding="0" border="0">
+<tr>
+<td width="30%">Item<pre></pre></td>
+<td>Item Description<pre></pre></td>
+</tr>
+<tr valign="top">
+<td>OBJECTID</td>
+<td>
+Internal feature number.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>Shape</td>
+<td>
+Feature geometry.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>PARCELID</td>
+<td>
+Parcel Identification Number, derived from either the 2010, 2012, 2014, 2016, 2017 or 2018 statewide parcel layers.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>NAME</td>
+<td>
+Park designation, park name.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>ADDRESS</td>
+<td>
+A description of a facility's physical location providing direction for delivery and provision of emergency services.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>CITY</td>
+<td>
+City of facility's physical location.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>ZIPCODE</td>
+<td>
+US postal delivery designation of facility's physical location.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>COUNTY</td>
+<td>
+County of facility's physical location.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>TYPE</td>
+<td>
+The Type of park.<table>
+<tr>
+<td>
+ATHLETIC PARK = Includes any park that has athletic equipment or the capacity to hold athletic events as the primary use.<br /><pre></pre>
+BAY ACCESS = Direct access to a bay.<br /><pre></pre>
+BEACH ACCESS = Direct access to a beach.<br /><pre></pre>
+BOAT RAMP = Publicly owned boat ramp.<br /><pre></pre>
+CAMPGROUND = Publicly owned campground.<br /><pre></pre>
+CLOSED = Park has been closed.<br /><pre></pre>
+DOCK/PIER = Publicly owned dock or pier.<br /><pre></pre>
+DOG PARK = Publicly owned dog park.<br /><pre></pre>
+DRIVING RANGE = Publicly owned golf driving range.<br /><pre></pre>
+EQUESTRIAN PARK = Publicly owned equestrian park.<br /><pre></pre>
+FAIRGROUNDS = Publicly owned fairgrounds used for outdoor events, fairground can primarily be found in the FGDL GC_CIVICCENTER layer.<br /><pre></pre>
+GOLF COURSE = Publicly owned golf course, for both public and private golf courses see the FGDL layer GC_GOLFBND &amp; GC_GOLF.<br /><pre></pre>
+HISTORICAL PARK = Publicly owned park with historical significance.<br /><pre></pre>
+MARINA = Publicly owned marina.<br /><pre></pre>
+MIXED RECREATION = Publicly owned park that includes a combination of athletic use equipment with either playgrounds, pools, trails, nature park, beach access or boat ramp.<br /><pre></pre>
+MODEL AIRPLANE PARK = Publicly owned model airplane park.<br /><pre></pre>
+NATURE PARK = Publicly owned park that is primarily used for natural aesthetic recreation.<br /><pre></pre>
+NATURE PARK/BOAT RAMP = Publicly owned park that is primarily used for natural aesthetic recreation and has a boat ramp.<br /><pre></pre>
+NEIGHBORHOOD PARK = Cleared land in a residential area that has the potential for recreational activities. May include low impact recreation such as playgrounds, park benches, small fields, single courts, or paths/trails.<br /><pre></pre>
+PLAYGROUND = Publicly owned playground. Single use. This is often also found in the NEIGHBORHOOD PARK designation.<br /><pre></pre>
+POOL = Publicly owned pool. Single use.<br /><pre></pre>
+PROPOSED PARK = Plans to develop parcel as a park.<br /><pre></pre>
+RANCH = Primarily used as a horse ranch, has overlap with the EQUESTRIAN PARK designation.<br /><pre></pre>
+UNDEVELOPED = Has a parcel description as park/recreation and conservation/recreation land use from county appraiser, but not otherwise verifiable as an operating park. Appears that there are not yet plans to develop.<br /><pre></pre>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>POOL</td>
+<td>
+Public pool identifier, YES = 1, NO = 0.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>BOATRAMPID</td>
+<td>
+Florida Fish &amp; Wildlife Conservation Commission (FFWCC) Boat Ramp Facility Identification Number.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>NPSSITE_ID</td>
+<td>
+National Park Service (NPS) Land &amp; Water Conservation Fund (LWCF) Identification Number.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>ST_PARK_ID</td>
+<td>
+Florida Department of Environmental Protection (FDEP) State Park Identification Number.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>OWNER</td>
+<td>
+Entity owner of the park.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>OPERATING</td>
+<td>
+The responsible organization for management and operation of a facility (e.g., public, private, quasi-public).<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>OP_CLASS</td>
+<td>
+Classification of the operating entity.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>WEB_LINK</td>
+<td>
+Facility Website.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>FSOURCE</td>
+<td>
+Feature Spatial Source.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>DATASOURCE</td>
+<td>
+Feature Data/Tabular Source.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>LAT_DD</td>
+<td>
+Latitude in decimal degrees.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>LONG_DD</td>
+<td>
+Longitude  in decimal degrees.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>MGRS</td>
+<td>
+Military Grid Reference System (MGRS) Coordinate of the Facility. The MGRS is the geocoordinate standard used by NATO militaries for locating points on the earth. The MGRS provides a means to represent any location on the surface of the Earth using an alphanumeric string. Hierarchical references are based on the Universal Transverse Mercator (UTM) coordinate system. The MGRS is used for the entire earth. http://mgrs-data.org/<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>GOOGLEMAP</td>
+<td>
+Webpage hyperlink to location in Google Maps.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>GCID</td>
+<td>
+The GeoPlan Center identification number that links this polygon feature layer with its corresponding point feature layer.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>ACRES</td>
+<td>
+Park acreage.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>DESCRIPT</td>
+<td>
+Field added by FGDL based on NAME.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>FLAG</td>
+<td>
+Type of update that occurred.<table>
+<tr>
+<td>
+FNV = Future Not Verified<br /><pre></pre>
+NV = Not Verified.<br /><pre></pre>
+V = Verified, in most cases this NAME field verification was based on ESRI/Google Imagery and Google Street View.  The exact park boundaries are not verified and in many cases only based on parcel boundaries.<br /><pre></pre>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>UPDATE_DAY</td>
+<td>
+The date the data was last updated by the Source.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>FGDLAQDATE</td>
+<td>
+The date FGDL acquired the data from the Source.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>AUTOID</td>
+<td>
+Unique ID added by GeoPlan<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>SHAPE.AREA</td>
+<td>
+Area in meters<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>SHAPE.LEN</td>
+<td>
+Perimeter in meters<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td>
+<pre>Park Types:
+NATURE PARK / BAY ACCESS
+NATURE PARK / BEACH ACCESS
+NATURE PARK / BOAT RAMP
+NATURE PARK / CAMPGROUND
+NATURE PARK / DOCK - PIER
+NATURE PARK / EQUESTRIAN
+NATURE PARK / GUN RANGE
+NATURE PARK / MULTI-USE TRAIL
+NATURE PARK / MULTI-USE TRAILHEAD
+NATURE PARK / PRESERVE
+NATURE PARK / WATER ACCESS
+NEIGHBORHOOD PARK
+NEIGHBORHOOD PARK / AQUATIC CENTER
+NEIGHBORHOOD PARK / ATHLETIC
+NEIGHBORHOOD PARK / COMMUNITY GARDEN
+NEIGHBORHOOD PARK / DOG PARK
+NEIGHBORHOOD PARK / DRIVING RANGE
+NEIGHBORHOOD PARK / FAIRGROUNDS
+NEIGHBORHOOD PARK / GOLF COURSE
+NEIGHBORHOOD PARK / HISTORICAL PARK
+NEIGHBORHOOD PARK / MARINA
+NEIGHBORHOOD PARK / MEMORIAL
+NEIGHBORHOOD PARK / MIXED USE RECREATION
+NEIGHBORHOOD PARK / OPEN SPACE
+NEIGHBORHOOD PARK / PLAYGROUND
+NEIGHBORHOOD PARK / WALKING PATH
+STATE PARKS &amp; TRAILS ENTRANCES</pre>
+</td>
+</tr>
+</table>
+<strong><b>USER NOTES:</b></strong>
+<br />
+<table width="500">
+<tr>
+<td>
+<pre>
+This data is provided 'as is'. GeoPlan relied on the integrity
+of the original data layer's topology
+</pre>
+</td>
+</tr>
+</table>
+<table width="500">
+<tr>
+<td>
+<pre>
+This data is provided 'as is' by GeoPlan and is complete to our
+knowledge.
+</pre>
+</td>
+</tr>
+</table>
+<table width="500">
+<tr>
+<td>
+<pre>
+GeoPlan relied on the integrity of the attribute information within
+the original data.
+</pre>
+</td>
+</tr>
+</table>
+<table width="500">
+<tr>
+<td>
+<pre>
+Florida's Outdoor Recreation Inventory
+
+The Florida Outdoor Recreation Inventory (FORI) is a comprehensive inventory of 
+the existing outdoor recreation resources and facilities in Florida. The inventory 
+provides details regarding parks, recreation areas, open spaces and other outdoor 
+recreation sites in the state. FORI includes the known outdoor recreation resources
+and facilities provided by federal, state, regional, county and municipal 
+governments, commercial enterprises, non-profit organizations and clubs. 
+The database consists of over 13,000 records and is maintained by the Florida 
+Department of Environmental Protection for the purpose of developing the 
+Statewide Comprehensive Outdoor Recreation Plan (SCORP).
+
+http://prodenv.dep.state.fl.us/DrpOrpcr/outdoorRecreationInventory.do<br /><br />
+</pre>
+</td>
+</tr>
+</table>
+<table width="500">
+<tr>
+<td>
+<pre>
+The data was created to serve as base information for use in GIS systems for
+a variety of planning and analytical purposes.<br /><br />
+</pre>
+</td>
+</tr>
+</table>
+<table width="500">
+<tr>
+<td>
+<pre>
+This data is provided 'as is' and its horizontal positional accuracy
+has not been verified by GeoPlan<br /><br />
+</pre>
+</td>
+</tr>
+</table>
+<table width="500">
+<tr>
+<td>
+<pre>
+This data is provided 'as is' and its vertical positional accuracy
+has not been verified by GeoPlan<br /><br />
+</pre>
+</td>
+</tr>
+</table>
+<table width="550">
+<tr>
+<td>
+<pre>
+None
+Please Note: Campground, Boat Ramp and Trailhead boundary information is often generalized and not exact.</pre>
+<br />
+</td>
+</tr>
+</table>
+<table width="550">
+<tr>
+<td>
+<pre>
+The Florida Geographic Data Library is a collection of Geospatial Data
+compiled by the University of Florida GeoPlan Center with support from
+the Florida Department of Transportation. GIS data available in FGDL is
+collected from various state, federal, and other agencies (data sources)
+who are data stewards, producers, or publishers. The data available in
+FGDL may not be the most current version of the data offered by the
+data source. University of Florida GeoPlan Center makes no guarantees
+about the currentness of the data and suggests that data users check
+with the data source to see if more recent versions of the data exist.
+
+Furthermore, the GIS data available in the FGDL are provided 'as is'.
+The University of Florida GeoPlan Center makes no warranties, guaranties
+or representations as to the truth, accuracy or completeness of the data
+provided by the data sources. The University of Florida GeoPlan Center
+makes no representations or warranties about the quality or suitability
+of the materials, either expressly or implied, including but not limited
+to any implied warranties of merchantability, fitness for a particular
+purpose, or non-infringement. The University of Florida GeoPlan Center
+shall not be liable for any damages suffered as a result of using,
+modifying, contributing or distributing the materials.
+
+A note about data scale: 
+
+Scale is an important factor in data usage.  Certain scale datasets
+are not suitable for some project, analysis, or modeling purposes.
+Please be sure you are using the best available data. 
+
+1:24000 scale datasets are recommended for projects that are at the
+county level.
+1:24000 data should NOT be used for high accuracy base mapping such
+as property parcel boundaries.
+1:100000 scale datasets are recommended for projects that are at the
+multi-county or regional level.
+1:125000 scale datasets are recommended for projects that are at the
+regional or state level or larger.
+
+Vector datasets with no defined scale or accuracy should be
+considered suspect. Make sure you are familiar with your data
+before using it for projects or analysis. Every effort has been
+made to supply the user with data documentation. For additional
+information, see the References section and the Data Source Contact
+section of this documentation. For more information regarding
+scale and accuracy, see our webpage at:
+http://geoplan.ufl.edu/education.html</pre>
+<br />
+</td>
+</tr>
+</table>
+<strong><b>REFERENCES: </b></strong>
+<table width="60%">
+<tr>
+<td>
+<pre>
+Florida's Outdoor Recreation Inventory
+https://prodenv.dep.state.fl.us/DrpOrpcr/outdoorRecreationInventory.do
+
+SEE: SOURCE DATA INFORMATION, IN THE PROCESS STEPS.
+</pre>
+<br />
+</td>
+</tr>
+</table>
+<strong><b>DATA LINEAGE SUMMARY: </b></strong>
+<br />
+<table width="60%">
+<tr>
+<td>
+<pre>
+The GeoPlan Center performed the following steps in order to create the 2009 
+statewide parks data layer.
+
+43 Different Sources Comprise the Parks Dataset.
+
+The following Sources were either reprojected to the FGDL Albers NAD83 HPGN 
+map projection or if no spatial data existed they were geocoded to a statewide 
+2008 TeleAtlas Streets dataset.  For downloaded county and district wide polygon 
+layers the label points were created and then used for each facility.
+
+Once the point sources were created via geocoding or reprojected existing point 
+data they were merged into one statewide layer.
+
+Record (facility) duplications were removed by manually viewing and editing the 
+statewide layer's attribute table for each of the 67 counties.  Where record 
+duplication existed source information of previously corrected FDOT Districts and 
+Regional Planning Council data took preference followed by, County data, State Data, 
+Federal data, and finally geocoded data.
+
+Below are the data Sources as described in the Source field in the attribute table.
+Process Date: 20090326
+<br />
+SOURCE DATA INFORMATION - 43 Sources
+
+STRUCTURE:
+	SOURCE NAME
+
+	FILE NAME
+	GEOMETRY TYPE
+	RECORD COUNT
+	UPDATE DAY
+	PROJECTION
+	SCALE
+	WEBSITE
+
+******************************
+
+BAY COUNTY
+
+Park.shp
+Point
+RECORD COUNT = 95
+20070612
+NAD83 State Plane North 0903 Feet
+N/A
+http://www.co.bay.fl.us/gis.php
+******************************
+
+BROWARD COUNTY
+
+PSD_ParkCity.shp
+Polygon
+RECORD COUNT = 678
+20070504
+NAD83 State Plane East 0901 Feet HARN
+N/A
+http://gis.broward.org/GISData.htm
+
+PSD_ParkCounty.shp
+Polygon
+RECORD COUNT = 56
+20070504
+NAD83 State Plane East 0901 Feet HARN
+N/A
+http://gis.broward.org/GISData.htm
+
+PSD_ParkState.shp
+Polygon
+RECORD COUNT = 2
+20070504
+NAD83 State Plane East 0901 Feet HARN
+N/A
+http://gis.broward.org/GISData.htm
+******************************
+
+CHARLOTTE COUNTY
+
+parks.shp
+Polygon
+RECORD COUNT = 168
+20030313
+NAD83 State Plane West 0902 Feet
+N/A
+http://www.ccgis.com/gis/ftp_download_page.html
+******************************
+
+CITY OF CLEARWATER
+
+city_ownedparks.shp
+Polygon
+RECORD COUNT = 90
+20070815
+NAD27 State Plane West 0902 Feet
+N/A
+******************************
+
+CITY OF NAPLES
+
+parks.shp
+Polygon
+RECORD COUNT = 76
+20080326
+NAD83 State Plane East 0901 Feet
+N/A
+******************************
+
+CITY OF PLANT CITY
+
+cpc_parks.shp
+Point
+RECORD COUNT = 26
+20080501
+NAD83 State Plane West 0902 Feet
+N/A
+******************************
+
+CITY OF SAINT PETERSBURG
+
+parks.shp
+Polygon
+RECORD COUNT = 127
+20080425
+NAD27 State Plane Western Zone US Foot
+N/A
+******************************
+
+CITY OF TAMPA
+
+dedicated-parks_region.shp
+Polygon
+RECORD COUNT = 205
+20080508
+NAD83 State Plane West 0902 Feet
+N/A
+******************************
+
+CITY OF VERO BEACH
+
+Parks.shp
+Polygon
+RECORD COUNT = 47
+20080422
+NAD83 State Plane East 0901 Feet
+N/A
+
+Ballfields_FeatureToPolygon.shp
+Polygon
+RECORD COUNT = 59
+20080422
+NAD83 State Plane East 0901 Feet
+N/A
+
+Public_Water_Access.shp
+Point
+RECORD COUNT = 28
+20080422
+NAD83 State Plane East 0901 Feet
+N/A
+******************************
+
+COLLIER COUNTY
+
+parks.shp
+Polygon
+RECORD COUNT = 53
+20080310
+NAD83 State Plane East 0901 Feet
+N/A
+http://gis.colliergov.net/portal2007/
+******************************
+
+DTS
+
+parks_d5_jan07.shp
+Point
+RECORD COUNT = 1845
+20061206
+NAD83 State Plane East 0901 Feet
+N/A
+******************************
+
+ESCAMBIA COUNTY
+
+points_of_interest.shp
+Point
+RECORD COUNT = 1032
+20040630
+NAD83 State Plane North 0903 Feet HARN
+N/A
+http://www.co.escambia.fl.us/departments/gis/default.php
+******************************
+
+FDEP
+
+PARKS_AND_REC_AREAS.shp
+Polygon
+RECORD COUNT = 156
+19990101
+NAD83 ALBERS HARN
+N/A
+
+FloridaStateParkGPSEntrances.dbf (GPS Coordinates of Florida State Park Entrances)
+Point
+RECORD COUNT = 190
+20080417
+WGS 1984
+N/A
+http://www.floridastateparks.org/images/default.cfm
+
+
+******************************
+
+FDOR PARCELS
+
+countyname_parcels_06.shp
+Polygon
+RECORD COUNT = 59
+20061231
+NAD83 ALBERS HARN
+N/A
+******************************
+
+GNIS
+
+GNIS_JUL06.shp
+Point
+RECORD COUNT = 36097
+20060719
+NAD83 decimal degrees
+N/A
+http://geonames.usgs.gov/domestic/download_data.htm
+******************************
+
+GULF COUNTY
+
+park.shp
+Point
+RECORD COUNT = 35
+20070417
+NAD83 State Plane North 0903 Feet
+N/A
+http://www.gulfcounty-fl.gov/
+******************************
+
+HARDEE COUNTY
+
+parkrec.shp
+Point
+RECORD COUNT = 16
+20060612
+NAD83 State Plane West 0902 Feet
+N/A
+http://www.hardeecounty.net/
+
+parksrecreation.shp
+Point
+RECORD COUNT = 6
+20060612
+NAD83 State Plane West 0902 Feet
+N/A
+http://www.hardeecounty.net/
+******************************
+
+HERNANDO COUNTY
+
+park.shp
+Polygon
+RECORD COUNT = 40
+20060612
+NAD83 State Plane West 0902 Feet
+N/A
+ftp://www.hernandocounty.us/planning/Shape%20Library%20(ESRI%20Format)/
+******************************
+
+HILLSBOROUGH COUNTY
+
+prc_properties.shp
+Polygon
+RECORD COUNT = 594
+20070113
+NAD83 State Plane West 0902 Feet
+N/A
+http://www-gis.hillsboroughcounty.org/geodata/FTP_HTMLS/geodatadir.cfm
+******************************
+
+LAKE COUNTY
+
+parks.shp
+Point
+RECORD COUNT = 63
+20070107
+NAD83 State Plane East 0901 Feet HARN
+N/A
+ftp://ftp.co.lake.fl.us/GIS/GisDownloads/Shapefiles/
+******************************
+
+LEE COUNTY
+
+countyparks.shp
+Polygon
+RECORD COUNT = 357
+20061001
+NAD83 State Plane West 0902 Feet
+N/A
+http://leegis.leegov.com/GISData.htm
+******************************
+
+LEON COUNTY
+
+common_places.shp
+Point
+RECORD COUNT = 8116
+20080130
+NAD83 State Plane North 0903 Feet HARN
+N/A
+******************************
+
+MANATEE COUNTY
+
+parks.shp
+Polygon
+RECORD COUNT = 188
+20030620
+NAD83 State Plane West 0902 Feet
+N/A
+http://www.mymanatee.org/internet/information_services_site.nsf/ContentLookup/gis_data_downloads
+******************************
+
+MARION COUNTY
+
+sde_parks.shp
+Point
+RECORD COUNT = 147
+20060522
+NAD83 State Plane West 0902 Feet
+N/A
+ftp://146.201.97.137/County_local_data/Marion/shapefiles/
+******************************
+
+MARTIN COUNTY
+
+parks.shp
+Polygon
+RECORD COUNT = 385
+20080131
+NAD83 State Plane East 0901 Feet HARN
+N/A
+http://ap3server.martin.fl.us:7778/portal/page?_pageid=254,832216&amp;_dad=portal&amp;_schema=PORTAL
+******************************
+
+MIAMI-DADE COUNTY
+
+lparks.shp
+Point
+RECORD COUNT = 258
+20060901
+NAD83 State Plane East 0901 Feet
+N/A
+http://www.miamidade.gov/gis/data.asp
+
+lparkmun.shp
+Point
+RECORD COUNT = 370
+20060901
+NAD83 State Plane East 0901 Feet
+N/A
+http://www.miamidade.gov/gis/data.asp
+******************************
+
+NCFRPC - North Central Florida Regional Planning Council
+
+c01_parks.shp
+Polygon
+RECORD COUNT = 152
+20050600
+NAD_1983_StatePlane_Florida_North_FIPS_0903_Feet
+N/A
+http://ncfrpc.org
+
+c21_parks.shp
+Polygon
+RECORD COUNT = 56
+20050600
+NAD_1983_StatePlane_Florida_North_FIPS_0903_Feet
+N/A
+http://ncfrpc.org
+
+******************************
+
+NEFRPC - Northeast Florida Regional Planning Council
+
+nefrc_regional_parks_polys_final_05_30_2006.shp
+Polygon
+RECORD COUNT = 600
+20060530
+NAD83 Albers Harn
+N/A
+http://www.nefrpc.org/
+******************************
+
+NPS
+
+nps_nov06.shp
+Polygon
+RECORD COUNT = 22
+20061102
+NAD83, Spheroid: GRS1980, Units: Decimal degrees
+N/A
+
+servicept.shp
+Point
+RECORD COUNT = 9426 (Florida - 307)
+20030301
+NAD83, Spheroid: GRS1980, Units: Decimal degrees
+N/A
+******************************
+
+OKALOOSA COUNTY
+
+parkpt.shp
+Point
+RECORD COUNT = 156
+20080103
+NAD83 State Plane North 0903 Feet
+N/A
+******************************
+
+ORANGE COUNTY
+
+Parks.shp
+Point
+RECORD COUNT = 275
+20070814
+NAD83 State Plane East 0901 Feet
+N/A
+ftp://ftp.onetgov.net/divisions/Infomap/pub/GIS_Downloads/
+******************************
+
+PALM BEACH COUNTY
+
+city_parks.shp
+Polygon
+RECORD COUNT = 281
+20031223
+NAD83 State Plane East 0901 Feet
+N/A
+ftp://ftp.co.palm-beach.fl.us/
+
+county_parks.shp
+Polygon
+RECORD COUNT = 84
+20031223
+NAD83 State Plane East 0901 Feet
+N/A
+ftp://ftp.co.palm-beach.fl.us/
+
+landmarks.shp
+Point
+RECORD COUNT = 629
+20030601
+NAD83 State Plane East 0901 Feet
+N/A
+ftp://ftp.co.palm-beach.fl.us/
+******************************
+
+PASCO COUNTY
+
+countyprk.shp
+Polygon
+RECORD COUNT = 38
+20020809
+NAD83 State Plane West 0902 Feet HARN
+N/A
+http://www.pascocountyfl.net/devser/sd/survey/surveyweb/GisMaps/default.html
+******************************
+
+PINELLAS COUNTY
+
+pinellas_parcels_06.shp
+Polygon
+RECORD COUNT = 3594 (county land)
+20061231
+NAD83 ALBERS HARN
+N/A
+http://gis.pinellascounty.org/gisData/gisDataSets.aspx
+******************************
+
+POLK COUNTY
+
+city_parks.shp
+Point
+RECORD COUNT = 102
+20080103
+NAD83 State Plane West 0902 Feet
+N/A
+
+county_parks.shp
+Point
+RECORD COUNT = 86
+20080103
+NAD83 State Plane West 0902 Feet
+N/A
+******************************
+
+SANTA ROSA COUNTY
+
+BlackwaterHeritageStateTrail.shp
+Line
+RECORD COUNT = 1
+20020201
+NAD83 State Plane North 0903 Feet
+N/A
+http://www.santarosa.fl.gov/gis/index.html
+
+
+CityParks.shp
+Point
+RECORD COUNT = 12
+20020201
+NAD83 State Plane North 0903 Feet
+N/A
+http://www.santarosa.fl.gov/gis/index.html
+
+
+DevelopedParkParcels.shp
+Polygon
+RECORD COUNT = 48
+20020201
+NAD83 State Plane North 0903 Feet
+N/A
+http://www.santarosa.fl.gov/gis/index.html
+
+
+NationalParks.shp
+Point
+RECORD COUNT = 1
+20020201
+NAD83 State Plane North 0903 Feet
+N/A
+http://www.santarosa.fl.gov/gis/index.html
+
+
+ParkAreas.shp
+Polygon
+RECORD COUNT = 111
+20020201
+NAD83 State Plane North 0903 Feet
+N/A
+http://www.santarosa.fl.gov/gis/index.html
+
+
+Parks.shp
+Point
+RECORD COUNT = 125
+20020201
+NAD83 State Plane North 0903 Feet
+N/A
+http://www.santarosa.fl.gov/gis/index.html
+
+
+ParksDeveloped.shp
+Point
+RECORD COUNT = 57
+20020201
+NAD83 State Plane North 0903 Feet
+N/A
+http://www.santarosa.fl.gov/gis/index.html
+
+
+ParksUndeveloped.shp
+Point
+RECORD COUNT = 57
+20020201
+NAD83 State Plane North 0903 Feet
+N/A
+http://www.santarosa.fl.gov/gis/index.html
+
+
+StateRecreationArea.shp
+Point
+RECORD COUNT = 6
+20020201
+NAD83 State Plane North 0903 Feet
+N/A
+http://www.santarosa.fl.gov/gis/index.html
+******************************
+
+SARASOTA COUNTY
+
+parkspoint.shp
+Point
+RECORD COUNT = 257
+20080330
+NAD83 State Plane West 0902 Feet
+N/A
+http://gis.scgov.net/data_download_page.asp
+******************************
+
+SEMINOLE COUNTY
+
+parks.shp
+Point
+RECORD COUNT = 139
+20011108
+NAD83 State Plane East 0901 Feet
+N/A
+http://www.seminolecountyfl.gov/it/gis/disclaim.asp?referrer=/it/gis/layerbib2.asp
+******************************
+
+ST LUCIE COUNTY
+
+slc_parks.shp
+Polygon
+RECORD COUNT = 151
+20080416
+NAD83 State Plane East 0901 Feet
+N/A
+http://199.201.190.29/GIS/Downloads.asp
+
+slc_publicbeachaccess.shp
+Polygon
+RECORD COUNT = 37
+20080416
+NAD83 State Plane East 0901 Feet
+N/A
+http://199.201.190.29/GIS/Downloads.asp
+******************************
+
+SUPER PAGES
+
+gc_parks_sep05.shp
+Point
+RECORD COUNT = 735
+20050901
+NAD83 ALBERS HARN
+N/A
+http://www.superpages.com/
+******************************
+
+VOLUSIA COUNTY
+
+park.shp
+Polygon
+RECORD COUNT = 287
+20060724
+NAD83 State Plane East 0901 Feet HARN
+N/A
+http://volusia.org/gis/download/shapes.htm
+******************************
+
+WALTON COUNTY
+
+tdcparks.shp
+Point
+RECORD COUNT = 59
+20070917
+WGS 1984
+N/A
+http://gisftp.co.walton.fl.us/
+******************************
+
+YELLOW PAGES
+
+gc_parks_sep05.shp
+Point
+RECORD COUNT = 123
+20050901
+NAD83 ALBERS HARN
+N/A
+http://www.yellowpages.com/
+******************************
+Process Date: 20090326
+<br />
+Next GeoPlan Center performed the following attribute table adjustments.
+
+-Upper cased all records.
+-Added DESCRIPT field based on NAME
+-Socio-Cultural Effect data fields and definitions were added. 
+ FLAG, UPDATE_DAY, NAME, ADDRESS, CITY,
+ ZIPCODE, OPERATING, OP_CLASS, SERVICES, COMMON_USE
+ USE, YR_BUILT, FGDLAQDATE.
+Process Date: 20090326
+<br />
+The GeoPlan Center performed the following steps in order to create the January 2014 
+statewide parks data layer.
+
+Downloaded and Reprojected (FGDL Albers) New Data:  
+See New Data Sources (next process step).
+
+Using the newly downloaded data and the original gc_parks_mar09.shp data, 
+GeoPlan created a statewide parks boundary layer.
+
+Next using County and City Websites, along with the FDEP ORP Inventory 
+Website (http://appprod.dep.state.fl.us/www_orp/Total/Total_Q.asp) 
+GeoPlan located and mapped missing parks using imagery and 
+2010-2012 parcel date for the following 52 Counties:
+
+ALACHUA, BAKER, BAY, BRADFORD, CALHOUN, CITRUS, CLAY, COLLIER, 
+COLUMBIA, DESOTO, DIXIE, DUVAL, ESCAMBIA, FLAGLER, FRANKLIN, 
+GADSDEN, GILCHRIST, GLADES, GULF, HAMILTON, HARDEE, HENDRY, 
+HERNANDO, HIGHLANDS, HILLSBOROUGH, HOLMES, INDIAN RIVER, 
+JACKSON, JEFFERSON, LAFAYETTE, LEON, LEVY, LIBERTY, MADISON, 
+MARION, MONROE, NASSAU, OKALOOSA, OKEECHOBEE, PASCO, 
+PINELLAS, PUTNAM, SANTA ROSA, SEMINOLE, ST JOHNS, SUMTER, 
+SUWANNEE, TAYLOR, UNION, WAKULLA, WALTON, and WASHINGTON.
+
+The remaining 15 counties will be updated in the next data update/review cycle 2014/2015:
+
+BREVARD, BROWARD, CHARLOTTE, LAKE, LEE, MANATEE, MARTIN, 
+MIAMI-DADE, ORANGE, OSCEOLA, PALM BEACH, POLK, SARASOTA, 
+ST LUCIE, and VOLUSIA
+
+Removed the majority of State and Federal Parks in order to decrease duplication 
+between this layer and the FNAI Florida Managed Lands (FLMA) FGDL layer. Some 
+overlap still remains, predominately at NPS project sites.
+
+Park locations were checked using imagery and Google Street View and either 
+marked as Verified or Not Verified in the FLAG field, please see the FLAG field
+Attribute Definition for more information.
+
+During the Spatial and Tabular QAQC duplicates were removed.
+
+Below are the new data Sources as described in the Source field 
+in the attribute table for this update.
+Process Date: 20140116
+<br />
+SOURCE DATA INFORMATION - 22 Sources
+
+STRUCTURE:
+
+	Source:
+	Source Web Link:
+	Data Web Link:
+	Original Name:
+	Source Date: 
+	Data Download:
+	Feature Type:
+	Feature Count:
+	Original Projection:
+
+******************************
+
+Source: Alachua County
+Source Web Link: http://growth-management.alachuacounty.us/gis_services/gis_data/index.php
+Data Web Link: http://nikos2.alachuacounty.us/geoserver/ows?service=WFS&amp;version=1.0.0&amp;request=
+GetFeature&amp;typeName=ac_growth_management:ACGM_Parks&amp;maxFeatures=5000000&amp;outputFormat=SHAPE-ZIP
+Original Name: ACGM_Parks.shp
+Source Date: 
+Data Download: 20120823
+Feature Type: Polygon
+Feature Count: 161
+Original Projection: NAD_1983_StatePlane_Florida_North_FIPS_0903_Feet
+
+******************************
+
+Source: Bay County
+Source Web Link: http://www.co.bay.fl.us/gis/county.php
+Data Web Link: http://www.co.bay.fl.us/gis/downloads/parks.zip
+Original Name: Parks.shp
+Source Date: 20120823
+Data Download: 20120823
+Feature Type: Points
+Feature Count: 95
+Original Projection: NAD_1983_StatePlane_Florida_North_FIPS_0903_Feet
+
+******************************
+
+Source: City of Melbourne (Brevard County)
+Source Web Link: http://gis.melbourneflorida.org/
+Data Web Link: http://gis.melbourneflorida.org/Download_Data/m_base_cityparks.zip 
+Original Name: m_base_cityparks.shp
+Source Date: 20120821
+Data Download: 20120823
+Feature Type: Polygon
+Feature Count: 103
+Original Projection: NAD_1983_HARN_StatePlane_Florida_East_FIPS_0901
+
+******************************
+
+Source: Broward County
+Source Web Link: http://gis.broward.org/GISData.htm
+Data Web Link: http://gis.broward.org/GISData/Zipfiles/parkscounty.zip
+Original Name: ParkCity.shp
+Source Date: 20120315
+Data Download: 20120823
+Feature Type: Polygon
+Feature Count: 669
+Original Projection: NAD_1983_HARN_StatePlane_Florida_East_FIPS_0901_Feet
+
+******************************
+
+Source: Charlotte County
+Source Web Link: http://www.ccgis.com/gis/ftp_download_page.html
+Data Web Link: ftp://www.ccgis.com/data/zips/parks.zip
+Original Name: Parks.shp
+Source Date: 
+Data Download: 20120823
+Feature Type: Polygon
+Feature Count: 164
+Original Projection: NAD_1983_StatePlane_Florida_West_FIPS_0902
+
+******************************
+
+Source: Collier County
+Source Web Link: http://www.colliergov.net/Index.aspx?page=2713
+Data Web Link: http://maps.colliergov.net/downloads/parks.zip
+Original Name: Parks.shp
+Source Date: 20090929
+Data Download: 20120823
+Feature Type: Polygon
+Feature Count: 53
+Original Projection: NAD_1983_StatePlane_Florida_East_FIPS_0901_Feet
+
+******************************
+
+Source: Lake County
+Source Web Link: ftp://ftp.co.lake.fl.us/GIS/GisDownloads/Shapefiles/
+Data Web Link: ftp://ftp.co.lake.fl.us/GIS/GisDownloads/Shapefiles/CountyParks.zip
+Original Name: CountyParks.shp
+Source Date: 20120413
+Data Download: 20120823
+Feature Type: Polygon
+Feature Count: 39
+Original Projection: NAD_1983_HARN_StatePlane_Florida_East_FIPS_0901_Feet
+
+******************************
+
+Source: Lee County
+Source Web Link: http://leegis.leegov.com/GISData.htm
+Data Web Link: http://leegis.leegov.com/FTPData/ShapeFiles/ParksRec/CountyParks.zip
+Original Name: CountyParks.shp
+Source Date: 20061120
+Data Download: 20120823
+Feature Type: Polygon
+Feature Count: 357
+Original Projection: NAD_1983_StatePlane_Florida_West_FIPS_0902_Feet
+
+******************************
+
+Source: Manatee County
+Source Web Link: http://www.mymanatee.org/home/government/departments/
+information-technology/gis-home/gis-datadownload.html
+Data Web Link: http://www.mymanatee.org/gisapps/data/shape/parks.zip
+Original Name: Parks.shp
+Source Date: 20120822
+Data Download: 20120823
+Feature Type: Polygon
+Feature Count: 219
+Original Projection: NAD_1983_StatePlane_Florida_West_FIPS_0902_Feet
+
+******************************
+
+Source: Marion County
+Source Web Link: ftp://146.201.97.137/County_local_data/Marion/shapefiles/ 
+Data Web Link: ftp://146.201.97.137/County_local_data/Marion/shapefiles/Parks.dbf
+	ftp://146.201.97.137/County_local_data/Marion/shapefiles/Parks.sbn
+	ftp://146.201.97.137/County_local_data/Marion/shapefiles/Parks.sbx
+	ftp://146.201.97.137/County_local_data/Marion/shapefiles/Parks.shp
+	ftp://146.201.97.137/County_local_data/Marion/shapefiles/Parks.shp.xml
+	ftp://146.201.97.137/County_local_data/Marion/shapefiles/Parks.shx
+	ftp://146.201.97.137/County_local_data/Marion/shapefiles/Parks.prj
+Original Name: Parks.shp
+Source Date: 20110921
+Data Download: 20120823
+Feature Type: Point
+Feature Count: 153
+Original Projection: NAD_1983_StatePlane_Florida_West_FIPS_0902_Feet
+
+******************************
+
+Source: Miami-Dade
+Source Web Link: http://gisweb.miamidade.gov/gisselfservices/GeographicData/MDGeographicData.html
+Data Web Link: http://gisweb.miamidade.gov/gisselfservices/GeographicData/MDGeographicData.html 
+(Under Recreational section)
+Original Name: CountyParkBoundary.shp
+Source Date: 201205
+Data Download: 20120823
+Feature Type: Polygon
+Feature Count: 265
+Original Projection: NAD_1983_StatePlane_Florida_East_FIPS_0901_Feet
+
+******************************
+
+Source: Orange County
+Source Web Link: ftp://ftp.onetgov.net/divisions/Infomap/pub/GIS_Downloads/FTP%20Shapefiles/
+Data Web Link: ftp://ftp.onetgov.net/divisions/Infomap/pub/GIS_Downloads/FTP%20Shapefiles/
+PARKS_COUNTYWIDE_20110801.zip
+Original Name: PARKS_COUNTYWIDE_20110801
+Source Date: 20090901
+Data Download: 20120823
+Feature Type: Point
+Feature Count: 270
+Original Projection: NAD_1983_StatePlane_Florida_East_FIPS_0901_Feet
+
+******************************
+
+Source: Palm Beach County
+Source Web Link: http://www.pbcgov.com/iss/itoperations/cwgis/GISdatasearch/
+Data Web Link: ftp://pbcgis:sigcbp@ftp.co.palm-beach.fl.us/PARKS/COUNTY_PARKS.zip
+Original Name: COUNTY_PARKS.shp
+Source Date: 20120705
+Data Download: 20120823
+Feature Type: Polygon
+Feature Count: 98
+Original Projection: NAD_1983_HARN_StatePlane_Florida_East_FIPS_0901
+
+******************************
+
+Source: Putnam County 
+Source Web Link: http://www.putnam-fl.com/GIS/gis_downloads.php 
+Data Web Link: http://www.putnam-fl.com/GIS/content/Recreation/RE_PARKS.zip
+Original Name: RE_PARKS.shp
+Source Date: 20111010
+Data Download: 20120823
+Feature Type: Polygon
+Feature Count: 57	 
+Original Projection: NAD_1983_StatePlane_Florida_East_FIPS_0901_Feet
+
+******************************
+
+Source: Sarasota County
+Source Web Link: http://gis.scgov.net/data_download_page.asp
+Data Web Link: ftp://ftp.scgov.net/Pub/data/SCGIS/gislayers/ParkBoundary.zip
+Original Name: ParkBoundary.shp
+Source Date: 20120621
+Data Download: 20120823
+Feature Type: Polygon
+Feature Count: 342
+Original Projection: NAD_1983_StatePlane_Florida_West_FIPS_0902_Feet
+
+******************************
+
+Source: Seminole county
+Source Web Link: http://www.seminolecountyfl.gov/is/gis/layerbib2_cms.asp
+Data Web Link: ftp://www.seminolecountyfl.gov/pub/gis/datadict/parks.exe 
+Original Name: Parks.shp
+Source Date: 20110127
+Data Download: 20120827
+Feature Type: Point
+Feature Count: 145
+Original Projection: NAD_1983_StatePlane_Florida_East_FIPS_0901_Feet
+
+******************************
+
+Source: St. Johns County
+Source Web Link: http://www.co.st-johns.fl.us/GIS/DataDepot.aspx
+Data Web Link: http://www.gis.bocc.co.st-johns.fl.us/
+GISDataDepot/download.aspx?layer=/GISDataDepot/Library/park.zip
+Original Name: Park.shp
+Source Date: 20100408
+Data Download: 20120827
+Feature Type: Polygon
+Feature Count: 141
+Original Projection: NAD_1983_StatePlane_Florida_East_FIPS_0901_Feet
+
+******************************
+
+Source: St. Lucie County
+Source Web Link: http://gis.stlucieco.gov/gis/Downloads.asp
+Data Web Link: http://gis.stlucieco.gov/gis/downloads/ParksPreserves.zip
+Original Name: gis_DBO_ParksPreserves.shp
+Source Date: 20110606
+Data Download: 20120827
+Feature Type: Polygon
+Feature Count: 158
+Original Projection: NAD_1983_StatePlane_Florida_East_FIPS_0901_Feet
+
+******************************
+
+Source: Sumter County
+Source Web Link: http://fl-sumtercounty.civicplus.com/index.aspx?NID=238
+Data Web Link: http://fl-sumtercounty.civicplus.com/DocumentView.aspx?DID=1132
+Original Name: County_Parks.shp
+Source Date: 20091119 
+Data Download: 20120827
+Feature Type: Point
+Feature Count: 13
+Original Projection: NAD_1983_StatePlane_Florida_West_FIPS_0902_Feet
+
+******************************
+
+Source: Volusia County
+Source Web Link: http://www.volusia.org/gis/download.htm
+Data Web Link: http://www.volusia.org/gis/download/shpfiles/parks.zip
+Original Name: Parks.shp
+Source Date: 20111016
+Data Download: 20120827
+Feature Type: Polygon
+Feature Count: 330
+Original Projection: NAD_1983_HARN_StatePlane_Florida_East_FIPS_0901_Feet
+
+******************************
+
+Source: Walton County
+Source Web Link: http://www.co.walton.fl.us/index.aspx?nid=926
+Data Web Link: http://www.co.walton.fl.us/DocumentView.aspx?DID=4094
+Original Name: Parks.shp
+Source Date: 20120104
+Data Download: 20120827
+Feature Type: Polygon
+Feature Count: 62
+Original Projection: NAD_1983_StatePlane_Florida_North_FIPS_0903_Feet
+
+******************************
+******************************
+
+WEB Sources
+
+Source: FDEP WEBSITE
+Source Web Link: http://appprod.dep.state.fl.us/www_orp/Total/Total_Q.asp
+NOTE: This website only functions using Windows Internet Explorer
+ORP Inventory
+Inventory Query Report
+Select: County
+Check: Land
+Button: Submit
+Click LAND: LINK
+ORP Inventory Break Down
+Process Date: 20140116
+<br />
+The GeoPlan Center performed the following steps in order to create the April 2014 
+statewide parks data layer.
+
+Using County and City Websites, along with the FDEP ORP Inventory 
+Website (http://appprod.dep.state.fl.us/www_orp/Total/Total_Q.asp) 
+GeoPlan located and mapped missing parks using imagery and 
+2010-2012 parcel date for the following 11 Counties:
+
+BROWARD, CHARLOTTE, LAKE, LEE, MANATEE, 
+MIAMI-DADE, ORANGE, POLK, SARASOTA, 
+ST LUCIE, and VOLUSIA.
+
+The remaining 4 counties will be updated in the next data update/review cycle 2014/2015:
+
+BREVARD, MARTIN, OSCEOLA, and PALM BEACH.
+
+Park locations were checked using imagery and Google Street View and either 
+marked as Verified or Not Verified in the FLAG field, please see the FLAG field
+Attribute Definition for more information.
+
+During the Spatial and Tabular QAQC duplicates were removed.
+
+Next GeoPlan Center performed the following attribute table adjustments.
+
+-Socio-Cultural Effect data fields were updated.
+-Upper cased all records.
+-Added DESCRIPT field based on NAME.
+-Added FGDLAQDATE field and populated it.
+Process Date: 20140401
+<br />
+The GeoPlan Center performed the following steps in order to create the August 2014 
+statewide parks data layer.
+
+Using County and City Websites, along with the FDEP ORP Inventory 
+Website (http://appprod.dep.state.fl.us/www_orp/Total/Total_Q.asp) 
+GeoPlan located and mapped missing parks using imagery and 
+2010-2012 parcel date for the following 4 Counties:
+
+BREVARD, MARTIN, OSCEOLA, and PALM BEACH.
+
+Park locations were checked using imagery and Google Street View and either 
+marked as Verified or Not Verified in the FLAG field, please see the FLAG field
+Attribute Definition for more information.
+
+During the Spatial and Tabular QAQC duplicates were removed.
+
+Next GeoPlan Center performed the following attribute table adjustments.
+
+-Socio-Cultural Effect data fields were updated.
+-Upper cased all records.
+-Added DESCRIPT field based on NAME.
+-Added FGDLAQDATE field and populated it.
+Process Date: 20140812
+<br />
+The GeoPlan Center performed the following steps in order to create the October 2015 
+statewide parks data layer.
+
+GeoPlan added 1302 park features, including municipal and country owned golf courses.
+Please note all public and private golf courses can be found in the gc_golf &amp; gc_golfbnd layers.
+
+Park locations were checked using imagery and Google Street View and either 
+marked as Verified or Not Verified in the FLAG field, please see the FLAG field
+Attribute Definition for more information.
+
+During the Spatial and Tabular QAQC duplicates were removed.
+
+Next GeoPlan Center performed the following attribute table adjustments.
+
+-Socio-Cultural Effect data fields were updated.
+-Upper cased all records.
+-Added DESCRIPT field based on NAME.
+-Added FGDLAQDATE field and populated it.
+Process Date: 20151005
+<br />
+The GeoPlan Center performed the following steps in order to create the July 2016 
+statewide parks data layer.
+
+GeoPlan added 755 park features.
+
+Park locations were checked using imagery and Google Street View and either 
+marked as Verified or Not Verified in the FLAG field, please see the FLAG field
+Attribute Definition for more information.
+
+During the Spatial and Tabular QAQC duplicates were removed.
+
+Next GeoPlan Center performed the following attribute table adjustments.
+
+-Socio-Cultural Effect data fields were updated.
+-Upper cased all records.
+-Added DESCRIPT field based on NAME.
+-Added FGDLAQDATE field and populated it.
+Process Date: 20160706
+<br />
+The GeoPlan Center performed the following steps in order to create the September 2017 
+statewide parks data layer.
+
+GeoPlan added 305 park features.
+
+Some of the features added were discovered through the following FDEP website:
+
+Florida's Outdoor Recreation Inventory
+http://prodenv.dep.state.fl.us/DrpOrpcr/outdoorRecreationInventory.do
+ - Advanced Search
+
+Park locations were checked using imagery and Google Street View and either 
+marked as Verified or Not Verified in the FLAG field, please see the FLAG field
+Attribute Definition for more information.
+
+During the Spatial and Tabular QAQC duplicates were removed.
+
+Next GeoPlan Center performed the following attribute table adjustments.
+
+-Socio-Cultural Effect data fields were updated.
+-Upper cased all records.
+-Added DESCRIPT field based on NAME.
+-Added FGDLAQDATE field and populated it.
+Process Date: 20170925
+<br />
+The GeoPlan Center performed the following steps in order to create the October 2018 
+statewide parks data layer.
+
+GeoPlan added 880 park features.
+
+Some of the features added were discovered through the following FDEP websites:
+
+Florida's Outdoor Recreation Inventory
+http://prodenv.dep.state.fl.us/DrpOrpcr/outdoorRecreationInventory.do
+ - Advanced Search
+
+Florida Department of Environmental Protection Geospatial Open Data:
+http://geodata.dep.state.fl.us/
+Datasets:
+parks_camping_sites
+PARKS_INVENTORY_SP
+
+Park locations were checked using imagery and Google Street View and either 
+marked as Verified or Not Verified in the FLAG field, please see the FLAG field
+Attribute Definition for more information.
+
+During the Spatial and Tabular QAQC duplicates were removed.
+
+Next GeoPlan Center performed the following attribute table adjustments.
+
+-Socio-Cultural Effect data fields were updated.
+-Upper cased all records.
+-Added DESCRIPT field based on NAME.
+-Added FGDLAQDATE field and populated it.
+Process Date: 20181010
+<br />
+The GeoPlan Center performed the following steps in order to create the May 2019
+statewide parks data layer.
+
+GeoPlan added 200 park features.
+
+Some of the features added were discovered through the following FDEP websites:
+
+Florida's Outdoor Recreation Inventory
+http://prodenv.dep.state.fl.us/DrpOrpcr/outdoorRecreationInventory.do
+ - Advanced Search
+
+Florida Department of Environmental Protection Geospatial Open Data:
+http://geodata.dep.state.fl.us/
+Datasets:
+parks_camping_sites
+PARKS_INVENTORY_SP
+
+Other parks were acquired via county website textual information. 
+
+Park locations were checked using imagery and Google Street View and either 
+marked as Verified or Not Verified in the FLAG field, please see the FLAG field
+Attribute Definition for more information.
+
+During the Spatial and Tabular QAQC duplicates were removed.
+
+Next GeoPlan Center performed the following attribute table adjustments.
+
+-Socio-Cultural Effect data fields were updated.
+-Upper cased all records.
+-Added DESCRIPT field based on NAME.
+-Added FGDLAQDATE field and populated it.
+Process Date: 20190529
+<br />
+The GeoPlan Center performed the following steps in order to create the October 2019
+statewide parks data layer.
+
+GeoPlan added 214 park features.
+
+Some of the features added were discovered through the following FDEP websites:
+
+Florida's Outdoor Recreation Inventory
+https://prodenv.dep.state.fl.us/DrpOrpcr/outdoorRecreationInventory.do
+ - Advanced Search
+
+Florida Department of Environmental Protection Geospatial Open Data:
+http://geodata.dep.state.fl.us/
+Datasets:
+parks_camping_sites
+PARKS_INVENTORY_SP
+
+LWCF Assistance
+https://floridadep.gov/lands/land-and-recreation-grants/content/lwcf-assistance
+https://floridadep.gov/lands/land-and-recreation-grants/documents/2018-2019-lwcf-priority-list
+
+Other parks were acquired via county website textual information. 
+
+Park locations were checked using imagery and Google Street View and either 
+marked as Verified or Not Verified in the FLAG field, please see the FLAG field
+Attribute Definition for more information.
+
+During the Spatial and Tabular QAQC duplicates were removed.
+
+Next GeoPlan Center performed the following attribute table adjustments.
+
+-Socio-Cultural Effect data fields were updated.
+-Upper cased all records.
+-Added DESCRIPT field based on NAME.
+-Added FGDLAQDATE field and populated it.
+Process Date: 20191001
+<br />
+Dataset copied.
+Process Date: 20191016
+<br />
+</pre>
+</td>
+</tr>
+</table>
+<strong><b>MAP PROJECTION PARAMETERS: </b></strong>
+<br />
+<pre>
+Projection                          ALBERS
+Datum                               HPGN
+Units                               METERS
+Spheroid                            GRS1980
+1st Standard Parallel               24  0  0.000
+2nd Standard Parallel               31 30  0.000
+Central Meridian                   -84 00  0.000
+Latitude of Projection's Origin     24  0  0.000
+False Easting (meters)              400000.00000
+False Northing (meters)             0.00000
+</pre>
+<p>
+<strong><b>DATA SOURCE CONTACT (S):</b></strong>
+</p>
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr>
+<td>
+<pre>
+Name:
+Abbr. Name:
+Address:
+
+
+Phone:
+
+Web site:
+E-mail:
+Contact Person:
+         Phone:
+        E-mail:
+</pre>
+</td>
+<td valign="top"><pre>University of Florida GeoPlan Center
+GeoPlan
+131 ARCH BLDG, PO Box 115706
+Gainesville, FL
+32611
+
+<br />
+https://www.fgdl.org/
+data@fgdl.org
+Kate Norris
+</pre>
+</td>
+</tr>
+</table>
+<br />
+<strong><b>FGDL CONTACT:</b></strong>
+<pre>
+Name:                   FLORIDA GEOGRAPHIC DATA LIBRARY
+Abbr. Name:             FGDL
+Address:                Florida Geographic Data Library
+                        431 Architecture Building
+                        PO Box 115706
+                        Gainesville, FL  32611-5706
+Web site:               <a href="http://www.fgdl.org">http://www.fgdl.org</a>
+
+Contact FGDL: 
+
+      Technical Support:	        <a href="http://www.fgdl.org/fgdlfeed.html">http://www.fgdl.org/fgdlfeed.html</a>
+      FGDL Frequently Asked Questions:  <a href="http://www.fgdl.org/fgdlfaq.html">http://www.fgdl.org/fgdlfaq.html</a>
+      FGDL Mailing Lists:		<a href="http://www.fgdl.org/fgdl-l.html">http://www.fgdl.org/fgdl-l.html</a>
+      For FGDL Software:                <a href="http://www.fgdl.org/software.html">http://www.fgdl.org/software.html</a>
+</pre>
+</BODY>
+</HTML>

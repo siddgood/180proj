@@ -4,10 +4,10 @@
 
 ### Set up via terminal:
 
-```sh
-git clone https://github.com/siddgood/180proj
+Launch terminal and navigate to the ```nga_auto_rfi/ ``` directory/folder
 
-pip install virtualenv
+```sh
+pip install virtualenv # skip step if virtualenv package is already installed
 
 virtualenv venv
 
@@ -23,17 +23,21 @@ python3 geo/__init__.py
 ```
 Local deployment should be viewable at http://0.0.0.0:5001/
 
-## Usage
+### Local app usage notes:
+  * All shapefiles that are inputted in the app are locally downloaded in the ```geo/tmp/``` folder
+    - After using the app, the downloaded files in this folder can be deleted, but **DO NOT** delete the ```tmp.zip``` found in this folder as this file is necessary and pre-existed originally within the folder
 
 ### Sample upload files
 
-* Road network shapefile: https://drive.google.com/file/d/1ohwYyl2wa1AIgoR5b7T6opPkauRHc6Vv/view?usp=sharing
-* Area of interest (AOI) shapefile: https://drive.google.com/file/d/1ILbsKRob4alKkAqzzZxquXs8q4wx2KoZ/view?usp=sharing
-* Parameter shapefile: https://drive.google.com/file/d/1z93Xpo2Ikc8FSdgiRuxixqOvzqEckDwD/view?usp=sharing
+* [Road network shapefile](https://drive.google.com/file/d/1ohwYyl2wa1AIgoR5b7T6opPkauRHc6Vv/view?usp=sharing)
+* [Area of interest (AOI) shapefile](https://drive.google.com/file/d/1ILbsKRob4alKkAqzzZxquXs8q4wx2KoZ/view?usp=sharing)
+* [Parameter shapefile](https://drive.google.com/file/d/1z93Xpo2Ikc8FSdgiRuxixqOvzqEckDwD/view?usp=sharing) (optional)
 
 ## Heroku Deployment
 
-Latest build is live on https://geosampling.herokuapp.com
+Latest demo build is live on https://geosampling.herokuapp.com
+
+Optionally, you can download this folder and deploy directly on your own Heroku using the [Heroku CLI](https://devcenter.heroku.com/articles/git).
 
 ### To upload your own shapefiles
 
@@ -47,4 +51,4 @@ For the application, the user must upload these shapefiles to Google Drive and o
 * Zip/compress up the non-empty folder and upload the zipped folder to Google Drive
 * Set the share settings such that "Anyone with link" can view
 
-Complete the above steps for your desired road network shapefile, AOI shapefile, and parameter shapefile
+Complete the above steps for your desired road network shapefile, AOI shapefile, and parameter shapefile.

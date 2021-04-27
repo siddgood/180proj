@@ -24,7 +24,7 @@ python3 geo/__init__.py
 Local deployment should be viewable at http://0.0.0.0:5001/
 
 ### Local app usage notes:
-  * All shapefiles that are inputted in the app are locally downloaded in the ```geo/tmp/``` folder
+  * All shapefiles that are inputted in the app are locally downloaded in the ```geo/tmpData/``` folder
     - After using the app, the downloaded files in this folder can be deleted, but **DO NOT** delete the ```tmp.zip``` found in this folder as this file is necessary and pre-existed originally within the folder
 
 ### Sample upload files
